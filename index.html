@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>RoboPaint · Brushwork for code agents</title>
+  <meta name="description" content="RoboPaint: 82 works of calligraphy, lettering and painting that a code agent must make with a simulated robot arm and a brush, judged on the picture and on the hand.">
+  <meta name="theme-color" content="#f4f6f9">
+  <script>
+    // Day or night before anything paints (?theme=dark for screenshots; the toggle is remembered).
+    (function () {
+      var d = document.documentElement, t = 'light';
+      try { var q = new URLSearchParams(location.search).get('theme'); t = (q || localStorage.getItem('robopaint-theme')) === 'dark' ? 'dark' : 'light'; } catch (e) {}
+      d.dataset.theme = t;
+    })();
+  </script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect x='2' y='2' width='28' height='28' rx='7' fill='%23c23b29'/%3E%3Cpath d='M24.6 6.2L16.9 14.6' stroke='%23fff' stroke-width='2.8' stroke-linecap='round'/%3E%3Cpath d='M17.9 13.5C15.3 14.3 13.3 16.6 12.2 20.2C15.6 18.9 17.6 16.6 17.9 13.5Z' fill='%23fff'/%3E%3Cpath d='M6.4 24.6C10.6 22.3 17.6 21.7 25.8 23.6C17.9 24.4 11.8 25.7 6.4 24.6Z' fill='%23fff'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=LXGW+WenKai+TC&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+  <script type="importmap">{"imports": {"three": "./vendor/three/three.module.js", "three/addons/": "./vendor/three/addons/"}}</script>
+</head>
+<body>
+  <nav class="nav" aria-label="Sections">
+    <a class="wordmark" href="#top"><span class="mark" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" rx="7" style="fill: var(--seal)"/><path d="M24.6 6.2L16.9 14.6" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/><path d="M17.9 13.5C15.3 14.3 13.3 16.6 12.2 20.2C15.6 18.9 17.6 16.6 17.9 13.5Z" fill="#fff"/><path d="M6.4 24.6C10.6 22.3 17.6 21.7 25.8 23.6C17.9 24.4 11.8 25.7 6.4 24.6Z" fill="#fff"/></svg></span>RoboPaint</a>
+    <div class="nav-links">
+      <a href="#works">Works</a>
+      <a href="#hand">The hand</a>
+      <a href="#judging">Judging</a>
+      <a href="#modes">Modes</a>
+      <a href="#results">Results</a>
+      <a href="#attempts">Attempts</a>
+    </div>
+    <button class="icon-btn menu-btn" id="menu-toggle" type="button" aria-label="Menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+    </button>
+    <button class="icon-btn" id="theme-toggle" type="button" aria-label="Switch between day and night">
+      <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg>
+      <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2.5v2M12 19.5v2M4.6 4.6 6 6M18 18l1.4 1.4M2.5 12h2M19.5 12h2M4.6 19.4 6 18M18 6l1.4-1.4"/></svg>
+    </button>
+  </nav>
+
+  <main>
+    <!-- the opening: the reference painter's Starry Night, replayed stroke by stroke as the page scrolls -->
+    <section class="hero" id="top" aria-label="Introduction">
+      <div class="hero-sticky">
+        <canvas id="hero-canvas" aria-label="A robot arm with a brush painting The Starry Night"></canvas>
+        <div class="hero-copy">
+          <p class="hero-kicker" data-hero="kicker">A benchmark of brushwork for code agents</p>
+          <p class="hero-line" data-hero="l1"><small>The studio</small>A robot arm, one brush, sixteen paints.</p>
+          <p class="hero-line" data-hero="l2"><small>Ground · strokes 1–95</small>First the ground, in broad rows.</p>
+          <p class="hero-line" data-hero="l3"><small>Forms · strokes 96–255</small>Then the forms: the hills, the cypress, the sky.</p>
+          <p class="hero-line" data-hero="l4"><small>Details · strokes 256–455</small>Then the details and the stars: 455 strokes in all.</p>
+          <div class="hero-title" data-hero="title">
+            <h1>RoboPaint</h1>
+            <p class="hero-tagline">Can your code agent hold a brush?</p>
+            <p class="hero-sub">82 works of calligraphy, lettering and painting. A code agent plans every stroke; a simulated robot arm makes it; the sheet and the hand are judged.</p>
+            <div class="cta">
+              <a class="btn primary" href="#works">See the works <span class="arr">→</span></a>
+              <a class="btn" href="#hand">How it is judged</a>
+              <a class="btn" href="#results">Results</a>
+            </div>
+          </div>
+          <p class="scroll-cue" data-hero="cue">Scroll to paint</p>
+        </div>
+        <div class="hero-hud" aria-hidden="true">
+          <span class="hud-text">stroke <b id="hud-stroke">0</b> / 455</span>
+          <span class="hud-paint" id="hud-paint"></span>
+          <span class="hud-bar"><i id="hud-bar"></i></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- the statement -->
+    <section class="section" id="about">
+      <p class="statement reveal"><b>From a single brush stroke to a van Gogh.</b> Each work is a picture to copy with a robot's brush or pen, stroke by stroke,
+        the way a person would.</p>
+      <dl class="bignums reveal" id="bignums"></dl>
+    </section>
+
+    <!-- the collection -->
+    <section class="section" id="works">
+      <div class="head split reveal">
+        <div>
+          <h2>The collection</h2>
+          <p>Five disciplines, each with its own brush. Hover a work for the reference robot's copy; open it to compare and to watch it made.</p>
+        </div>
+        <div class="chips" id="disc-chips" role="tablist" aria-label="Discipline"></div>
+      </div>
+      <p class="disc-note" id="disc-note"></p>
+      <div class="works" id="works-grid"></div>
+      <div class="more-row"><button class="btn" id="works-more" type="button" hidden>Show all <span class="arr">↓</span></button></div>
+    </section>
+
+    <!-- the hand -->
+    <section class="section band" id="hand">
+      <div class="head reveal">
+        <h2>Written, not coloured in</h2>
+        <p>A fine tip can trace round and round a character until it is filled, and the picture alone would pass. RoboPaint also judges the hand: brush strokes, made as a calligrapher or a painter makes them.</p>
+      </div>
+      <div class="hands reveal" id="hands"></div>
+      <div class="hand-toggle reveal"><div class="seg" id="hand-seg"><button data-v="sheet" class="on">The sheet</button><button data-v="path">The brush's path</button></div></div>
+      <div class="pathbar reveal" id="pathbar"></div>
+    </section>
+
+    <!-- judging -->
+    <section class="section" id="judging">
+      <div class="head reveal">
+        <h2>How a work is judged</h2>
+        <p>Aligned first, then compared. Writing is judged by its ink, painting by its colour; both by their strokes.</p>
+      </div>
+      <div class="judge reveal" id="judge"></div>
+    </section>
+
+    <!-- the two modes -->
+    <section class="section" id="modes">
+      <div class="head reveal">
+        <h2>Open book, closed book</h2>
+        <p>Every work is set twice. In the studio the agent may look at the exact sheet, ask for its score and start over; on stage it sees only what a camera sees, and paint is permanent.</p>
+      </div>
+      <div class="modes reveal" id="modes-cards"></div>
+    </section>
+
+    <!-- results -->
+    <section class="section" id="results">
+      <div class="head reveal">
+        <h2>Results</h2>
+        <p>Two code agents, every work, both modes. A point is a work solved: the picture matches and the hand passes.</p>
+      </div>
+      <div class="dumbbell reveal" id="dumbbell"></div>
+      <div class="fam-grid reveal" id="fam-grid"></div>
+      <p class="note reveal" id="results-note"></p>
+    </section>
+
+    <!-- the agents' copies -->
+    <section class="section band" id="attempts">
+      <div class="head split reveal">
+        <div>
+          <h2>At the easel</h2>
+          <p>Every copy the two agents handed in, hung beside its exemplar. A red seal marks a work solved; a note says what failed, the picture or the hand. Open one to compare it with the exemplar.</p>
+        </div>
+        <div class="chips" id="wall-chips" role="tablist" aria-label="Discipline"></div>
+      </div>
+      <div class="wall" id="wall"></div>
+      <div class="more-row"><button class="btn" id="wall-more" type="button" hidden>Show all <span class="arr">↓</span></button></div>
+      <p class="note reveal" id="wall-note"></p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div>
+        <span class="wordmark"><span class="mark" aria-hidden="true"><svg viewBox="0 0 32 32"><rect x="2" y="2" width="28" height="28" rx="7" style="fill: var(--seal)"/><path d="M24.6 6.2L16.9 14.6" stroke="#fff" stroke-width="2.8" stroke-linecap="round"/><path d="M17.9 13.5C15.3 14.3 13.3 16.6 12.2 20.2C15.6 18.9 17.6 16.6 17.9 13.5Z" fill="#fff"/><path d="M6.4 24.6C10.6 22.3 17.6 21.7 25.8 23.6C17.9 24.4 11.8 25.7 6.4 24.6Z" fill="#fff"/></svg></span>RoboPaint</span>
+        <p>Brushwork for code agents: a suite of the Embodied First Exam. Paper, code and data links will follow.</p>
+      </div>
+      <div class="credits">
+        <b>Made with</b> ManiSkill 3 and SAPIEN (the robot), libmypaint and mypaint-brushes (paint), a re-implementation of Wang et al.'s
+        dynamic brush (IROS 2020, calligraphy), a broad-edge and a pointed-pen nib model of our own.<br>
+        <b>Exemplars</b> AR PL UKai via Make Me a Hanzi (Arphic Public License), public-domain rubbings and paintings from Wikimedia
+        Commons, lettering and acrylic exemplars made for RoboPaint (CC0). Robot: Franka Emika Panda (meshes Apache-2.0).
+      </div>
+    </div>
+  </footer>
+
+  <div class="viewer" id="viewer" role="dialog" aria-modal="true" aria-label="Work" hidden>
+    <div class="viewer-card">
+      <button class="icon-btn viewer-close" id="viewer-close" type="button" aria-label="Close">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="viewer-stage" id="viewer-stage"></div>
+      <aside class="viewer-side" id="viewer-side"></aside>
+    </div>
+  </div>
+
+  <script type="module" src="assets/js/site.js"></script>
+</body>
+</html>
