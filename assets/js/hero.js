@@ -1,7 +1,8 @@
 // The opening: the reference painter's Starry Night replayed as the page scrolls. The arm follows the recorded joint
 // positions (10 Hz samples of the replay), its brush takes the colour of the paint it has dipped, and the sheet shows the
 // brush engine's own picture at that moment (hero.mp4: frames taken each time the painted path has grown by 1/480 of its
-// length). Scrolling runs through the painting at an even pace: travel and dips are played faster than the brushwork.
+// length; phones and tablets get every second frame as stills instead). Scrolling runs through the painting at an even
+// pace: travel and dips are played faster than the brushwork.
 import * as THREE from 'three';
 import { createStage } from './stage.js';
 import { loadPanda, createPanda } from './robot.js';
@@ -60,19 +61,31 @@ export async function initHero({ section, canvas, frozen = null }) {
   const plateCols = { light: ['#d6d5d1', '#ebeae6'], dark: ['#8a8984', '#a3a29d'] };   // the board and plate dim at night
   board.position.set(...sc.board.center);
   world.add(board);
-  const video = document.createElement('video');
-  Object.assign(video, { muted: true, playsInline: true, preload: 'auto', crossOrigin: 'anonymous' });
-  video.className = 'hero-frames';               // in the page (hidden): a detached video may never load
-  section.querySelector('.hero-sticky').appendChild(video);
-  // the whole file first: a blob seeks on any server (python's http.server does not answer range requests)
-  fetch(new URL('hero.mp4', DATA)).then((r) => r.blob()).then((b) => { video.src = URL.createObjectURL(b); });
-  const tex = new THREE.VideoTexture(video);
-  tex.colorSpace = THREE.SRGBColorSpace;
-  let blank = null;
+  // the sheet's frames: a video on desktops; stills on phones and tablets, whose browsers (iOS WebKit, Android when saving
+  // data) decode a never-played video lazily or not at all. ?frames=video|stills picks one
+  const knob = new URLSearchParams(location.search).get('frames');
+  let useStills = Boolean(meta.stills) && (knob === 'stills' || (knob !== 'video' && matchMedia('(pointer: coarse)').matches));
+  const stillTex = new THREE.Texture();
+  Object.assign(stillTex, { colorSpace: THREE.SRGBColorSpace, minFilter: THREE.LinearFilter, generateMipmaps: false });
+  let video = null, tex = null;
+  if (!useStills) {
+    video = document.createElement('video');
+    Object.assign(video, { muted: true, playsInline: true, preload: 'auto', crossOrigin: 'anonymous' });
+    video.className = 'hero-frames';               // in the page (hidden): a detached video may never load
+    section.querySelector('.hero-sticky').appendChild(video);
+    // the whole file first: a blob seeks on any server (python's http.server does not answer range requests)
+    fetch(new URL('hero.mp4', DATA)).then((r) => r.blob()).then((b) => {
+      video.src = URL.createObjectURL(b);
+      setTimeout(() => { if (have < 0) toStills(); }, 8000);     // no frame by then: this browser will not decode it
+    }).catch(() => toStills());
+    tex = new THREE.VideoTexture(video);
+    tex.colorSpace = THREE.SRGBColorSpace;
+  }
+  let blank = null, sheetMat = null;
   for (const s of sc.sheets) {
     const main = s.name === 'main';
     const plane = new THREE.Mesh(new THREE.PlaneGeometry(s.size[0], s.size[1]),
-      main ? new THREE.MeshBasicMaterial({ map: tex, toneMapped: false }) : new THREE.MeshStandardMaterial({ color: '#f6f2ea', roughness: 0.95 }));
+      main ? (sheetMat = new THREE.MeshBasicMaterial({ map: useStills ? stillTex : tex, toneMapped: false })) : new THREE.MeshStandardMaterial({ color: '#f6f2ea', roughness: 0.95 }));
     // image columns run along -y, rows along -x (row 0 = the far edge): the plane turned -90 degrees about z
     plane.rotation.z = -Math.PI / 2;
     plane.position.set(s.center[0], s.center[1], s.z + 0.0002);
@@ -108,7 +121,7 @@ export async function initHero({ section, canvas, frozen = null }) {
   const robot = createPanda(panda, { base: sc.robot_base, tuft: sc.tuft });
   world.add(robot.group);
 
-  // the video's frames: seek to the frame for the moment shown, one seek at a time
+  // the frames: the video seeks to the frame for the moment shown, one seek at a time; the stills load around it
   const frames = meta.frames;
   let want = 0, have = -1, seeking = false, ready = false;
   const frameAt = (sample) => {
@@ -118,16 +131,57 @@ export async function initHero({ section, canvas, frozen = null }) {
     return lo;
   };
   const seek = () => {
-    if (!ready || seeking || want === have) return;
+    if (useStills || !ready || seeking || want === have) return;
     seeking = true;
     const k = want;
     video.currentTime = (k + 0.5) / frames.fps;
     video.addEventListener('seeked', () => { seeking = false; have = k; tex.needsUpdate = true; seek(); dirty = true; }, { once: true });
   };
-  const onReady = () => { if (!ready && video.readyState >= 2) { ready = true; seek(); } };
-  video.addEventListener('loadeddata', onReady);
-  video.addEventListener('canplay', onReady);
-  onReady();
+  // seek once the metadata is in: a browser that loads no data before a seek or a play never reaches loadeddata
+  const onReady = () => { if (!ready && video.readyState >= 1) { ready = true; seek(); } };
+  if (video) {
+    for (const e of ['loadedmetadata', 'loadeddata', 'canplay']) video.addEventListener(e, onReady);
+    video.addEventListener('error', () => toStills());
+    onReady();
+  }
+  const list = meta.stills?.frames ?? [], cache = new Map(), loading = new Set();
+  let shownStill = -1;
+  const stillAt = (k) => {                       // the last still at or before frame k
+    let lo = 0, hi = list.length - 1;
+    while (hi > lo) { const mid = (lo + hi + 1) >> 1; if (list[mid] <= k) lo = mid; else hi = mid - 1; }
+    return lo;
+  };
+  const loadStill = (j) => {
+    if (j < 0 || j >= list.length || cache.has(j) || loading.has(j)) return;
+    loading.add(j);
+    const img = new Image();
+    img.decoding = 'async';
+    img.onload = () => { loading.delete(j); cache.set(j, img); dirty = true; pump(); };
+    img.onerror = () => { loading.delete(j); };
+    img.src = new URL(`stills/f${String(list[j]).padStart(4, '0')}.webp`, DATA).href;
+  };
+  // the still for the moment shown first, then the ones after it (scrolling paints forward), three at a time; only a
+  // window around it stays in memory
+  const pump = () => {
+    if (!useStills) return;
+    const j = stillAt(want);
+    for (let d = 0; d < 12 && loading.size < 3; d++) loadStill(j + d);
+    if (loading.size < 3) loadStill(j - 1);
+    for (const k of cache.keys()) if (Math.abs(k - j) > 24 && k !== shownStill) cache.delete(k);
+  };
+  const showStill = () => {
+    const j = stillAt(want);
+    let best = -1;
+    for (let k = j; k >= 0; k--) if (cache.has(k)) { best = k; break; }
+    if (best >= 0 && best !== shownStill) { stillTex.image = cache.get(best); stillTex.needsUpdate = true; shownStill = best; }
+  };
+  const toStills = () => {
+    if (useStills || !list.length) return;
+    useStills = true;
+    sheetMat.map = stillTex; sheetMat.needsUpdate = true;
+    if (video) { video.pause(); video.removeAttribute('src'); video.load(); }
+    pump(); dirty = true;
+  };
 
   const hud = { stroke: document.getElementById('hud-stroke'), bar: document.getElementById('hud-bar'), paint: document.getElementById('hud-paint') };
   const copy = [...section.querySelectorAll('[data-hero]')].map((el) => ({ el, w: WINDOWS[el.dataset.hero], title: el.dataset.hero === 'title' }));
@@ -152,9 +206,10 @@ export async function initHero({ section, canvas, frozen = null }) {
     robot.setJoints(q);
     const paint = (flags[i] >> 1) - 1;
     robot.setPaint(paint >= 0 ? meta.paints[paint] : null);
-    want = frameAt(s); seek();
+    want = frameAt(s);
+    if (useStills) { pump(); showStill(); } else seek();
     const bare = s < frames.sample[0];
-    blank.visible = bare || have < 0;
+    blank.visible = bare || (useStills ? shownStill < 0 : have < 0);
 
     // the camera: from high on the robot's right, looking down on the painting at first (the sheet near upright, as the
     // robot sees it), then back and wider until the whole arm shows; at the end the title takes the left

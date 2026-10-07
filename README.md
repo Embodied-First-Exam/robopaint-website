@@ -18,6 +18,8 @@ Preview knobs:
 - `?hero=0.6` freezes the opening at that scroll fraction.
 - `?overview=1` gives a short, static opening.
 - `?cam=x,y,z,lx,ly,lz[,fov]` overrides the opening's camera: eye, look point and field of view, in the three.js frame.
+- `?frames=video` or `?frames=stills` picks how the opening's sheet is shown. By default desktops play the video and phones
+  and tablets step through stills.
 - `?focus=works` opens the page at a section.
 - `?work=oil_starrynight` opens a work in the viewer.
   - Add `&view=time` for its timelapse.
@@ -50,6 +52,9 @@ Preview knobs:
   - `scripts/capture_all.sh` runs it for every work, and `scripts/encode_timelapses.py` encodes the frames.
 - `assets/media/hero/`: the same capture for *The Starry Night*, with 480 frames and the joint positions and contact at every
   step (`scripts/export_hero.py`).
+  - Phones and tablets get every second frame as a 640 px still instead of the video. Their browsers (iOS WebKit, Android
+    when saving data) decode a video that has never played lazily, or not at all.
+  - A desktop browser that shows no video frame within 8 s switches to the stills too.
 - `assets/data/robot/panda.{json,bin}` come from `scripts/prepare_panda.py`. It reads ManiSkill 3.0.1's `panda_stick.urdf`
   and the Franka visual meshes.
 - `assets/data/figures.json` and `assets/media/figs/` come from `scripts/make_figures.py`:

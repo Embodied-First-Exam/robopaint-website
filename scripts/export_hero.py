@@ -10,15 +10,39 @@ Writes assets/media/hero/:
   Uint8 per sample: bit 0 = painting the main sheet, bits 1-7 = the loaded paint + 1 (0 = dry);
 - hero.json: the scene (robot base, the board, the sheets, the plate and its paints, the brush tuft), the joint offsets, the
   frames' samples and strokes, the layers of the reference program;
-- hero.mp4: the main sheet frames (768 px, 24 fps, a keyframe every 4 frames so scrolling seeks fast).
+- hero.mp4: the main sheet frames (768 px, 24 fps, a keyframe every 4 frames so scrolling seeks fast);
+- stills/f<frame>.webp: every second frame and the last as 640 px stills, for phones and tablets: their browsers (iOS
+  WebKit, Android when saving data) decode a never-played video lazily or not at all, so the page steps through images.
+  `--stills-only` writes just these and their list in hero.json (the video and the motion stay as they are).
 """
 import json, subprocess, sys
 from pathlib import Path
 import numpy as np
+from PIL import Image
 
-CAP, TASK = Path(sys.argv[1]), Path(sys.argv[2])
+CAP = Path(sys.argv[1])
 ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / "assets" / "media" / "hero"; OUT.mkdir(parents=True, exist_ok=True)
+STILL_EVERY, STILL_SIZE = 2, 640
+
+
+def write_stills(count):
+    d = OUT / "stills"; d.mkdir(exist_ok=True)
+    idx = sorted(set(range(0, count, STILL_EVERY)) | {count - 1})
+    for k in idx:
+        Image.open(CAP / "frames" / f"{k:05d}.png").convert("RGB").resize((STILL_SIZE, STILL_SIZE), Image.LANCZOS) \
+            .save(d / f"f{k:04d}.webp", "WEBP", quality=76, method=6)
+    print(f"stills: {len(idx)}, {sum(f.stat().st_size for f in d.glob('*.webp')) / 1e6:.1f} MB")
+    return {"every": STILL_EVERY, "size": STILL_SIZE, "frames": idx}
+
+
+if "--stills-only" in sys.argv:
+    meta = json.loads((OUT / "hero.json").read_text())
+    meta["stills"] = write_stills(meta["frames"]["count"])
+    (OUT / "hero.json").write_text(json.dumps(meta, separators=(",", ":")))
+    sys.exit(0)
+
+TASK = Path(sys.argv[2])
 cap = json.loads((CAP / "capture.json").read_text())
 inst = json.loads((TASK / "environment" / "instance.json").read_text())
 prog = json.loads((TASK / "solution" / "program.json").read_text())
@@ -51,6 +75,7 @@ meta = {"work": "oil_starrynight", "samples": int(n), "hz": 20 / STRIDE, "q_mid"
         "frames": {"count": len(cap["frames"]), "fps": 24, "sample": [f["step"] // STRIDE for f in cap["frames"]],
                    "stroke": [f["stroke"] for f in cap["frames"]]},
         "strokes": len(prog["strokes"]), "layers": layers, "paints": [x["hex"] for x in w["wells"]], "scene": scene}
+meta["stills"] = write_stills(len(cap["frames"]))
 (OUT / "hero.json").write_text(json.dumps(meta, separators=(",", ":")))
 subprocess.run(["ffmpeg", "-v", "error", "-y", "-framerate", "24", "-i", str(CAP / "frames" / "%05d.png"), "-vf", "format=yuv420p",
                 "-c:v", "libx264", "-preset", "slow", "-crf", "21", "-g", "4", "-keyint_min", "4", "-sc_threshold", "0",
