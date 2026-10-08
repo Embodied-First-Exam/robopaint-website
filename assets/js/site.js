@@ -1,12 +1,13 @@
 // RoboPaint's page: the collection, the viewer, the hand, the judging, the two modes, the results, the agents' copies; the
 // opening's robot is in hero.js. Data: assets/data/works.json (scripts/export_works.py), results.json (export_results.py),
-// attempts.json (export_attempts.py), figures.json (make_figures.py); media under assets/media/. Preview knobs:
+// attempts.json (export_attempts.py), films.json (export_films.py), figures.json (make_figures.py); media under
+// assets/media/. Preview knobs:
 //   ?theme=dark            night
 //   ?hero=0.6              freeze the opening at that scroll fraction (screenshots)
 //   ?overview=1            a short, static opening
 //   ?focus=works           open the page at a section
-//   ?work=oil_starrynight  open a work in the viewer (&view=time for its timelapse; &copy=<run>:<open|closed> for an
-//                          agent's copy, e.g. &copy=codex-gpt6_luna-xhigh:closed)
+//   ?work=oil_starrynight  open a work in the viewer (&view=time for its timelapse, &view=film for its film;
+//                          &copy=<run>:<open|closed> for an agent's copy, e.g. &copy=codex-gpt6_luna-xhigh:closed)
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const params = new URLSearchParams(location.search);
@@ -130,7 +131,7 @@ function renderWorks() {
 }
 
 /* ---------- whose copy: the reference robot's, or an agent's from the batch evaluation ---------- */
-let RESULTS = { runs: [] }, COPIES = {};
+let RESULTS = { runs: [] }, COPIES = {}, FILMS = { films: {}, programme: [] };
 const MODES = [['open', 'Open book', 'var(--priv)'], ['closed', 'Closed book', 'var(--std)']];
 const shortModel = (m) => m.replace('GPT-6 ', '');
 const isPaint = (w) => w.family === 'acrylic' || w.family === 'oil';
@@ -183,7 +184,7 @@ function openViewer(id, mode = 'compare', copy = 'ref', list = null, from = 'wor
   viewer.w = w;
   viewer.copy = copyOf(w, copy) ? copy : 'ref';
   viewer.list = list; viewer.from = from;
-  if (viewer.copy !== 'ref' && mode === 'time') mode = 'compare';
+  if ((viewer.copy !== 'ref' && (mode === 'time' || mode === 'film')) || (mode === 'film' && !FILMS.films[w.id])) mode = 'compare';
   const fam = FAMILIES[w.family];
   $('#viewer-side').innerHTML = `
     <p class="vfam">${fam.zh ? `<span class="zh">${fam.zh}</span> · ` : ''}${fam.name} · ${fam.what}</p>
@@ -214,13 +215,19 @@ function setMode(mode) {
   viewer.mode = mode;
   if (viewer.video) { viewer.video.pause(); viewer.video = null; }
   // the reference robot's copy can be watched being made; an agent's copy is its replay's last frame
-  const tools = `<div class="vs-tools seg" id="vw-tools">${[['compare', 'Compare'], ['target', 'Exemplar'], ['copy', 'Copy'], ...(c.ref ? [['time', 'Watch it made']] : [])]
+  const tools = `<div class="vs-tools seg" id="vw-tools">${[['compare', 'Compare'], ['target', 'Exemplar'], ['copy', 'Copy'],
+    ...(c.ref ? [['time', 'Timelapse'], ...(FILMS.films[w.id] ? [['film', 'Film']] : [])] : [])]
     .map(([k, t]) => `<button data-m="${k}" class="${k === mode ? 'on' : ''}">${t}</button>`).join('')}</div>`;
   const copies = [['ref', copyOf(w, 'ref')], ...RESULTS.runs.flatMap((run) => MODES.map(([m]) => [`${run.id}:${m}`, copyOf(w, `${run.id}:${m}`)]))].filter(([, x]) => x);
   const strip = copies.length > 1 ? `<div class="vs-copies" id="vw-copies" role="group" aria-label="Whose copy">${copies.map(([k, x]) =>
     `<button data-copy="${k}" class="${k === viewer.copy ? 'on' : ''}" title="${esc(x.label)}${x.ok ? ': solved' : ''}"><img src="${x.thumb}" alt="">${x.ref ? 'Reference' : esc(x.tag.replace(' book', ''))}${x.ok ? '<i class="ok"></i>' : ''}</button>`).join('')}</div>` : '';
   let frame;
-  if (mode === 'time') {
+  if (mode === 'film') {
+    const base = w.media.target.replace('target.webp', '');
+    frame = `<div class="vs-frame film"><video id="vw-video" muted playsinline preload="auto" poster="${base}film.webp" src="${base}film.mp4"></video>
+      <div class="vs-scrub"><button id="vw-play" aria-label="Play or pause">❚❚</button><input id="vw-range" type="range" min="0" max="1000" value="0" aria-label="Time">
+      <span id="vw-stroke">ray traced</span></div></div>`;
+  } else if (mode === 'time') {
     frame = `<div class="vs-frame"><video id="vw-video" muted playsinline preload="auto"></video>
       <div class="vs-scrub"><button id="vw-play" aria-label="Play or pause">❚❚</button><input id="vw-range" type="range" min="0" max="1000" value="0" aria-label="Time">
       <span id="vw-stroke">stroke 0</span></div></div>`;
@@ -236,12 +243,13 @@ function setMode(mode) {
   $('#vw-copies')?.addEventListener('click', (e) => {
     const b = e.target.closest('[data-copy]'); if (!b) return;
     viewer.copy = b.dataset.copy;
-    setMode(viewer.copy !== 'ref' && viewer.mode === 'time' ? 'compare' : viewer.mode);
+    setMode(viewer.copy !== 'ref' && (viewer.mode === 'time' || viewer.mode === 'film') ? 'compare' : viewer.mode);
   });
   $('#vw-score').innerHTML = c.ref ? refHTML(w) : agentScoreHTML(w, c);
-  history.replaceState(null, '', `?work=${w.id}${viewer.copy !== 'ref' ? `&copy=${viewer.copy}` : ''}${mode === 'time' ? '&view=time' : ''}#${viewer.from}`);
+  history.replaceState(null, '', `?work=${w.id}${viewer.copy !== 'ref' ? `&copy=${viewer.copy}` : ''}${mode === 'time' || mode === 'film' ? `&view=${mode}` : ''}#${viewer.from}`);
   if (mode === 'compare') setupSlider();
   if (mode === 'time') setupTimelapse();
+  if (mode === 'film') setupFilm();
   $$('#vw-palette i').forEach((i) => i.classList.remove('on'));
 }
 function setupSlider() {
@@ -271,6 +279,16 @@ async function setupTimelapse() {
   };
   v.addEventListener('timeupdate', update);
   v.addEventListener('seeked', update);
+  v.addEventListener('ended', () => { play.textContent = '▶'; });
+  range.addEventListener('input', () => { if (v.duration) { v.pause(); play.textContent = '▶'; v.currentTime = (Number(range.value) / 1000) * v.duration; } });
+  play.addEventListener('click', () => { if (v.paused) { if (v.ended) v.currentTime = 0; v.play(); play.textContent = '❚❚'; } else { v.pause(); play.textContent = '▶'; } });
+  v.play().catch(() => { play.textContent = '▶'; });
+}
+// the film plays straight from its file (H.264 with the index first): it streams, and seeks where the server allows ranges
+function setupFilm() {
+  const v = $('#vw-video'), range = $('#vw-range'), play = $('#vw-play');
+  viewer.video = v;
+  v.addEventListener('timeupdate', () => { if (!v.seeking && v.duration) range.value = String(Math.round((v.currentTime / v.duration) * 1000)); });
   v.addEventListener('ended', () => { play.textContent = '▶'; });
   range.addEventListener('input', () => { if (v.duration) { v.pause(); play.textContent = '▶'; v.currentTime = (Number(range.value) / 1000) * v.duration; } });
   play.addEventListener('click', () => { if (v.paused) { if (v.ended) v.currentTime = 0; v.play(); play.textContent = '❚❚'; } else { v.pause(); play.textContent = '▶'; } });
@@ -336,6 +354,35 @@ function setupWall() {
   $('#wall').addEventListener('click', (e) => { const b = e.target.closest('[data-copy]'); if (b) openViewer(b.dataset.id, 'compare', b.dataset.copy, wallList, 'attempts'); });
   $('#wall-note').textContent = 'One attempt per work and mode (the batch evaluation of 5 and 6 October 2026). Each copy is the sheet as the verifier replayed it, at the replay\'s resolution. ✕ picture: the picture rule failed; ✕ hand: the process rules failed.';
   renderWall();
+}
+
+/* ---------- in the studio: the films, one after another while the screen is in view ---------- */
+function setupStudio() {
+  const screen = $('#screen'), v = $('#studio-video'), cap = $('#studio-cap');
+  const t = FILMS.teaser;
+  if (!t) { $('#studio').hidden = true; return; }
+  const items = [{ id: t.work, src: t.src, poster: t.poster },
+    ...FILMS.programme.filter((id) => id !== t.work).map((id) => ({ id, src: `assets/media/works/${id}/film.mp4`, poster: `assets/media/works/${id}/film.webp` }))];
+  const name = (id) => { const w = WORKS.find((x) => x.id === id); return !w ? esc(id) : isPaint(w) ? `<em>${esc(w.original || w.title)}</em>` : titleHTML(w); };
+  $('#programme').innerHTML = items.map((it, i) => `<button data-i="${i}" type="button"><img src="${it.poster}" alt="" loading="lazy" decoding="async"><span>${name(it.id)}</span></button>`).join('');
+  let cur = -1, inView = false;
+  const start = () => v.play().then(() => screen.classList.remove('paused')).catch(() => screen.classList.add('paused'));
+  const show = (i, go = inView) => {
+    cur = (i + items.length) % items.length;
+    const it = items[cur];
+    v.poster = it.poster; v.src = it.src;
+    cap.innerHTML = `Now showing · ${name(it.id)} <span class="arr">↗</span>`;
+    $$('#programme button').forEach((b, k) => b.classList.toggle('on', k === cur));
+    if (go) start(); else screen.classList.add('paused');
+  };
+  $('#programme').addEventListener('click', (e) => { const b = e.target.closest('[data-i]'); if (b) show(Number(b.dataset.i), true); });
+  v.addEventListener('ended', () => show(cur + 1));
+  screen.addEventListener('click', (e) => {
+    if (e.target.closest('#studio-cap')) { openViewer(items[cur].id, 'film'); return; }
+    if (v.paused) start(); else { v.pause(); screen.classList.add('paused'); }
+  });
+  new IntersectionObserver(([e]) => { inView = e.isIntersecting; if (inView) start(); else { v.pause(); screen.classList.add('paused'); } }, { threshold: 0.4 }).observe(screen);
+  show(0, false);
 }
 
 /* ---------- the hand: the same character written and coloured in ---------- */
@@ -438,9 +485,10 @@ function renderResults(res) {
 
 /* ---------- start ---------- */
 setupNav();
-const [worksData, resultsData, figData, attemptsData] = await Promise.all(['works', 'results', 'figures', 'attempts'].map((n) => fetch(`assets/data/${n}.json`).then((r) => r.json())));
+const [worksData, resultsData, figData, attemptsData, filmsData] = await Promise.all(['works', 'results', 'figures', 'attempts', 'films']
+  .map((n) => fetch(`assets/data/${n}.json`).then((r) => r.json()).catch(() => ({}))));
 WORKS = worksData.works;
-RESULTS = resultsData; COPIES = attemptsData.copies;
+RESULTS = resultsData; COPIES = attemptsData.copies; FILMS = { films: {}, programme: [], ...filmsData };
 renderNumbers(WORKS);
 renderChips();
 renderWorks();
@@ -450,8 +498,9 @@ renderJudging(figData, WORKS);
 renderModes(figData);
 renderResults(resultsData);
 setupWall();
+setupStudio();
 reveal();
-if (params.get('work')) openViewer(params.get('work'), params.get('view') === 'time' ? 'time' : 'compare', params.get('copy') || 'ref', null, params.get('copy') ? 'attempts' : 'works');
+if (params.get('work')) openViewer(params.get('work'), ['time', 'film'].includes(params.get('view')) ? params.get('view') : 'compare', params.get('copy') || 'ref', null, params.get('copy') ? 'attempts' : 'works');
 const focus = params.get('focus');
 if (focus) requestAnimationFrame(() => { document.getElementById(focus)?.scrollIntoView({ behavior: 'instant', block: 'start' }); $$('.reveal').forEach((r) => r.classList.add('in')); });
 import('./hero.js').then(({ initHero }) => initHero({ section: $('#top'), canvas: $('#hero-canvas'), frozen: params.has('hero') ? Number(params.get('hero')) : null }))

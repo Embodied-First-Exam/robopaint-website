@@ -267,6 +267,33 @@ button { font: inherit; color: inherit; }
 .vs-copies button i.ok { position: absolute; top: 2px; right: 8px; width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid var(--seal); background: var(--surface); }
 .vs-copies button i.ok::after { content: ""; position: absolute; inset: 3px; border-radius: 50%; background: var(--seal); }
 
+/* ---------- in the studio: the films ---------- */
+.studio { display: grid; grid-template-columns: minmax(0, 1fr) 300px; gap: 18px; align-items: start; }
+.screen { position: relative; aspect-ratio: 16 / 9; border-radius: 18px; overflow: hidden; background: #2a2b2e; box-shadow: var(--shadow); cursor: pointer; }
+.screen video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.screen-play { position: absolute; left: 50%; top: 50%; width: 64px; height: 64px; margin: -32px 0 0 -32px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .92);
+  color: #0f141a; font-size: 20px; cursor: pointer; box-shadow: 0 6px 22px rgba(0, 0, 0, .3); opacity: 0; pointer-events: none; transition: opacity .2s; }
+.screen.paused .screen-play { opacity: 1; pointer-events: auto; }
+.screen-cap { position: absolute; left: 14px; bottom: 12px; display: flex; align-items: baseline; gap: 6px; max-width: calc(100% - 28px); padding: 7px 13px; border: 0; border-radius: 999px;
+  background: rgba(15, 20, 26, .62); color: #fff; font: 500 12px/1.3 var(--body); text-align: left; cursor: pointer; backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px); }
+.screen-cap em { font: italic 400 16px/1 var(--serif); }
+.screen-cap .zh { font-size: 15px; letter-spacing: .04em; }
+.screen-cap .arr { opacity: .7; }
+.programme { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px 10px; }
+.programme button { display: block; min-width: 0; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
+.programme img { display: block; width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 10px; background: #2a2b2e; transition: box-shadow .2s; }
+.programme span { display: block; height: 18px; margin: 6px 2px 0; overflow: hidden; font-size: 12.5px; line-height: 18px; color: var(--ink-2); white-space: nowrap; text-overflow: ellipsis; }
+.programme span em { font: italic 400 14px/1 var(--serif); }
+.programme button:hover img { box-shadow: 0 6px 18px rgba(15, 23, 42, .18); }
+.programme button.on img { box-shadow: 0 0 0 2px var(--bg-2), 0 0 0 4px var(--seal); }
+.programme button.on span { color: var(--ink); }
+@media (max-width: 960px) { .studio { grid-template-columns: minmax(0, 1fr); } .programme { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .programme { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+/* the viewer's film: the studio's view of one work */
+.vs-frame.film { aspect-ratio: 16 / 9; width: 100%; max-width: calc((100vh - 330px) * 16 / 9); background: #2a2b2e; }
+@media (max-width: 960px) { .vs-frame.film { max-width: none; } }
+@media (max-width: 560px) { .vs-tools button { padding-left: 9px; padding-right: 9px; } }
+
 /* ---------- at the easel: the agents' copies beside their exemplars ---------- */
 .wall { display: flex; flex-direction: column; gap: 14px; }
 .wall-head, .wall-row { display: grid; grid-template-columns: minmax(0, 1.25fr) repeat(4, minmax(0, 1fr)); gap: 16px; }

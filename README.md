@@ -22,7 +22,7 @@ Preview knobs:
   and tablets step through stills.
 - `?focus=works` opens the page at a section.
 - `?work=oil_starrynight` opens a work in the viewer.
-  - Add `&view=time` for its timelapse.
+  - Add `&view=time` for its timelapse, or `&view=film` for its film.
   - Add `&copy=codex-gpt6_luna-xhigh:closed` for an agent's copy.
 
 ## What is on the page
@@ -33,13 +33,15 @@ Preview knobs:
    - The sheet shows the brush engine's own picture at that moment.
    - The camera looks down from high on the robot's right, then pulls back to the whole studio.
 2. **The statement**: four numbers.
-3. **The collection**: the 82 works by discipline (楷書 kaishu, 行書 xingshu, lettering, acrylic, oil). The viewer compares
-   the exemplar with the reference robot's copy and plays the copy being made.
-4. **Written, not coloured in**: the process rules, shown with the brush's own paths.
-5. **How a work is judged**: alignment, then the ink for writing and the colour for painting.
-6. **Open book, closed book**: the exact sheet against the overhead camera's view.
-7. **Results**: GPT-6 Astra and GPT-6 Luna with Codex, every work in both modes.
-8. **At the easel**: every copy the two agents handed in, beside its exemplar. The viewer compares the exemplar with any
+3. **In the studio**: ray-traced films of the reference robot at work, a 25 s teaser of *The Starry Night* and a programme of
+   highlights. Each film replays a graded run, and its last sheet is that run's, pixel for pixel.
+4. **The collection**: the 82 works by discipline (楷書 kaishu, 行書 xingshu, lettering, acrylic, oil). The viewer compares
+   the exemplar with the reference robot's copy, plays the copy being made (the sheet's timelapse) and shows its film.
+5. **Written, not coloured in**: the process rules, shown with the brush's own paths.
+6. **How a work is judged**: alignment, then the ink for writing and the colour for painting.
+7. **Open book, closed book**: the exact sheet against the overhead camera's view.
+8. **Results**: GPT-6 Astra and GPT-6 Luna with Codex, every work in both modes.
+9. **At the easel**: every copy the two agents handed in, beside its exemplar. The viewer compares the exemplar with any
    of these copies.
 
 ## How the data were made
@@ -64,6 +66,12 @@ Preview knobs:
   - the overhead camera's view.
 - `assets/data/results.json` comes from `scripts/export_results.py`, which reads the run records of the batch evaluation of 5
   and 6 October 2026.
+- `assets/data/films.json`, `assets/media/works/<id>/film.{mp4,webp}` and `assets/media/studio/` come from
+  `scripts/export_films.py`, which reads the ray-traced masters:
+  - the reference solutions replayed in each task's own session, rendered with SAPIEN's ray tracer at 2560 × 1440;
+  - path-uniform time-lapses;
+  - every last sheet checked against the graded run's canvas;
+  - here encoded at 1280 × 720 (the teaser at 1920 × 1080).
 - `assets/data/attempts.json` and `assets/media/attempts/` come from `scripts/export_attempts.py`:
   - each image is the last frame of the verifier's replay of one attempt in that evaluation;
   - specifically the exact sheet's 320 × 240 tile, resized back to a square.
