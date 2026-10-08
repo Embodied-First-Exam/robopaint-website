@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """The films: ray-traced replays of the reference robot at work, for the viewer and the studio section.
 
-usage: export_films.py <masters dir>
+usage: export_films.py <masters dir> [--force]   (--force: encode again when the masters changed)
 
 <masters dir>:
 - per work <family>_<target>/: video.mp4 (1920x1080, 30 fps) and poster.png (the finished sheet, 2560x1440);
@@ -21,6 +21,7 @@ from pathlib import Path
 from PIL import Image
 
 SRC = Path(sys.argv[1])
+FORCE = "--force" in sys.argv
 ROOT = Path(__file__).resolve().parents[1]
 works = [w["id"] for w in json.loads((ROOT / "assets" / "data" / "works.json").read_text())["works"]]
 
@@ -44,7 +45,7 @@ def one(wid):
     if not (d / "video.mp4").exists():
         return wid, None
     out = ROOT / "assets" / "media" / "works" / wid
-    if not (out / "film.mp4").exists():
+    if FORCE or not (out / "film.mp4").exists():
         encode(d / "video.mp4", out / "film.mp4", 1280, 720)
     poster(d / "poster.png", out / "film.webp", 1280, 720)
     return wid, duration(out / "film.mp4")
