@@ -10,8 +10,8 @@ import { loadPanda, createPanda } from './robot.js';
 const DATA = new URL('../media/hero/', import.meta.url);
 const PAINT = [0.05, 0.86];             // the scroll window of the painting
 // caption windows on scroll progress: fade in over [a, b], out over [c, d]
-const WINDOWS = { kicker: [null, null, 0.025, 0.06], cue: [null, null, 0.02, 0.05], l1: [0.03, 0.06, 0.13, 0.16], l2: [0.17, 0.2, 0.3, 0.33],
-  l3: [0.35, 0.38, 0.58, 0.61], l4: [0.63, 0.66, 0.82, 0.85], title: [0.88, 0.93, 9, 9] };
+const WINDOWS = { kicker: [null, null, 0.025, 0.06], cue: [null, null, 0.02, 0.05], l1: [0.03, 0.06, 0.12, 0.15], l2: [0.15, 0.18, 0.25, 0.28],
+  l3: [0.29, 0.32, 0.41, 0.44], l4: [0.46, 0.49, 0.82, 0.85], title: [0.88, 0.93, 9, 9] };
 const TRAVEL = 0.1;                      // how much scroll a second of travel gets, against a second of painting
 const PAPER = '#f8f4ec';                 // the brush engine's paper, as the sheet is before the first stroke
 // camera keyframes on scroll progress (three.js frame: the simulator's x, z up, -y; the robot's base at x -0.615 faces +x,
@@ -237,7 +237,7 @@ export async function initHero({ section, canvas, frozen = null }) {
       c.el.style.pointerEvents = a > 0.5 ? 'auto' : 'none';
     }
     const stroke = frames.stroke[Math.min(frames.count - 1, want)] ?? 0;
-    hud.stroke.textContent = m <= 0 || (bare && s < firstPaint) ? '0' : bare ? '1' : String(Math.min(meta.strokes, stroke));
+    hud.stroke.textContent = m <= 0 || (bare && s < firstPaint) ? '0' : bare ? '1' : Math.min(meta.strokes, stroke).toLocaleString('en-US');
     hud.bar.style.width = `${(m * 100).toFixed(1)}%`;
     hud.paint.style.background = paint >= 0 ? meta.paints[paint] : 'transparent';
     renderer.render(scene, camera);

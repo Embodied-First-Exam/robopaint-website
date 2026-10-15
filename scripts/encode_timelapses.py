@@ -5,7 +5,8 @@ usage: encode_timelapses.py <capture dir> [ids...]
 
 For every <capture dir>/<id>/ with frames/ and capture.json: assets/media/works/<id>/timelapse.mp4 (H.264, 768 px, 24 fps,
 a keyframe every 8 frames so the viewer's scrubber seeks fast, the finished sheet held for 1.5 s) and timelapse.json (per
-frame the stroke number and the loaded paint, the strokes in all, the paints)."""
+frame the stroke number and the loaded paint, the strokes in all, the paints). Writing and lettering are cut to their ink, as
+works.json's `view` says."""
 import json, subprocess, sys
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
@@ -13,6 +14,7 @@ from pathlib import Path
 CAP = Path(sys.argv[1])
 ROOT = Path(__file__).resolve().parents[1]
 ids = sys.argv[2:] or sorted(p.name for p in CAP.iterdir() if (p / "capture.json").exists())
+VIEWS = {w["id"]: w.get("view") for w in json.loads((ROOT / "assets" / "data" / "works.json").read_text())["works"]}
 
 
 def one(wid):
@@ -21,8 +23,10 @@ def one(wid):
     out = ROOT / "assets" / "media" / "works" / wid
     out.mkdir(parents=True, exist_ok=True)
     n = len(cap["frames"])
+    v = VIEWS.get(wid)          # writing and lettering: cut to the ink as the site shows them (export_works.py)
+    cut = (f"crop=trunc(iw*{v[2] - v[0]:.4f}/2)*2:trunc(ih*{v[3] - v[1]:.4f}/2)*2:trunc(iw*{v[0]:.4f}):trunc(ih*{v[1]:.4f})," if v else "")
     subprocess.run(["nice", "-n", "10", "ffmpeg", "-v", "error", "-y", "-framerate", "24", "-i", str(src / "frames" / "%05d.png"),
-                    "-vf", "tpad=stop_mode=clone:stop_duration=1.5,format=yuv420p", "-c:v", "libx264", "-preset", "slow", "-crf", "22",
+                    "-vf", cut + "tpad=stop_mode=clone:stop_duration=1.5,format=yuv420p", "-c:v", "libx264", "-preset", "slow", "-crf", "22",
                     "-g", "8", "-keyint_min", "8", "-sc_threshold", "0", "-movflags", "+faststart", "-an", "-threads", "3",
                     str(out / "timelapse.mp4")], check=True)
     meta = {"fps": 24, "frames": n, "hold_s": 1.5, "strokes": max(f["stroke"] for f in cap["frames"]),

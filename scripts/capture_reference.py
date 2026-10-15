@@ -102,6 +102,7 @@ for st in s.strokes():
     strokes.append({"paint": st.get("color") if isinstance(st.get("color"), str) else None, "start": int(st.get("start_sample", 0)),
                     "length_mm": round(float(st.get("length_mm", 0)), 1), "points": pts})
 
+Image.fromarray(s.canvas("main")).save(out / "canvas.png")           # the finished sheet at full resolution
 if CAMERA:
     Image.fromarray(s.render_frame("canvas_cam")).save(out / "camera.png")
 np.save(out / "qpos.npy", qpos)

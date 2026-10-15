@@ -17,21 +17,25 @@ if (params.get('overview') === '1') document.documentElement.classList.add('over
 
 const FAMILIES = {
   kaishu: { name: 'Kaishu', zh: '楷書', what: 'regular script', tool: 'Chinese brush',
-    note: '<b><span class="zh">楷書</span> Kaishu, regular script.</b> Single characters and four-character works with a soft Chinese brush whose hairs bend, drag and spring back. A character may take no more strokes than it has.' },
+    note: '<b><span class="zh">楷書</span> Kaishu, regular script.</b> Four-character works with a soft Chinese brush whose hairs bend, drag and spring back. A work may take no more strokes than it has.' },
   xingshu: { name: 'Xingshu', zh: '行書', what: 'running script', tool: 'Chinese brush',
     note: '<b><span class="zh">行書</span> Xingshu, running script.</b> Characters and phrases from Wang Xizhi\'s <span class="zh">蘭亭序</span>. The strokes run into one another, so the brush may leave the paper only a few times.' },
-  lettering: { name: 'Lettering', what: 'Western lettering', tool: 'dip pen',
-    note: '<b>Lettering.</b> Words in five hands: a broad-edge nib held at a steady angle for foundational, italic, uncial and textura; a pointed pen that swells under pressure for copperplate.' },
+  caoshu: { name: 'Caoshu', zh: '草書', what: 'cursive script', tool: 'Chinese brush',
+    note: '<b><span class="zh">草書</span> Caoshu, cursive script.</b> Characters and lines from Zhang Xu\'s <span class="zh">古詩四帖</span>. Whole characters in one or two sweeps: no more strokes than the exemplar has.' },
+  lettering: { name: 'Lettering', what: 'English round hand', tool: 'pointed pen',
+    note: '<b>Lettering.</b> Words and lines from an engraved copybook of English round hand (1741), flourishes and all, with a pointed pen that swells under pressure.' },
   acrylic: { name: 'Acrylic', what: 'stroke copy', tool: 'round brush',
     note: '<b>Acrylic.</b> Copy a small painting stroke for stroke: about 300 opaque strokes in ten paints and four brush sizes, after Hokusai, Hiroshige, van Gogh, Cézanne, Marc and Gauguin.' },
-  oil: { name: 'Oil', what: 'painting from a reference', tool: 'oil brush',
-    note: '<b>Oil.</b> Paint a masterpiece from a photograph with wet paint that smudges and blends: sixteen premixed paints, and at most half as many strokes again as the reference painter used.' },
+  oil: { name: 'Oil', what: 'painting from a reference', tool: 'pointed oil brush',
+    note: '<b>Oil.</b> Paint a masterpiece from a photograph with wet paint that smudges and blends: sixteen premixed paints, five tip sizes, and at most half as many strokes again as the reference painter used.' },
 };
-const ORDER = ['kaishu', 'xingshu', 'lettering', 'acrylic', 'oil'];
+const ORDER = ['kaishu', 'xingshu', 'caoshu', 'lettering', 'acrylic', 'oil'];
+const isPaint = (w) => w.family === 'acrylic' || w.family === 'oil';
+const WRITING = ['kaishu', 'xingshu', 'caoshu'];
 // the first view of the collection: a few of each discipline (all of them behind "Show all")
-const FEATURED = ['oil_starrynight', 'kaishu_yongzibafa', 'acrylic_greatwave', 'lettering_omnium', 'oil_pearlearring', 'xingshu_maolinxiuzhu',
-  'kaishu_yong', 'acrylic_sunflowers', 'oil_wanderer', 'xingshu_zhi', 'lettering_minimum', 'acrylic_redfuji', 'oil_monalisa', 'kaishu_long',
-  'acrylic_plumpark', 'oil_temeraire'];
+const FEATURED = ['oil_starrynight', 'kaishu_yongzibafa', 'acrylic_greatwave', 'lettering_virtue', 'caoshu_siwushaonian', 'xingshu_maolinxiuzhu',
+  'oil_pearlearring', 'kaishu_linfengguilong', 'caoshu_wen', 'acrylic_sunflowers', 'lettering_liberty', 'oil_wanderer', 'xingshu_huifenghechang',
+  'acrylic_redfuji', 'oil_monalisa', 'caoshu_nangong'];
 
 /* ---------- day / night ---------- */
 function applyTheme(t) {
@@ -62,25 +66,26 @@ const reveal = (root = document) => $$('.reveal:not(.in)', root).forEach((el) =>
 
 /* ---------- a work's words ---------- */
 function titleHTML(w) {
-  if (w.family === 'kaishu' || w.family === 'xingshu') return `<span class="zh">${esc(w.chars)}</span>`;
+  if (WRITING.includes(w.family)) return `<span class="zh">${esc(w.chars)}</span>`;
   if (w.family === 'lettering') return esc(w.title);
   return esc(w.original || w.title);
 }
 function byline(w) {
-  if (w.family === 'kaishu' || w.family === 'xingshu') return `${esc(w.reading)}, ${esc(w.gloss)}`;
-  if (w.family === 'lettering') return `${esc(w.hand_name)}, ${w.pen === 'pointed_pen' ? 'pointed pen' : 'broad-edge nib'}`;
+  if (WRITING.includes(w.family)) return `${esc(w.reading)}, ${esc(w.gloss)}`;
+  if (w.family === 'lettering') return `${esc(w.hand_name)}, pointed pen`;
   return `after ${esc(w.artist)}, ${esc(w.date)}`;
 }
 function facts(w) {
   const f = [];
-  if (w.family === 'kaishu' || w.family === 'xingshu' || w.family === 'lettering') f.push(`${w.budget} stroke${w.budget > 1 ? 's' : ''}`);
-  else f.push(`≤ ${w.budget} strokes`, `<span class="swatches">${w.palette.map((c) => `<i style="background:${c}"></i>`).join('')}</span>`);
+  if (!isPaint(w)) f.push(`${w.budget} stroke${w.budget > 1 ? 's' : ''}`);
+  else f.push(`≤ ${fmt(w.budget)} strokes`, `<span class="swatches">${w.palette.map((c) => `<i style="background:${c}"></i>`).join('')}</span>`);
   return f.join('');
 }
-// the practice grid under a character (米字格; four cells for a four-character work)
+// the practice grid under a character (米字格; four cells for a four-character work): regular and running script, when the
+// shown cut is about square
 function practiceGrid(w) {
-  if (w.family !== 'kaishu' && w.family !== 'xingshu') return '';
-  const cells = w.characters === 4 ? [[0, 0], [50, 0], [0, 50], [50, 50]] : [[8, 8, 84]];
+  if ((w.family !== 'kaishu' && w.family !== 'xingshu') || w.aspect < 0.8 || w.aspect > 1.25) return '';
+  const cells = w.characters === 4 ? [[0, 0], [50, 0], [0, 50], [50, 50]] : [[2, 2, 96]];
   const c = 'var(--seal)';
   const g = cells.map(([x, y, s = 50]) => `<rect x="${x + 2}" y="${y + 2}" width="${s - 4}" height="${s - 4}" />
     <path d="M${x + s / 2} ${y + 2}V${y + s - 2}M${x + 2} ${y + s / 2}H${x + s - 2}M${x + 2} ${y + 2}L${x + s - 2} ${y + s - 2}M${x + s - 2} ${y + 2}L${x + 2} ${y + s - 2}" stroke-dasharray="1.4 1.4"/>`).join('');
@@ -90,7 +95,7 @@ function practiceGrid(w) {
 /* ---------- the statement ---------- */
 function renderNumbers(works) {
   const maxBudget = Math.max(...works.map((w) => w.budget));
-  const items = [[works.length, 'works to copy'], [ORDER.length, 'disciplines, each with its own brush'], [`2–${maxBudget}`, 'strokes in a work'], [2, 'modes: open and closed book']];
+  const items = [[works.length, 'works to copy'], [ORDER.length, 'disciplines, each with its own brush'], [`${Math.min(...works.map((w) => w.budget))}–${fmt(maxBudget)}`, 'strokes in a work'], [2, 'modes: open and closed book']];
   $('#bignums').innerHTML = items.map(([n, t]) => `<div><dt>${n}</dt><dd>${t}</dd></div>`).join('');
 }
 
@@ -123,7 +128,8 @@ function renderWorks() {
   if (family === 'all' && !expanded) shown = FEATURED.map((id) => WORKS.find((w) => w.id === id)).filter(Boolean);
   else shown = family === 'all' ? [...all].sort((a, b) => ORDER.indexOf(a.family) - ORDER.indexOf(b.family)) : all;
   $('#works-grid').innerHTML = shown.map(workCard).join('');
-  $('#disc-note').innerHTML = family === 'all' ? 'Calligraphy, lettering and painting, from a two-stroke character to a 683-stroke van Gogh.' : FAMILIES[family].note;
+  const lo = WORKS.reduce((a, w) => (w.budget < a.budget ? w : a)), hi = WORKS.reduce((a, w) => (w.budget > a.budget ? w : a));
+  $('#disc-note').innerHTML = family === 'all' ? `Calligraphy, lettering and painting, from a ${lo.budget}-stroke character to a ${fmt(hi.budget)}-stroke ${esc(hi.artist ? hi.artist.replace(/^.*?((?:van |da )?\S+)$/, '$1') : hi.title)}.` : FAMILIES[family].note;
   const more = $('#works-more');
   more.hidden = !(family === 'all' && !expanded);
   more.innerHTML = `Show all ${WORKS.length} <span class="arr">↓</span>`;
@@ -134,7 +140,6 @@ function renderWorks() {
 let RESULTS = { runs: [] }, COPIES = {}, FILMS = { films: {}, programme: [] };
 const MODES = [['open', 'Open book', 'var(--priv)'], ['closed', 'Closed book', 'var(--std)']];
 const shortModel = (m) => m.replace('GPT-6 ', '');
-const isPaint = (w) => w.family === 'acrylic' || w.family === 'oil';
 function copyOf(w, copy) {
   if (!copy || copy === 'ref') return { ref: true, src: w.media.painted, thumb: w.media.painted.replace('painted.webp', 'painted_s.webp'), label: 'The reference robot', tag: 'Robot', ok: true };
   const [runId, mode] = copy.split(':');
@@ -170,7 +175,6 @@ function ruleHTML(w) {
 function exemplar(w) {
   if (w.family === 'acrylic') return `painted by the reference robot, after ${esc(w.artist)}'s <i>${esc(w.original)}</i> (${esc(w.date)})`;
   if (w.family === 'oil') return `${esc(w.artist)}, <i>${esc(w.original)}</i>, ${esc(w.date)}: a photograph (public domain, Wikimedia Commons), cropped square`;
-  if (w.family === 'lettering') return 'written for RoboPaint (CC0)';
   return esc(w.source);
 }
 function refHTML(w) {
@@ -228,14 +232,14 @@ function setMode(mode) {
       <div class="vs-scrub"><button id="vw-play" aria-label="Play or pause">❚❚</button><input id="vw-range" type="range" min="0" max="1000" value="0" aria-label="Time">
       <span id="vw-stroke">ray traced</span></div></div>`;
   } else if (mode === 'time') {
-    frame = `<div class="vs-frame"><video id="vw-video" muted playsinline preload="auto"></video>
+    frame = `<div class="vs-frame" style="--ar:${w.aspect || 1}"><video id="vw-video" muted playsinline preload="auto"></video>
       <div class="vs-scrub"><button id="vw-play" aria-label="Play or pause">❚❚</button><input id="vw-range" type="range" min="0" max="1000" value="0" aria-label="Time">
       <span id="vw-stroke">stroke 0</span></div></div>`;
   } else if (mode === 'compare') {
-    frame = `<div class="vs-frame" id="vw-frame" style="--cut:${viewer.cut}%"><img src="${w.media.target}" alt="The exemplar"><img class="over" src="${c.src}" alt="${esc(c.label)}'s copy">
+    frame = `<div class="vs-frame" id="vw-frame" style="--ar:${w.aspect || 1};--cut:${viewer.cut}%"><img src="${w.media.target}" alt="The exemplar"><img class="over" src="${c.src}" alt="${esc(c.label)}'s copy">
       <span class="vs-tag l">Exemplar</span><span class="vs-tag r">${esc(c.tag)}</span><div class="vs-handle" id="vw-handle" role="slider" aria-label="Compare" tabindex="0"></div></div>`;
   } else {
-    frame = `<div class="vs-frame"><img src="${mode === 'target' ? w.media.target : c.src}" alt=""><span class="vs-tag l">${mode === 'target' ? 'Exemplar' : esc(c.label)}</span></div>`;
+    frame = `<div class="vs-frame" style="--ar:${w.aspect || 1}"><img src="${mode === 'target' ? w.media.target : c.src}" alt=""><span class="vs-tag l">${mode === 'target' ? 'Exemplar' : esc(c.label)}</span></div>`;
   }
   $('#viewer-stage').innerHTML = frame + tools + strip;
   $('#viewer-stage').classList.toggle('has-copies', Boolean(strip));
@@ -316,7 +320,9 @@ function setupViewer() {
 
 /* ---------- at the easel: every copy the agents handed in, beside its exemplar ---------- */
 let wallFam = 'highlights', wallAll = false, wallList = [];
-const WALL_HIGHLIGHTS = FEATURED.slice(0, 8);
+const hasCopies = (w) => Object.values(COPIES).some((c) => c[w.id]);
+// the highlights: the featured works that have copies (the results cover only the task versions they were measured on)
+const wallHighlights = () => { const h = FEATURED.filter((id) => WORKS.some((w) => w.id === id && hasCopies(w))); return h.length >= 4 ? h.slice(0, 8) : null; };
 function wallRow(w) {
   const cells = RESULTS.runs.map((run) => MODES.map(([m, , colour]) => {
     const c = copyOf(w, `${run.id}:${m}`);
@@ -330,7 +336,7 @@ function wallRow(w) {
     <div class="placard"><p class="t">${titleHTML(w)}</p><p class="by">${byline(w)}</p></div></button>${cells}</div>`;
 }
 function renderWall() {
-  const all = wallFam === 'highlights' ? WALL_HIGHLIGHTS.map((id) => WORKS.find((w) => w.id === id)).filter(Boolean) : WORKS.filter((w) => w.family === wallFam);
+  const all = wallFam === 'highlights' ? wallHighlights().map((id) => WORKS.find((w) => w.id === id)) : WORKS.filter((w) => w.family === wallFam && hasCopies(w));
   wallList = wallAll || all.length <= 10 ? all : all.slice(0, 8);
   const head = `<div class="wall-head"><span>The exemplar</span>${RESULTS.runs.map((r) => `<div class="who"><b>${esc(r.model)}</b>${MODES.map(([, name, colour]) =>
     `<span class="m"><i class="dot" style="background:${colour}"></i>${name}</span>`).join('')}</div>`).join('')}</div>`;
@@ -341,9 +347,12 @@ function renderWall() {
   reveal($('#wall'));
 }
 function setupWall() {
-  const count = (f) => WORKS.filter((w) => w.family === f).length;
-  $('#wall-chips').innerHTML = ['<button class="chip on" data-f="highlights">Highlights</button>',
-    ...ORDER.map((f) => `<button class="chip" data-f="${f}">${FAMILIES[f].zh ? `<span class="zh">${FAMILIES[f].zh}</span> ` : ''}${FAMILIES[f].name} <i>${count(f)}</i></button>`)].join('');
+  const count = (f) => WORKS.filter((w) => w.family === f && hasCopies(w)).length;
+  const fams = ORDER.filter((f) => count(f) > 0);
+  if (!fams.length) { $('#attempts').hidden = true; $('.nav-links a[href="#attempts"]').hidden = true; return; }
+  wallFam = wallHighlights() ? 'highlights' : fams[0];
+  $('#wall-chips').innerHTML = [...(wallHighlights() ? ['<button class="chip on" data-f="highlights">Highlights</button>'] : []),
+    ...fams.map((f) => `<button class="chip${f === wallFam ? ' on' : ''}" data-f="${f}">${FAMILIES[f].zh ? `<span class="zh">${FAMILIES[f].zh}</span> ` : ''}${FAMILIES[f].name} <i>${count(f)}</i></button>`)].join('');
   $('#wall-chips').addEventListener('click', (e) => {
     const b = e.target.closest('[data-f]'); if (!b) return;
     wallFam = b.dataset.f; wallAll = false;
@@ -434,16 +443,15 @@ function renderHands(fig) {
 }
 
 /* ---------- judging ---------- */
-function renderJudging(fig, works) {
-  const yong = works.find((w) => w.id === 'kaishu_yong'), starry = works.find((w) => w.id === 'oil_starrynight');
+function renderJudging(fig) {
   const a = fig.agree, d = fig.delta;
   $('#judge').innerHTML = `
-    <article class="jcard"><div class="viz align-viz"><img src="${yong.media.painted}" alt=""><img class="ghost" src="${a.ghost}" alt=""></div>
+    <article class="jcard"><div class="viz align-viz"><img src="${a.painted}" alt=""><img class="ghost" src="${a.ghost}" alt=""></div>
       <h3>Aligned first</h3><p>The sheet may sit a little off. The judge slides it up to 5 mm in each direction and keeps the best fit, then compares.</p>
       <p class="num">translation only · ±5 mm · one shift for the whole sheet</p></article>
     <article class="jcard"><div class="viz"><img src="${a.img}" alt="Where the robot's ink and the exemplar's agree"></div>
       <h3>Writing: the ink</h3><p>Black where both have ink, <span style="color:var(--std-ink)">teal</span> where the robot missed, <span style="color:var(--priv-ink)">terracotta</span> where it strayed.</p>
-      <p class="num">the reference <span class="zh">永</span>: IoU <b>${a.iou.toFixed(2)}</b> · needs ≥ ${a.rule_iou}</p></article>
+      <p class="num">the reference <span class="zh">${esc(a.title)}</span>: IoU <b>${a.iou.toFixed(2)}</b> · needs ≥ ${a.rule_iou}</p></article>
     <article class="jcard"><div class="viz"><img src="${d.img}" alt="The colour difference of the robot's Starry Night"></div>
       <h3>Painting: the colour</h3><p>The colour difference per point, after a 1 mm blur: pale where the paint matches, dark where it does not. Structure and edges are measured too.</p>
       <p class="num">the reference Starry Night: mean ΔE <b>${d.mean}</b> · needs ≤ ${d.rule_mean}</p></article>`;
@@ -471,15 +479,19 @@ function renderResults(res) {
       <div class="db-gap">${Math.round(o - c)}<small>points lost</small></div></div>`;
   }).join('');
   $('#dumbbell').innerHTML = `<div class="db-legend"><span><i class="dot" style="background:var(--priv)"></i>Open book</span><span><i class="dot" style="background:var(--std)"></i>Closed book</span>
-    <span style="margin-left:auto;color:var(--ink-3)">works solved of 82</span></div>
+    <span style="margin-left:auto;color:var(--ink-3)">works solved of ${res.runs[0].summary.open.of}</span></div>
     <div class="db-axis"><span class="who-h"></span><div class="db-ticks">${[0, 25, 50, 75, 100].map((t) => `<span style="left:${t}%">${t}%</span>`).join('')}</div><span class="db-gap-h">gap</span></div>${rows}`;
-  $('#fam-grid').innerHTML = ORDER.map((f) => {
+  $('#fam-grid').innerHTML = ORDER.filter((f) => (res.families || ORDER).includes(f)).map((f) => {
     const n = res.runs[0].summary.open.families[f].of;
     const bar = (k, cls) => `<span class="fb"><i class="${cls}" style="width:${(100 * k) / n}%"></i></span><b>${k}</b>`;
     const runs = res.runs.map((r) => `<div class="fam-row"><span>${esc(r.model.replace('GPT-6 ', ''))}</span>
       <div class="fam-bars">${bar(r.summary.open.families[f].solved, 'p')}${bar(r.summary.closed.families[f].solved, 's')}</div></div>`).join('');
     return `<div class="fam"><h4>${FAMILIES[f].zh ? `<span class="zh">${FAMILIES[f].zh}</span>` : ''}${FAMILIES[f].name} <span>${n} works</span></h4>${runs}</div>`;
   }).join('');
+  if (res.families && res.families.length < ORDER.length) {
+    const names = res.families.map((f) => FAMILIES[f].name.toLowerCase()).join(', ');
+    $('#results-lede').textContent = `Two code agents on the ${names} works, both modes. A point is a work solved: the picture matches and the hand passes.`;
+  }
   $('#results-note').textContent = 'Codex with each model, one attempt per work and mode (the batch evaluation of 5 and 6 October 2026). Agents had two hours per work.';
 }
 
@@ -494,7 +506,7 @@ renderChips();
 renderWorks();
 setupViewer();
 renderHands(figData);
-renderJudging(figData, WORKS);
+renderJudging(figData);
 renderModes(figData);
 renderResults(resultsData);
 setupWall();

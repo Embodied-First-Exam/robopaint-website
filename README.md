@@ -1,6 +1,6 @@
 # RoboPaint
 
-The project page of **RoboPaint**, brushwork for code agents, a suite of the Embodied First Exam. It has 82 works of Chinese
+The project page of **RoboPaint**, brushwork for code agents, a suite of the Embodied First Exam. It has 43 works of Chinese
 calligraphy, Western lettering and painting. A code agent must make each one with a simulated Franka Panda holding a brush or a
 pen. The page judges each work on two things: the picture, and the hand that made it.
 
@@ -33,20 +33,24 @@ Preview knobs:
    - The sheet shows the brush engine's own picture at that moment.
    - The camera looks down from high on the robot's right, then pulls back to the whole studio.
 2. **The statement**: four numbers.
-3. **In the studio**: ray-traced films of the reference robot at work, a 25 s teaser of *The Starry Night* and a programme of
-   highlights. Each film replays a graded run, and its last sheet is that run's, pixel for pixel.
-4. **The collection**: the 82 works by discipline (楷書 kaishu, 行書 xingshu, lettering, acrylic, oil). The viewer compares
+3. **In the studio**: ray-traced films of the reference robot at work, a teaser of *The Starry Night* and a programme of
+   highlights. Each film replays a graded run, and its last sheet is that run's, pixel for pixel. The section shows only
+   when `assets/data/films.json` has a teaser; works without a film have no Film tab.
+4. **The collection**: the 43 works by discipline (楷書 kaishu, 行書 xingshu, 草書 caoshu, lettering, acrylic, oil). Writing
+   and lettering are shown cut to their ink (`view` in works.json). The viewer compares
    the exemplar with the reference robot's copy, plays the copy being made (the sheet's timelapse) and shows its film.
 5. **Written, not coloured in**: the process rules, shown with the brush's own paths.
 6. **How a work is judged**: alignment, then the ink for writing and the colour for painting.
 7. **Open book, closed book**: the exact sheet against the overhead camera's view.
-8. **Results**: GPT-6 Astra and GPT-6 Luna with Codex, every work in both modes.
-9. **At the easel**: every copy the two agents handed in, beside its exemplar. The viewer compares the exemplar with any
-   of these copies.
+8. **Results**: GPT-6 Astra and GPT-6 Luna with Codex in both modes, on the families listed in results.json (`families`):
+   the ones whose tasks are unchanged since that batch evaluation.
+9. **At the easel**: every copy the two agents handed in for those works, beside its exemplar. The viewer compares the
+   exemplar with any of these copies. The section hides itself when there are none.
 
 ## How the data were made
 - `assets/data/works.json` and `assets/media/works/<id>/{target,painted}[_s].webp` come from `scripts/export_works.py`. It
-  reads the RoboPaint-strict task directories and the graded runs of the reference solutions.
+  reads the RoboPaint task directories and the graded runs of the reference solutions (the reference solution replayed and
+  graded by each task's own verifier, `tests/grade.py`, in `scripts/capture_all.sh`).
 - `assets/media/works/<id>/timelapse.{mp4,json}`:
   - `scripts/capture_reference.py` replays each reference solution with the task's own tooling, inside the RoboPaint task
     image. SAPIEN needs a GPU.
@@ -60,12 +64,12 @@ Preview knobs:
 - `assets/data/robot/panda.{json,bin}` come from `scripts/prepare_panda.py`. It reads ManiSkill 3.0.1's `panda_stick.urdf`
   and the Franka visual meshes.
 - `assets/data/figures.json` and `assets/media/figs/` come from `scripts/make_figures.py`:
-  - the brush paths;
+  - the brush paths of 永 (a regular-script task of an earlier set) and of the Great Wave, kept as they were (`--judge-only`);
   - an earlier agent run that coloured a character in, from before the process rules existed;
   - the agreement and ΔE maps;
   - the overhead camera's view.
-- `assets/data/results.json` comes from `scripts/export_results.py`, which reads the run records of the batch evaluation of 5
-  and 6 October 2026.
+- `assets/data/results.json` comes from `scripts/export_results.py --families acrylic`, which reads the run records of the
+  batch evaluation of 5 and 6 October 2026 and keeps the families whose tasks have not changed since.
 - `assets/data/films.json`, `assets/media/works/<id>/film.{mp4,webp}` and `assets/media/studio/` come from
   `scripts/export_films.py`, which reads the ray-traced masters:
   - the reference solutions replayed in each task's own session, rendered with SAPIEN's ray tracer at 2560 × 1440;

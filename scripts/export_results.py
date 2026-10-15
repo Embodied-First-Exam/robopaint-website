@@ -1,7 +1,10 @@
 #!/usr/bin/env python3
 """The agents' results on RoboPaint for the site, from the published run records.
 
-usage: export_results.py <published_runs/robopaint-strict dir>
+usage: export_results.py <published_runs/robopaint-strict dir> [--families acrylic,...]
+
+--families keeps the works of those families only: the ones whose tasks are unchanged since the batch evaluation (the site
+shows results only for the task versions they were measured on).
 
 Input: the run records the Embodied First Exam builds from (<run>.json: per task and slot the state, the grader's metrics,
 the agent's wall time and tokens), here the batch evaluation of 5 and 6 October 2026. Slot names: unlimited =
@@ -11,9 +14,10 @@ import json, sys
 from pathlib import Path
 
 SRC = Path(sys.argv[1])
+KEEP_FAM = sys.argv[sys.argv.index("--families") + 1].split(",") if "--families" in sys.argv else None
 ROOT = Path(__file__).resolve().parents[1]
 works = {w["id"]: w for w in json.loads((ROOT / "assets" / "data" / "works.json").read_text())["works"]}
-FAMILIES = ["kaishu", "xingshu", "lettering", "acrylic", "oil"]
+FAMILIES = [f for f in ["kaishu", "xingshu", "caoshu", "lettering", "acrylic", "oil"] if KEEP_FAM is None or f in KEEP_FAM]
 MODES = {"unlimited": "open", "limited": "closed"}
 NAMES = {"codex-gpt6_astra-high": ("GPT-6 Astra", "OpenAI", "Codex", "high"),
          "codex-gpt6_luna-xhigh": ("GPT-6 Luna", "OpenAI", "Codex", "xhigh")}
@@ -25,7 +29,7 @@ for f in sorted(SRC.glob("*.json")):
     model, org, harness, effort = NAMES.get(d["run"], (d["run"], "", "", ""))
     tasks = {}
     for t, slots in d["tasks"].items():
-        if t not in works:
+        if t not in works or works[t]["family"] not in FAMILIES:
             continue
         tasks[t] = {}
         for slot, r in slots.items():
@@ -42,6 +46,6 @@ for f in sorted(SRC.glob("*.json")):
     print(d["run"], {m: (a["solved"], a["of"], {k: v["solved"] for k, v in a["families"].items()}) for m, a in agg.items()})
 
 runs.sort(key=lambda r: -(r["summary"]["open"]["solved"] + r["summary"]["closed"]["solved"]))
-out = {"source": "the batch evaluation of 5 and 6 October 2026: Codex with each model, one attempt per work and mode",
+out = {"source": "the batch evaluation of 5 and 6 October 2026: Codex with each model, one attempt per work and mode", "families": FAMILIES,
        "runs": runs}
 (ROOT / "assets" / "data" / "results.json").write_text(json.dumps(out, ensure_ascii=False, separators=(",", ":")) + "\n")

@@ -1,660 +1,22 @@
 {
  "works": [
   {
-   "id": "kaishu_ai",
+   "id": "kaishu_linfengguilong",
    "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 13,
-   "budget": 13,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 13,
-    "max_path_mm": 2210.0,
-    "min_mark_width_mm": 1.67
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "愛",
-   "chars": "愛",
-   "structure": "top-bottom",
-   "characters": 1,
-   "reading": "ài",
-   "gloss": "love",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_ai/target.webp",
-    "painted": "assets/media/works/kaishu_ai/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.914602,
-    "iou": 0.914602,
-    "boundary_f": 0.933983,
-    "n_strokes": 13.0,
-    "path_mm": 735.33,
-    "mark_width_mm": 5.5738,
-    "n_dips": 13.0,
-    "n_actions": 2591,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_chun",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 9,
-   "budget": 9,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 9,
-    "max_path_mm": 2030.0,
-    "min_mark_width_mm": 2.04
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "春",
-   "chars": "春",
-   "structure": "top-bottom",
-   "characters": 1,
-   "reading": "chūn",
-   "gloss": "spring",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_chun/target.webp",
-    "painted": "assets/media/works/kaishu_chun/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.936302,
-    "iou": 0.936302,
-    "boundary_f": 0.937961,
-    "n_strokes": 9.0,
-    "path_mm": 676.56,
-    "mark_width_mm": 6.8264,
-    "n_dips": 9.0,
-    "n_actions": 2032,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_da",
-   "family": "kaishu",
-   "difficulty": "medium",
-   "medium": "calligraphy",
-   "strokes": 3,
-   "budget": 3,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 3,
-    "max_path_mm": 1020.0,
-    "min_mark_width_mm": 2.44
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "大",
-   "chars": "大",
-   "structure": "single",
-   "characters": 1,
-   "reading": "dà",
-   "gloss": "great",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_da/target.webp",
-    "painted": "assets/media/works/kaishu_da/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.964269,
-    "iou": 0.964269,
-    "boundary_f": 0.971071,
-    "n_strokes": 3.0,
-    "path_mm": 339.29,
-    "mark_width_mm": 8.1531,
-    "n_dips": 3.0,
-    "n_actions": 867,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_dao",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 12,
-   "budget": 12,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 12,
-    "max_path_mm": 2120.0,
-    "min_mark_width_mm": 1.75
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "道",
-   "chars": "道",
-   "structure": "enclosure",
-   "characters": 1,
-   "reading": "dào",
-   "gloss": "the way",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_dao/target.webp",
-    "painted": "assets/media/works/kaishu_dao/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.92609,
-    "iou": 0.92609,
-    "boundary_f": 0.953024,
-    "n_strokes": 12.0,
-    "path_mm": 705.78,
-    "mark_width_mm": 5.8462,
-    "n_dips": 12.0,
-    "n_actions": 2438,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_de",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 15,
-   "budget": 15,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 15,
-    "max_path_mm": 2340.0,
-    "min_mark_width_mm": 1.86
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "德",
-   "chars": "德",
-   "structure": "left-right",
-   "characters": 1,
-   "reading": "dé",
-   "gloss": "virtue",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_de/target.webp",
-    "painted": "assets/media/works/kaishu_de/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.917852,
-    "iou": 0.917852,
-    "boundary_f": 0.935748,
-    "n_strokes": 15.0,
-    "path_mm": 777.62,
-    "mark_width_mm": 6.2216,
-    "n_dips": 15.0,
-    "n_actions": 2936,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_feng",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 14,
-   "budget": 14,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 14,
-    "max_path_mm": 2680.0,
-    "min_mark_width_mm": 1.8
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "鳳",
-   "chars": "鳳",
-   "structure": "enclosure",
-   "characters": 1,
-   "reading": "fèng",
-   "gloss": "phoenix",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_feng/target.webp",
-    "painted": "assets/media/works/kaishu_feng/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.910316,
-    "iou": 0.910316,
-    "boundary_f": 0.928784,
-    "n_strokes": 14.0,
-    "path_mm": 892.56,
-    "mark_width_mm": 6.0199,
-    "n_dips": 14.0,
-    "n_actions": 2834,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_fu",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 13,
-   "budget": 13,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 13,
-    "max_path_mm": 2260.0,
-    "min_mark_width_mm": 1.85
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "福",
-   "chars": "福",
-   "structure": "left-right",
-   "characters": 1,
-   "reading": "fú",
-   "gloss": "good fortune",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_fu/target.webp",
-    "painted": "assets/media/works/kaishu_fu/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.926,
-    "iou": 0.926,
-    "boundary_f": 0.949587,
-    "n_strokes": 13.0,
-    "path_mm": 751.65,
-    "mark_width_mm": 6.1951,
-    "n_dips": 13.0,
-    "n_actions": 2645,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_guo",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 11,
-   "budget": 11,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 11,
-    "max_path_mm": 2550.0,
-    "min_mark_width_mm": 1.85
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "國",
-   "chars": "國",
-   "structure": "enclosure",
-   "characters": 1,
-   "reading": "guó",
-   "gloss": "country",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_guo/target.webp",
-    "painted": "assets/media/works/kaishu_guo/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.933156,
-    "iou": 0.933156,
-    "boundary_f": 0.950767,
-    "n_strokes": 11.0,
-    "path_mm": 847.73,
-    "mark_width_mm": 6.1952,
-    "n_dips": 11.0,
-    "n_actions": 2450,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_he",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 8,
-   "budget": 8,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 8,
-    "max_path_mm": 1650.0,
-    "min_mark_width_mm": 2.04
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "和",
-   "chars": "和",
-   "structure": "left-right",
-   "characters": 1,
-   "reading": "hé",
-   "gloss": "harmony",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_he/target.webp",
-    "painted": "assets/media/works/kaishu_he/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.93569,
-    "iou": 0.93569,
-    "boundary_f": 0.939967,
-    "n_strokes": 8.0,
-    "path_mm": 547.85,
-    "mark_width_mm": 6.816,
-    "n_dips": 8.0,
-    "n_actions": 1728,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_houdezaiwu",
-   "family": "kaishu",
+   "version": "i00",
    "difficulty": "extreme",
    "medium": "calligraphy",
-   "strokes": 45,
-   "budget": 45,
+   "strokes": 71,
+   "budget": 71,
    "rule": {
     "iou": 0.8,
     "boundary_f": 0.75,
     "min_stroke_coverage": 0.8,
     "max_stray_frac": 0.04,
     "register_mm": 5.0,
-    "max_strokes": 45,
-    "max_path_mm": 5460.0,
-    "min_mark_width_mm": 1.29
+    "max_strokes": 71,
+    "max_path_mm": 7880.0,
+    "min_mark_width_mm": 0.99
    },
    "brush": {
     "model": "wang2020",
@@ -684,1526 +46,43 @@
    "palette": [
     "#131214"
    ],
-   "title": "厚德載物",
-   "chars": "厚德載物",
+   "title": "麟鳳龜龍",
+   "chars": "麟鳳龜龍",
    "structure": "work",
    "characters": 4,
-   "reading": "hòu dé zài wù",
-   "gloss": "great virtue carries all things",
+   "reading": "lín fèng guī lóng",
+   "gloss": "unicorn, phoenix, tortoise, dragon",
    "script": "楷書 regular script",
    "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
    "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_houdezaiwu/target.webp",
-    "painted": "assets/media/works/kaishu_houdezaiwu/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.865621,
-    "iou": 0.865621,
-    "boundary_f": 0.921127,
-    "n_strokes": 45.0,
-    "path_mm": 1819.82,
-    "mark_width_mm": 4.3146,
-    "n_dips": 45.0,
-    "n_actions": 8188,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_hua",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 7,
-   "budget": 7,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 7,
-    "max_path_mm": 1690.0,
-    "min_mark_width_mm": 2.15
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
+   "view": [
+    0.0142,
+    0.0015,
+    0.9955,
+    0.9799
    ],
-   "title": "花",
-   "chars": "花",
-   "structure": "top-bottom",
-   "characters": 1,
-   "reading": "huā",
-   "gloss": "flower",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
+   "aspect": 1.003,
    "media": {
-    "target": "assets/media/works/kaishu_hua/target.webp",
-    "painted": "assets/media/works/kaishu_hua/painted.webp"
+    "target": "assets/media/works/kaishu_linfengguilong/target.webp",
+    "painted": "assets/media/works/kaishu_linfengguilong/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.924319,
-    "iou": 0.924319,
-    "boundary_f": 0.937423,
-    "n_strokes": 7.0,
-    "path_mm": 561.68,
-    "mark_width_mm": 7.1742,
-    "n_dips": 7.0,
-    "n_actions": 1646,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_jia",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 10,
-   "budget": 10,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 10,
-    "max_path_mm": 1890.0,
-    "min_mark_width_mm": 2.02
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "家",
-   "chars": "家",
-   "structure": "top-bottom",
-   "characters": 1,
-   "reading": "jiā",
-   "gloss": "home",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_jia/target.webp",
-    "painted": "assets/media/works/kaishu_jia/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.928302,
-    "iou": 0.928302,
-    "boundary_f": 0.931476,
-    "n_strokes": 10.0,
-    "path_mm": 628.63,
-    "mark_width_mm": 6.7554,
-    "n_dips": 10.0,
-    "n_actions": 2090,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_jiang",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 6,
-   "budget": 6,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 6,
-    "max_path_mm": 1010.0,
-    "min_mark_width_mm": 2.33
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "江",
-   "chars": "江",
-   "structure": "left-right",
-   "characters": 1,
-   "reading": "jiāng",
-   "gloss": "river",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_jiang/target.webp",
-    "painted": "assets/media/works/kaishu_jiang/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.937129,
-    "iou": 0.937129,
-    "boundary_f": 0.940914,
-    "n_strokes": 6.0,
-    "path_mm": 335.75,
-    "mark_width_mm": 7.7963,
-    "n_dips": 6.0,
-    "n_actions": 1242,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_jing",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 16,
-   "budget": 16,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 16,
-    "max_path_mm": 2680.0,
-    "min_mark_width_mm": 1.63
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "靜",
-   "chars": "靜",
-   "structure": "left-right",
-   "characters": 1,
-   "reading": "jìng",
-   "gloss": "stillness",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_jing/target.webp",
-    "painted": "assets/media/works/kaishu_jing/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.906872,
-    "iou": 0.906872,
-    "boundary_f": 0.934142,
-    "n_strokes": 16.0,
-    "path_mm": 892.33,
-    "mark_width_mm": 5.4536,
-    "n_dips": 16.0,
-    "n_actions": 3163,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_kou",
-   "family": "kaishu",
-   "difficulty": "medium",
-   "medium": "calligraphy",
-   "strokes": 3,
-   "budget": 3,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 3,
-    "max_path_mm": 880.0,
-    "min_mark_width_mm": 2.33
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "口",
-   "chars": "口",
-   "structure": "single",
-   "characters": 1,
-   "reading": "kǒu",
-   "gloss": "mouth",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_kou/target.webp",
-    "painted": "assets/media/works/kaishu_kou/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.952023,
-    "iou": 0.952023,
-    "boundary_f": 0.952536,
-    "n_strokes": 3.0,
-    "path_mm": 290.22,
-    "mark_width_mm": 7.7726,
-    "n_dips": 3.0,
-    "n_actions": 785,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_le",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 15,
-   "budget": 15,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 15,
-    "max_path_mm": 2660.0,
-    "min_mark_width_mm": 1.72
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "樂",
-   "chars": "樂",
-   "structure": "top-bottom",
-   "characters": 1,
-   "reading": "lè",
-   "gloss": "joy",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_le/target.webp",
-    "painted": "assets/media/works/kaishu_le/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.910598,
-    "iou": 0.910598,
-    "boundary_f": 0.92553,
-    "n_strokes": 15.0,
-    "path_mm": 885.73,
-    "mark_width_mm": 5.7563,
-    "n_dips": 15.0,
-    "n_actions": 3065,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_lin",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 8,
-   "budget": 8,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 8,
-    "max_path_mm": 1780.0,
-    "min_mark_width_mm": 2.11
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "林",
-   "chars": "林",
-   "structure": "left-right",
-   "characters": 1,
-   "reading": "lín",
-   "gloss": "forest",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_lin/target.webp",
-    "painted": "assets/media/works/kaishu_lin/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.946944,
-    "iou": 0.946944,
-    "boundary_f": 0.95901,
-    "n_strokes": 8.0,
-    "path_mm": 591.64,
-    "mark_width_mm": 7.0596,
-    "n_dips": 8.0,
-    "n_actions": 1804,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_long",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 16,
-   "budget": 16,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 16,
-    "max_path_mm": 2510.0,
-    "min_mark_width_mm": 1.77
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "龍",
-   "chars": "龍",
-   "structure": "left-right",
-   "characters": 1,
-   "reading": "lóng",
-   "gloss": "dragon",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_long/target.webp",
-    "painted": "assets/media/works/kaishu_long/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.919028,
-    "iou": 0.919028,
-    "boundary_f": 0.946027,
-    "n_strokes": 16.0,
-    "path_mm": 834.51,
-    "mark_width_mm": 5.9077,
-    "n_dips": 16.0,
-    "n_actions": 3118,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_ma",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 10,
-   "budget": 10,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 10,
-    "max_path_mm": 1740.0,
-    "min_mark_width_mm": 2.02
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "馬",
-   "chars": "馬",
-   "structure": "single",
-   "characters": 1,
-   "reading": "mǎ",
-   "gloss": "horse",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_ma/target.webp",
-    "painted": "assets/media/works/kaishu_ma/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.908079,
-    "iou": 0.908079,
-    "boundary_f": 0.914575,
-    "n_strokes": 10.0,
-    "path_mm": 577.01,
-    "mark_width_mm": 6.753,
-    "n_dips": 10.0,
-    "n_actions": 2019,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_ming",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 8,
-   "budget": 8,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 8,
-    "max_path_mm": 1840.0,
-    "min_mark_width_mm": 2.0
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "明",
-   "chars": "明",
-   "structure": "left-right",
-   "characters": 1,
-   "reading": "míng",
-   "gloss": "bright",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_ming/target.webp",
-    "painted": "assets/media/works/kaishu_ming/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.930895,
-    "iou": 0.930895,
-    "boundary_f": 0.935763,
-    "n_strokes": 8.0,
-    "path_mm": 612.11,
-    "mark_width_mm": 6.6704,
-    "n_dips": 8.0,
-    "n_actions": 1804,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_ningjingzhiyuan",
-   "family": "kaishu",
-   "difficulty": "extreme",
-   "medium": "calligraphy",
-   "strokes": 53,
-   "budget": 53,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 53,
-    "max_path_mm": 5770.0,
-    "min_mark_width_mm": 1.2
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "寧靜致遠",
-   "chars": "寧靜致遠",
-   "structure": "work",
-   "characters": 4,
-   "reading": "níng jìng zhì yuǎn",
-   "gloss": "calm reaches far",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_ningjingzhiyuan/target.webp",
-    "painted": "assets/media/works/kaishu_ningjingzhiyuan/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.853875,
-    "iou": 0.853875,
-    "boundary_f": 0.916467,
-    "n_strokes": 53.0,
-    "path_mm": 1920.14,
-    "mark_width_mm": 4.0225,
-    "n_dips": 53.0,
-    "n_actions": 9446,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_qing",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 11,
-   "budget": 11,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 11,
-    "max_path_mm": 1930.0,
-    "min_mark_width_mm": 1.9
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "清",
-   "chars": "清",
-   "structure": "left-right",
-   "characters": 1,
-   "reading": "qīng",
-   "gloss": "clear",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_qing/target.webp",
-    "painted": "assets/media/works/kaishu_qing/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.930058,
-    "iou": 0.930058,
-    "boundary_f": 0.9508,
-    "n_strokes": 11.0,
-    "path_mm": 642.09,
-    "mark_width_mm": 6.3437,
-    "n_dips": 11.0,
-    "n_actions": 2238,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_ran",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 12,
-   "budget": 12,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 12,
-    "max_path_mm": 1700.0,
-    "min_mark_width_mm": 1.89
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "然",
-   "chars": "然",
-   "structure": "top-bottom",
-   "characters": 1,
-   "reading": "rán",
-   "gloss": "so it is",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_ran/target.webp",
-    "painted": "assets/media/works/kaishu_ran/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.923986,
-    "iou": 0.923986,
-    "boundary_f": 0.941523,
-    "n_strokes": 12.0,
-    "path_mm": 566.3,
-    "mark_width_mm": 6.3291,
-    "n_dips": 12.0,
-    "n_actions": 2274,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_ren",
-   "family": "kaishu",
-   "difficulty": "medium",
-   "medium": "calligraphy",
-   "strokes": 2,
-   "budget": 2,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 2,
-    "max_path_mm": 720.0,
-    "min_mark_width_mm": 2.43
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "人",
-   "chars": "人",
-   "structure": "single",
-   "characters": 1,
-   "reading": "rén",
-   "gloss": "person",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_ren/target.webp",
-    "painted": "assets/media/works/kaishu_ren/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.963509,
-    "iou": 0.963509,
-    "boundary_f": 0.974263,
-    "n_strokes": 2.0,
-    "path_mm": 237.25,
-    "mark_width_mm": 8.1322,
-    "n_dips": 2.0,
-    "n_actions": 597,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_shan",
-   "family": "kaishu",
-   "difficulty": "medium",
-   "medium": "calligraphy",
-   "strokes": 3,
-   "budget": 3,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 3,
-    "max_path_mm": 990.0,
-    "min_mark_width_mm": 2.19
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "山",
-   "chars": "山",
-   "structure": "single",
-   "characters": 1,
-   "reading": "shān",
-   "gloss": "mountain",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_shan/target.webp",
-    "painted": "assets/media/works/kaishu_shan/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.941761,
-    "iou": 0.941761,
-    "boundary_f": 0.96298,
-    "n_strokes": 3.0,
-    "path_mm": 328.89,
-    "mark_width_mm": 7.3095,
-    "n_dips": 3.0,
-    "n_actions": 854,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_shu",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 10,
-   "budget": 10,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 10,
-    "max_path_mm": 2380.0,
-    "min_mark_width_mm": 1.79
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "書",
-   "chars": "書",
-   "structure": "top-bottom",
-   "characters": 1,
-   "reading": "shū",
-   "gloss": "writing",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_shu/target.webp",
-    "painted": "assets/media/works/kaishu_shu/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.932667,
-    "iou": 0.932667,
-    "boundary_f": 0.953845,
-    "n_strokes": 10.0,
-    "path_mm": 791.79,
-    "mark_width_mm": 5.9766,
-    "n_dips": 10.0,
-    "n_actions": 2309,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_shui",
-   "family": "kaishu",
-   "difficulty": "medium",
-   "medium": "calligraphy",
-   "strokes": 4,
-   "budget": 4,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 4,
-    "max_path_mm": 1290.0,
-    "min_mark_width_mm": 2.17
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "水",
-   "chars": "水",
-   "structure": "single",
-   "characters": 1,
-   "reading": "shuǐ",
-   "gloss": "water",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_shui/target.webp",
-    "painted": "assets/media/works/kaishu_shui/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.935654,
-    "iou": 0.935654,
-    "boundary_f": 0.942611,
-    "n_strokes": 4.0,
-    "path_mm": 429.09,
-    "mark_width_mm": 7.2354,
-    "n_dips": 4.0,
-    "n_actions": 1092,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_tian",
-   "family": "kaishu",
-   "difficulty": "medium",
-   "medium": "calligraphy",
-   "strokes": 4,
-   "budget": 4,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 4,
-    "max_path_mm": 1170.0,
-    "min_mark_width_mm": 2.29
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "天",
-   "chars": "天",
-   "structure": "single",
-   "characters": 1,
-   "reading": "tiān",
-   "gloss": "sky",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_tian/target.webp",
-    "painted": "assets/media/works/kaishu_tian/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.964824,
-    "iou": 0.964824,
-    "boundary_f": 0.975356,
-    "n_strokes": 4.0,
-    "path_mm": 387.2,
-    "mark_width_mm": 7.6422,
-    "n_dips": 4.0,
-    "n_actions": 1038,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_tiandaochouqin",
-   "family": "kaishu",
-   "difficulty": "extreme",
-   "medium": "calligraphy",
-   "strokes": 42,
-   "budget": 42,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 42,
-    "max_path_mm": 5190.0,
-    "min_mark_width_mm": 1.25
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "天道酬勤",
-   "chars": "天道酬勤",
-   "structure": "work",
-   "characters": 4,
-   "reading": "tiān dào chóu qín",
-   "gloss": "heaven rewards diligence",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_tiandaochouqin/target.webp",
-    "painted": "assets/media/works/kaishu_tiandaochouqin/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.879188,
-    "iou": 0.879188,
-    "boundary_f": 0.936895,
-    "n_strokes": 42.0,
-    "path_mm": 1729.85,
-    "mark_width_mm": 4.1781,
-    "n_dips": 42.0,
-    "n_actions": 7462,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_xin",
-   "family": "kaishu",
-   "difficulty": "medium",
-   "medium": "calligraphy",
-   "strokes": 4,
-   "budget": 4,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 4,
-    "max_path_mm": 790.0,
-    "min_mark_width_mm": 2.31
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "心",
-   "chars": "心",
-   "structure": "single",
-   "characters": 1,
-   "reading": "xīn",
-   "gloss": "heart",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_xin/target.webp",
-    "painted": "assets/media/works/kaishu_xin/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.92284,
-    "iou": 0.92284,
-    "boundary_f": 0.918825,
-    "n_strokes": 4.0,
-    "path_mm": 262.43,
-    "mark_width_mm": 7.7224,
-    "n_dips": 4.0,
-    "n_actions": 900,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_yong",
-   "family": "kaishu",
-   "difficulty": "medium",
-   "medium": "calligraphy",
-   "strokes": 5,
-   "budget": 5,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 5,
-    "max_path_mm": 1430.0,
-    "min_mark_width_mm": 1.99
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "永",
-   "chars": "永",
-   "structure": "single",
-   "characters": 1,
-   "reading": "yǒng",
-   "gloss": "eternal",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_yong/target.webp",
-    "painted": "assets/media/works/kaishu_yong/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.939282,
-    "iou": 0.939282,
-    "boundary_f": 0.953278,
-    "n_strokes": 5.0,
-    "path_mm": 474.32,
-    "mark_width_mm": 6.6597,
-    "n_dips": 5.0,
-    "n_actions": 1248,
+    "final_reward": 0.907927,
+    "iou": 0.907927,
+    "boundary_f": 0.975664,
+    "n_strokes": 71.0,
+    "path_mm": 2827.85,
+    "mark_width_mm": 3.0663,
+    "n_dips": 71.0,
+    "n_actions": 12844,
     "register_shift_mm": 0.0
    }
   },
   {
    "id": "kaishu_yongzibafa",
    "family": "kaishu",
+   "version": "i00",
    "difficulty": "extreme",
    "medium": "calligraphy",
    "strokes": 21,
@@ -2255,310 +134,34 @@
    "script": "楷書 regular script",
    "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
    "license": "Arphic Public License",
+   "view": [
+    0.0211,
+    0.0171,
+    0.9829,
+    0.976
+   ],
+   "aspect": 1.003,
    "media": {
     "target": "assets/media/works/kaishu_yongzibafa/target.webp",
     "painted": "assets/media/works/kaishu_yongzibafa/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.890676,
-    "iou": 0.890676,
-    "boundary_f": 0.941281,
+    "final_reward": 0.939714,
+    "iou": 0.939714,
+    "boundary_f": 0.988267,
     "n_strokes": 21.0,
-    "path_mm": 1074.71,
-    "mark_width_mm": 4.4726,
+    "path_mm": 1269.88,
+    "mark_width_mm": 3.7122,
     "n_dips": 21.0,
-    "n_actions": 4105,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_yue",
-   "family": "kaishu",
-   "difficulty": "medium",
-   "medium": "calligraphy",
-   "strokes": 4,
-   "budget": 4,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 4,
-    "max_path_mm": 1200.0,
-    "min_mark_width_mm": 2.05
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "月",
-   "chars": "月",
-   "structure": "single",
-   "characters": 1,
-   "reading": "yuè",
-   "gloss": "moon",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_yue/target.webp",
-    "painted": "assets/media/works/kaishu_yue/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.930989,
-    "iou": 0.930989,
-    "boundary_f": 0.934357,
-    "n_strokes": 4.0,
-    "path_mm": 399.22,
-    "mark_width_mm": 6.859,
-    "n_dips": 4.0,
-    "n_actions": 1036,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_zhong",
-   "family": "kaishu",
-   "difficulty": "medium",
-   "medium": "calligraphy",
-   "strokes": 4,
-   "budget": 4,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 4,
-    "max_path_mm": 1210.0,
-    "min_mark_width_mm": 2.03
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "中",
-   "chars": "中",
-   "structure": "single",
-   "characters": 1,
-   "reading": "zhōng",
-   "gloss": "middle",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_zhong/target.webp",
-    "painted": "assets/media/works/kaishu_zhong/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.943972,
-    "iou": 0.943972,
-    "boundary_f": 0.960295,
-    "n_strokes": 4.0,
-    "path_mm": 401.25,
-    "mark_width_mm": 6.7671,
-    "n_dips": 4.0,
-    "n_actions": 1053,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "kaishu_zi",
-   "family": "kaishu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 6,
-   "budget": 6,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 6,
-    "max_path_mm": 1510.0,
-    "min_mark_width_mm": 1.91
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "字",
-   "chars": "字",
-   "structure": "top-bottom",
-   "characters": 1,
-   "reading": "zì",
-   "gloss": "character",
-   "script": "楷書 regular script",
-   "source": "AR PL UKai (Arphic), via Make Me a Hanzi",
-   "license": "Arphic Public License",
-   "media": {
-    "target": "assets/media/works/kaishu_zi/target.webp",
-    "painted": "assets/media/works/kaishu_zi/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.930036,
-    "iou": 0.930036,
-    "boundary_f": 0.957259,
-    "n_strokes": 6.0,
-    "path_mm": 500.62,
-    "mark_width_mm": 6.3822,
-    "n_dips": 6.0,
-    "n_actions": 1433,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "xingshu_chun",
-   "family": "xingshu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 7,
-   "budget": 7,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 7,
-    "max_path_mm": 2050.0,
-    "min_mark_width_mm": 1.65
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "春",
-   "chars": "春",
-   "structure": "top-bottom",
-   "characters": 1,
-   "reading": "chūn",
-   "gloss": "spring",
-   "script": "行書 running script",
-   "source": "a public-domain rubbing of running-script calligraphy (Wikimedia Commons)",
-   "license": "Public domain",
-   "media": {
-    "target": "assets/media/works/xingshu_chun/target.webp",
-    "painted": "assets/media/works/xingshu_chun/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.879321,
-    "iou": 0.879321,
-    "boundary_f": 0.859146,
-    "n_strokes": 7.0,
-    "path_mm": 682.84,
-    "mark_width_mm": 5.5128,
-    "n_dips": 7.0,
-    "n_actions": 1723,
+    "n_actions": 4400,
     "register_shift_mm": 0.0
    }
   },
   {
    "id": "xingshu_feng",
    "family": "xingshu",
+   "version": "i00",
    "difficulty": "hard",
    "medium": "calligraphy",
    "strokes": 6,
@@ -2610,26 +213,34 @@
    "script": "行書 running script",
    "source": "a public-domain rubbing of running-script calligraphy (Wikimedia Commons)",
    "license": "Public domain",
+   "view": [
+    0.1851,
+    0.1744,
+    0.811,
+    0.8217
+   ],
+   "aspect": 0.9669,
    "media": {
     "target": "assets/media/works/xingshu_feng/target.webp",
     "painted": "assets/media/works/xingshu_feng/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.928588,
-    "iou": 0.928588,
-    "boundary_f": 0.905258,
+    "final_reward": 0.938257,
+    "iou": 0.938257,
+    "boundary_f": 0.931487,
     "n_strokes": 6.0,
-    "path_mm": 714.33,
-    "mark_width_mm": 8.0852,
+    "path_mm": 1180.87,
+    "mark_width_mm": 4.9996,
     "n_dips": 6.0,
-    "n_actions": 1676,
+    "n_actions": 2211,
     "register_shift_mm": 0.0
    }
   },
   {
    "id": "xingshu_he",
    "family": "xingshu",
+   "version": "i00",
    "difficulty": "hard",
    "medium": "calligraphy",
    "strokes": 6,
@@ -2681,26 +292,34 @@
    "script": "行書 running script",
    "source": "a public-domain rubbing of running-script calligraphy (Wikimedia Commons)",
    "license": "Public domain",
+   "view": [
+    0.1754,
+    0.2564,
+    0.8198,
+    0.7407
+   ],
+   "aspect": 1.3306,
    "media": {
     "target": "assets/media/works/xingshu_he/target.webp",
     "painted": "assets/media/works/xingshu_he/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.916448,
-    "iou": 0.916448,
-    "boundary_f": 0.83209,
+    "final_reward": 0.956833,
+    "iou": 0.956833,
+    "boundary_f": 0.957707,
     "n_strokes": 6.0,
-    "path_mm": 616.18,
-    "mark_width_mm": 6.4663,
+    "path_mm": 927.3,
+    "mark_width_mm": 4.5594,
     "n_dips": 6.0,
-    "n_actions": 1605,
+    "n_actions": 1925,
     "register_shift_mm": 0.0
    }
   },
   {
    "id": "xingshu_huifenghechang",
    "family": "xingshu",
+   "version": "i00",
    "difficulty": "extreme",
    "medium": "calligraphy",
    "strokes": 28,
@@ -2752,97 +371,34 @@
    "script": "行書 running script",
    "source": "a public-domain rubbing of running-script calligraphy (Wikimedia Commons)",
    "license": "Public domain",
+   "view": [
+    0.0318,
+    0.0308,
+    0.9467,
+    0.9672
+   ],
+   "aspect": 0.977,
    "media": {
     "target": "assets/media/works/xingshu_huifenghechang/target.webp",
     "painted": "assets/media/works/xingshu_huifenghechang/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.875407,
-    "iou": 0.875407,
-    "boundary_f": 0.901958,
+    "final_reward": 0.917102,
+    "iou": 0.917102,
+    "boundary_f": 0.96908,
     "n_strokes": 28.0,
-    "path_mm": 2017.45,
-    "mark_width_mm": 3.8501,
+    "path_mm": 2482.57,
+    "mark_width_mm": 3.0437,
     "n_dips": 28.0,
-    "n_actions": 6193,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "xingshu_jian",
-   "family": "xingshu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 8,
-   "budget": 8,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 8,
-    "max_path_mm": 2480.0,
-    "min_mark_width_mm": 2.66
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "閒",
-   "chars": "閒",
-   "structure": "enclosure",
-   "characters": 1,
-   "reading": "jiān",
-   "gloss": "between",
-   "script": "行書 running script",
-   "source": "a public-domain rubbing of running-script calligraphy (Wikimedia Commons)",
-   "license": "Public domain",
-   "media": {
-    "target": "assets/media/works/xingshu_jian/target.webp",
-    "painted": "assets/media/works/xingshu_jian/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.929062,
-    "iou": 0.929062,
-    "boundary_f": 0.898567,
-    "n_strokes": 8.0,
-    "path_mm": 823.55,
-    "mark_width_mm": 8.8799,
-    "n_dips": 8.0,
-    "n_actions": 2083,
+    "n_actions": 6699,
     "register_shift_mm": 0.0
    }
   },
   {
    "id": "xingshu_maolinxiuzhu",
    "family": "xingshu",
+   "version": "i00",
    "difficulty": "extreme",
    "medium": "calligraphy",
    "strokes": 21,
@@ -2894,26 +450,34 @@
    "script": "行書 running script",
    "source": "a public-domain rubbing of running-script calligraphy (Wikimedia Commons)",
    "license": "Public domain",
+   "view": [
+    0.0836,
+    0.0318,
+    0.937,
+    0.894
+   ],
+   "aspect": 0.9898,
    "media": {
     "target": "assets/media/works/xingshu_maolinxiuzhu/target.webp",
     "painted": "assets/media/works/xingshu_maolinxiuzhu/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.843998,
-    "iou": 0.843998,
-    "boundary_f": 0.896193,
+    "final_reward": 0.897937,
+    "iou": 0.897937,
+    "boundary_f": 0.9617,
     "n_strokes": 21.0,
-    "path_mm": 1051.33,
-    "mark_width_mm": 3.7591,
+    "path_mm": 1411.84,
+    "mark_width_mm": 2.785,
     "n_dips": 21.0,
-    "n_actions": 4137,
+    "n_actions": 4575,
     "register_shift_mm": 0.0
    }
   },
   {
    "id": "xingshu_nian",
    "family": "xingshu",
+   "version": "i00",
    "difficulty": "hard",
    "medium": "calligraphy",
    "strokes": 7,
@@ -2965,97 +529,34 @@
    "script": "行書 running script",
    "source": "a public-domain rubbing of running-script calligraphy (Wikimedia Commons)",
    "license": "Public domain",
+   "view": [
+    0.2632,
+    0.1705,
+    0.7289,
+    0.8217
+   ],
+   "aspect": 0.7151,
    "media": {
     "target": "assets/media/works/xingshu_nian/target.webp",
     "painted": "assets/media/works/xingshu_nian/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.936252,
-    "iou": 0.936252,
-    "boundary_f": 0.908542,
+    "final_reward": 0.957114,
+    "iou": 0.957114,
+    "boundary_f": 0.96329,
     "n_strokes": 7.0,
-    "path_mm": 591.11,
-    "mark_width_mm": 7.3406,
+    "path_mm": 1013.13,
+    "mark_width_mm": 4.587,
     "n_dips": 7.0,
-    "n_actions": 1668,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "xingshu_ren",
-   "family": "xingshu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 2,
-   "budget": 2,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 2,
-    "max_path_mm": 500.0,
-    "min_mark_width_mm": 2.54
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "人",
-   "chars": "人",
-   "structure": "single",
-   "characters": 1,
-   "reading": "rén",
-   "gloss": "person",
-   "script": "行書 running script",
-   "source": "a public-domain rubbing of running-script calligraphy (Wikimedia Commons)",
-   "license": "Public domain",
-   "media": {
-    "target": "assets/media/works/xingshu_ren/target.webp",
-    "painted": "assets/media/works/xingshu_ren/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.93743,
-    "iou": 0.93743,
-    "boundary_f": 0.944743,
-    "n_strokes": 2.0,
-    "path_mm": 163.39,
-    "mark_width_mm": 8.49,
-    "n_dips": 2.0,
-    "n_actions": 504,
+    "n_actions": 2111,
     "register_shift_mm": 0.0
    }
   },
   {
    "id": "xingshu_shan",
    "family": "xingshu",
+   "version": "i00",
    "difficulty": "hard",
    "medium": "calligraphy",
    "strokes": 4,
@@ -3107,168 +608,34 @@
    "script": "行書 running script",
    "source": "a public-domain rubbing of running-script calligraphy (Wikimedia Commons)",
    "license": "Public domain",
+   "view": [
+    0.1724,
+    0.2369,
+    0.8178,
+    0.7524
+   ],
+   "aspect": 1.252,
    "media": {
     "target": "assets/media/works/xingshu_shan/target.webp",
     "painted": "assets/media/works/xingshu_shan/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.939423,
-    "iou": 0.939423,
-    "boundary_f": 0.920254,
+    "final_reward": 0.970127,
+    "iou": 0.970127,
+    "boundary_f": 0.966258,
     "n_strokes": 4.0,
-    "path_mm": 398.66,
-    "mark_width_mm": 10.2125,
+    "path_mm": 607.57,
+    "mark_width_mm": 6.748,
     "n_dips": 4.0,
-    "n_actions": 1062,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "xingshu_tianlangqiqing",
-   "family": "xingshu",
-   "difficulty": "extreme",
-   "medium": "calligraphy",
-   "strokes": 29,
-   "budget": 29,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 29,
-    "max_path_mm": 4670.0,
-    "min_mark_width_mm": 1.1
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "天朗氣清",
-   "chars": "天朗氣清",
-   "structure": "work",
-   "characters": 4,
-   "reading": "tiān lǎng qì qīng",
-   "gloss": "the sky clear, the air fresh",
-   "script": "行書 running script",
-   "source": "a public-domain rubbing of running-script calligraphy (Wikimedia Commons)",
-   "license": "Public domain",
-   "media": {
-    "target": "assets/media/works/xingshu_tianlangqiqing/target.webp",
-    "painted": "assets/media/works/xingshu_tianlangqiqing/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.855743,
-    "iou": 0.855743,
-    "boundary_f": 0.918849,
-    "n_strokes": 29.0,
-    "path_mm": 1554.72,
-    "mark_width_mm": 3.6731,
-    "n_dips": 29.0,
-    "n_actions": 5692,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "xingshu_tong",
-   "family": "xingshu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 4,
-   "budget": 4,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 4,
-    "max_path_mm": 1800.0,
-    "min_mark_width_mm": 2.57
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "同",
-   "chars": "同",
-   "structure": "enclosure",
-   "characters": 1,
-   "reading": "tóng",
-   "gloss": "together",
-   "script": "行書 running script",
-   "source": "a public-domain rubbing of running-script calligraphy (Wikimedia Commons)",
-   "license": "Public domain",
-   "media": {
-    "target": "assets/media/works/xingshu_tong/target.webp",
-    "painted": "assets/media/works/xingshu_tong/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.900753,
-    "iou": 0.900753,
-    "boundary_f": 0.834365,
-    "n_strokes": 4.0,
-    "path_mm": 599.24,
-    "mark_width_mm": 8.5986,
-    "n_dips": 4.0,
-    "n_actions": 1261,
+    "n_actions": 1299,
     "register_shift_mm": 0.0
    }
   },
   {
    "id": "xingshu_xian",
    "family": "xingshu",
+   "version": "i00",
    "difficulty": "hard",
    "medium": "calligraphy",
    "strokes": 7,
@@ -3320,97 +687,34 @@
    "script": "行書 running script",
    "source": "a public-domain rubbing of running-script calligraphy (Wikimedia Commons)",
    "license": "Public domain",
+   "view": [
+    0.1841,
+    0.1724,
+    0.811,
+    0.8227
+   ],
+   "aspect": 0.964,
    "media": {
     "target": "assets/media/works/xingshu_xian/target.webp",
     "painted": "assets/media/works/xingshu_xian/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.887916,
-    "iou": 0.887916,
-    "boundary_f": 0.862037,
+    "final_reward": 0.933527,
+    "iou": 0.933527,
+    "boundary_f": 0.93768,
     "n_strokes": 7.0,
-    "path_mm": 875.16,
-    "mark_width_mm": 6.2931,
+    "path_mm": 1234.37,
+    "mark_width_mm": 4.5867,
     "n_dips": 7.0,
-    "n_actions": 1982,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "xingshu_xin",
-   "family": "xingshu",
-   "difficulty": "hard",
-   "medium": "calligraphy",
-   "strokes": 9,
-   "budget": 9,
-   "rule": {
-    "iou": 0.8,
-    "boundary_f": 0.75,
-    "min_stroke_coverage": 0.8,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 9,
-    "max_path_mm": 1730.0,
-    "min_mark_width_mm": 2.03
-   },
-   "brush": {
-    "model": "wang2020",
-    "width_cm": [
-     1.187,
-     -0.03
-    ],
-    "drag_cm": [
-     1.075,
-     0.138
-    ],
-    "offset_cm": [
-     -0.967,
-     2.109994,
-     -0.03600172699999993
-    ],
-    "z_max_cm": 1.5,
-    "k_w": 0.02,
-    "k_d": 0.02,
-    "theta_eps_m": 0.0001,
-    "theta_eps_contact_m": 0.001,
-    "bristle_m": 0.03,
-    "bristle_r": 0.0045,
-    "substep_m": 0.00025,
-    "substep_deg": 3.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "信",
-   "chars": "信",
-   "structure": "left-right",
-   "characters": 1,
-   "reading": "xìn",
-   "gloss": "trust",
-   "script": "行書 running script",
-   "source": "a public-domain rubbing of running-script calligraphy (Wikimedia Commons)",
-   "license": "Public domain",
-   "media": {
-    "target": "assets/media/works/xingshu_xin/target.webp",
-    "painted": "assets/media/works/xingshu_xin/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.895434,
-    "iou": 0.895434,
-    "boundary_f": 0.896564,
-    "n_strokes": 9.0,
-    "path_mm": 573.95,
-    "mark_width_mm": 6.7969,
-    "n_dips": 9.0,
-    "n_actions": 1947,
+    "n_actions": 2360,
     "register_shift_mm": 0.0
    }
   },
   {
    "id": "xingshu_yong",
    "family": "xingshu",
+   "version": "i00",
    "difficulty": "hard",
    "medium": "calligraphy",
    "strokes": 6,
@@ -3462,39 +766,47 @@
    "script": "行書 running script",
    "source": "a public-domain rubbing of running-script calligraphy (Wikimedia Commons)",
    "license": "Public domain",
+   "view": [
+    0.2007,
+    0.1744,
+    0.7954,
+    0.8237
+   ],
+   "aspect": 0.9159,
    "media": {
     "target": "assets/media/works/xingshu_yong/target.webp",
     "painted": "assets/media/works/xingshu_yong/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.902657,
-    "iou": 0.902657,
-    "boundary_f": 0.856643,
+    "final_reward": 0.94242,
+    "iou": 0.94242,
+    "boundary_f": 0.941258,
     "n_strokes": 6.0,
-    "path_mm": 482.77,
-    "mark_width_mm": 7.5283,
+    "path_mm": 726.04,
+    "mark_width_mm": 5.1401,
     "n_dips": 6.0,
-    "n_actions": 1394,
+    "n_actions": 1675,
     "register_shift_mm": 0.0
    }
   },
   {
-   "id": "xingshu_yu",
-   "family": "xingshu",
-   "difficulty": "hard",
+   "id": "caoshu_beiquelindanshui",
+   "family": "caoshu",
+   "version": "i00",
+   "difficulty": "extreme",
    "medium": "calligraphy",
-   "strokes": 7,
-   "budget": 7,
+   "strokes": 12,
+   "budget": 12,
    "rule": {
     "iou": 0.8,
     "boundary_f": 0.75,
     "min_stroke_coverage": 0.8,
     "max_stray_frac": 0.04,
     "register_mm": 5.0,
-    "max_strokes": 7,
-    "max_path_mm": 1620.0,
-    "min_mark_width_mm": 2.14
+    "max_strokes": 12,
+    "max_path_mm": 2680.0,
+    "min_mark_width_mm": 0.59
    },
    "brush": {
     "model": "wang2020",
@@ -3524,36 +836,281 @@
    "palette": [
     "#131214"
    ],
-   "title": "宇",
-   "chars": "宇",
-   "structure": "top-bottom",
-   "characters": 1,
-   "reading": "yǔ",
-   "gloss": "the universe",
-   "script": "行書 running script",
-   "source": "a public-domain rubbing of running-script calligraphy (Wikimedia Commons)",
+   "title": "北闕臨丹水",
+   "chars": "北闕臨丹水",
+   "structure": "work",
+   "characters": 5,
+   "reading": "běi què lín dān shuǐ",
+   "gloss": "the northern gate above the cinnabar water",
+   "script": "草書 cursive script",
+   "source": "張旭 Zhang Xu, 古詩四帖 Four Ancient Poems, a public-domain scan (Wikimedia Commons)",
    "license": "Public domain",
+   "view": [
+    0.2515,
+    0.0064,
+    0.7426,
+    0.9887
+   ],
+   "aspect": 0.4999,
    "media": {
-    "target": "assets/media/works/xingshu_yu/target.webp",
-    "painted": "assets/media/works/xingshu_yu/painted.webp"
+    "target": "assets/media/works/caoshu_beiquelindanshui/target.webp",
+    "painted": "assets/media/works/caoshu_beiquelindanshui/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.91428,
-    "iou": 0.91428,
-    "boundary_f": 0.920718,
-    "n_strokes": 7.0,
-    "path_mm": 538.49,
-    "mark_width_mm": 7.1412,
-    "n_dips": 7.0,
-    "n_actions": 1614,
+    "final_reward": 0.843925,
+    "iou": 0.843925,
+    "boundary_f": 0.971911,
+    "n_strokes": 12.0,
+    "path_mm": 890.83,
+    "mark_width_mm": 1.9841,
+    "n_dips": 12.0,
+    "n_actions": 2815,
     "register_shift_mm": 0.0
    }
   },
   {
-   "id": "xingshu_zhi",
-   "family": "xingshu",
-   "difficulty": "hard",
+   "id": "caoshu_nangong",
+   "family": "caoshu",
+   "version": "i00",
+   "difficulty": "extreme",
+   "medium": "calligraphy",
+   "strokes": 5,
+   "budget": 5,
+   "rule": {
+    "iou": 0.8,
+    "boundary_f": 0.75,
+    "min_stroke_coverage": 0.8,
+    "max_stray_frac": 0.04,
+    "register_mm": 5.0,
+    "max_strokes": 5,
+    "max_path_mm": 2680.0,
+    "min_mark_width_mm": 0.93
+   },
+   "brush": {
+    "model": "wang2020",
+    "width_cm": [
+     1.187,
+     -0.03
+    ],
+    "drag_cm": [
+     1.075,
+     0.138
+    ],
+    "offset_cm": [
+     -0.967,
+     2.109994,
+     -0.03600172699999993
+    ],
+    "z_max_cm": 1.5,
+    "k_w": 0.02,
+    "k_d": 0.02,
+    "theta_eps_m": 0.0001,
+    "theta_eps_contact_m": 0.001,
+    "bristle_m": 0.03,
+    "bristle_r": 0.0045,
+    "substep_m": 0.00025,
+    "substep_deg": 3.0
+   },
+   "palette": [
+    "#131214"
+   ],
+   "title": "南宮",
+   "chars": "南宮",
+   "structure": "work",
+   "characters": 2,
+   "reading": "nán gōng",
+   "gloss": "the southern palace",
+   "script": "草書 cursive script",
+   "source": "張旭 Zhang Xu, 古詩四帖 Four Ancient Poems, a public-domain scan (Wikimedia Commons)",
+   "license": "Public domain",
+   "view": [
+    0.2517,
+    0.0523,
+    0.7219,
+    0.9926
+   ],
+   "aspect": 0.5001,
+   "media": {
+    "target": "assets/media/works/caoshu_nangong/target.webp",
+    "painted": "assets/media/works/caoshu_nangong/painted.webp"
+   },
+   "reference": {
+    "success": 1,
+    "final_reward": 0.918363,
+    "iou": 0.918363,
+    "boundary_f": 0.983667,
+    "n_strokes": 5.0,
+    "path_mm": 890.14,
+    "mark_width_mm": 3.1149,
+    "n_dips": 5.0,
+    "n_actions": 1938,
+    "register_shift_mm": 0.0
+   }
+  },
+  {
+   "id": "caoshu_siwushaonian",
+   "family": "caoshu",
+   "version": "i00",
+   "difficulty": "extreme",
+   "medium": "calligraphy",
+   "strokes": 8,
+   "budget": 8,
+   "rule": {
+    "iou": 0.8,
+    "boundary_f": 0.75,
+    "min_stroke_coverage": 0.8,
+    "max_stray_frac": 0.04,
+    "register_mm": 5.0,
+    "max_strokes": 8,
+    "max_path_mm": 1930.0,
+    "min_mark_width_mm": 0.79
+   },
+   "brush": {
+    "model": "wang2020",
+    "width_cm": [
+     1.187,
+     -0.03
+    ],
+    "drag_cm": [
+     1.075,
+     0.138
+    ],
+    "offset_cm": [
+     -0.967,
+     2.109994,
+     -0.03600172699999993
+    ],
+    "z_max_cm": 1.5,
+    "k_w": 0.02,
+    "k_d": 0.02,
+    "theta_eps_m": 0.0001,
+    "theta_eps_contact_m": 0.001,
+    "bristle_m": 0.03,
+    "bristle_r": 0.0045,
+    "substep_m": 0.00025,
+    "substep_deg": 3.0
+   },
+   "palette": [
+    "#131214"
+   ],
+   "title": "四五少年",
+   "chars": "四五少年",
+   "structure": "work",
+   "characters": 4,
+   "reading": "sì wǔ shào nián",
+   "gloss": "four or five young men",
+   "script": "草書 cursive script",
+   "source": "張旭 Zhang Xu, 古詩四帖 Four Ancient Poems, a public-domain scan (Wikimedia Commons)",
+   "license": "Public domain",
+   "view": [
+    0.253,
+    0.0064,
+    0.7461,
+    0.9926
+   ],
+   "aspect": 0.5,
+   "media": {
+    "target": "assets/media/works/caoshu_siwushaonian/target.webp",
+    "painted": "assets/media/works/caoshu_siwushaonian/painted.webp"
+   },
+   "reference": {
+    "success": 1,
+    "final_reward": 0.894482,
+    "iou": 0.894482,
+    "boundary_f": 0.978316,
+    "n_strokes": 8.0,
+    "path_mm": 640.73,
+    "mark_width_mm": 2.6625,
+    "n_dips": 8.0,
+    "n_actions": 1971,
+    "register_shift_mm": 0.0
+   }
+  },
+  {
+   "id": "caoshu_wen",
+   "family": "caoshu",
+   "version": "i00",
+   "difficulty": "extreme",
+   "medium": "calligraphy",
+   "strokes": 2,
+   "budget": 2,
+   "rule": {
+    "iou": 0.8,
+    "boundary_f": 0.75,
+    "min_stroke_coverage": 0.8,
+    "max_stray_frac": 0.04,
+    "register_mm": 5.0,
+    "max_strokes": 2,
+    "max_path_mm": 810.0,
+    "min_mark_width_mm": 1.37
+   },
+   "brush": {
+    "model": "wang2020",
+    "width_cm": [
+     1.187,
+     -0.03
+    ],
+    "drag_cm": [
+     1.075,
+     0.138
+    ],
+    "offset_cm": [
+     -0.967,
+     2.109994,
+     -0.03600172699999993
+    ],
+    "z_max_cm": 1.5,
+    "k_w": 0.02,
+    "k_d": 0.02,
+    "theta_eps_m": 0.0001,
+    "theta_eps_contact_m": 0.001,
+    "bristle_m": 0.03,
+    "bristle_r": 0.0045,
+    "substep_m": 0.00025,
+    "substep_deg": 3.0
+   },
+   "palette": [
+    "#131214"
+   ],
+   "title": "文",
+   "chars": "文",
+   "structure": "single",
+   "characters": 1,
+   "reading": "wén",
+   "gloss": "writing",
+   "script": "草書 cursive script",
+   "source": "張旭 Zhang Xu, 古詩四帖 Four Ancient Poems, a public-domain scan (Wikimedia Commons)",
+   "license": "Public domain",
+   "view": [
+    0.2974,
+    0.1754,
+    0.6996,
+    0.8237
+   ],
+   "aspect": 0.6204,
+   "media": {
+    "target": "assets/media/works/caoshu_wen/target.webp",
+    "painted": "assets/media/works/caoshu_wen/painted.webp"
+   },
+   "reference": {
+    "success": 1,
+    "final_reward": 0.912768,
+    "iou": 0.912768,
+    "boundary_f": 0.958417,
+    "n_strokes": 2.0,
+    "path_mm": 269.29,
+    "mark_width_mm": 4.5713,
+    "n_dips": 2.0,
+    "n_actions": 696,
+    "register_shift_mm": 0.0
+   }
+  },
+  {
+   "id": "caoshu_zhen",
+   "family": "caoshu",
+   "version": "i00",
+   "difficulty": "extreme",
    "medium": "calligraphy",
    "strokes": 3,
    "budget": 3,
@@ -3564,8 +1121,8 @@
     "max_stray_frac": 0.04,
     "register_mm": 5.0,
     "max_strokes": 3,
-    "max_path_mm": 1270.0,
-    "min_mark_width_mm": 2.45
+    "max_path_mm": 1610.0,
+    "min_mark_width_mm": 1.75
    },
    "brush": {
     "model": "wang2020",
@@ -3595,207 +1152,135 @@
    "palette": [
     "#131214"
    ],
-   "title": "之",
-   "chars": "之",
-   "structure": "single",
+   "title": "真",
+   "chars": "真",
+   "structure": "top-bottom",
    "characters": 1,
-   "reading": "zhī",
-   "gloss": "of",
-   "script": "行書 running script",
-   "source": "a public-domain rubbing of running-script calligraphy (Wikimedia Commons)",
+   "reading": "zhēn",
+   "gloss": "true",
+   "script": "草書 cursive script",
+   "source": "張旭 Zhang Xu, 古詩四帖 Four Ancient Poems, a public-domain scan (Wikimedia Commons)",
    "license": "Public domain",
+   "view": [
+    0.2935,
+    0.1754,
+    0.7045,
+    0.8217
+   ],
+   "aspect": 0.6359,
    "media": {
-    "target": "assets/media/works/xingshu_zhi/target.webp",
-    "painted": "assets/media/works/xingshu_zhi/painted.webp"
+    "target": "assets/media/works/caoshu_zhen/target.webp",
+    "painted": "assets/media/works/caoshu_zhen/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.908354,
-    "iou": 0.908354,
-    "boundary_f": 0.89341,
+    "final_reward": 0.940612,
+    "iou": 0.940612,
+    "boundary_f": 0.954513,
     "n_strokes": 3.0,
-    "path_mm": 421.15,
-    "mark_width_mm": 8.188,
+    "path_mm": 533.71,
+    "mark_width_mm": 5.856,
     "n_dips": 3.0,
-    "n_actions": 951,
+    "n_actions": 1110,
     "register_shift_mm": 0.0
    }
   },
   {
-   "id": "lettering_donum",
-   "family": "lettering",
-   "difficulty": "hard",
-   "medium": "broad_nib",
-   "strokes": 12,
-   "budget": 12,
+   "id": "caoshu_zhongtiangechuifen",
+   "family": "caoshu",
+   "version": "i00",
+   "difficulty": "extreme",
+   "medium": "calligraphy",
+   "strokes": 8,
+   "budget": 8,
    "rule": {
-    "iou": 0.86,
-    "boundary_f": 0.8,
-    "min_stroke_coverage": 0.75,
+    "iou": 0.8,
+    "boundary_f": 0.75,
+    "min_stroke_coverage": 0.8,
     "max_stray_frac": 0.04,
     "register_mm": 5.0,
-    "max_strokes": 12,
-    "max_path_mm": 910.0,
-    "min_mark_width_mm": 0.94
+    "max_strokes": 8,
+    "max_path_mm": 1580.0,
+    "min_mark_width_mm": 0.57
    },
    "brush": {
-    "model": "broad_nib",
-    "nib_width_m": 0.004,
-    "nib_thick_m": 0.0004,
-    "bristle_m": 0.006,
-    "bristle_r": 0.0021,
-    "substep_m": 0.0002,
-    "substep_deg": 2.0
+    "model": "wang2020",
+    "width_cm": [
+     1.187,
+     -0.03
+    ],
+    "drag_cm": [
+     1.075,
+     0.138
+    ],
+    "offset_cm": [
+     -0.967,
+     2.109994,
+     -0.03600172699999993
+    ],
+    "z_max_cm": 1.5,
+    "k_w": 0.02,
+    "k_d": 0.02,
+    "theta_eps_m": 0.0001,
+    "theta_eps_contact_m": 0.001,
+    "bristle_m": 0.03,
+    "bristle_r": 0.0045,
+    "substep_m": 0.00025,
+    "substep_deg": 3.0
    },
    "palette": [
     "#131214"
    ],
-   "title": "donum",
-   "hand": "uncial",
-   "hand_name": "Uncial",
-   "letters": 5,
-   "pen": "broad_nib",
-   "source": "made for RoboPaint",
-   "license": "CC0-1.0",
+   "title": "中天哥吹分",
+   "chars": "中天哥吹分",
+   "structure": "work",
+   "characters": 5,
+   "reading": "zhōng tiān gē chuī fēn",
+   "gloss": "song and pipes part the sky",
+   "script": "草書 cursive script",
+   "source": "張旭 Zhang Xu, 古詩四帖 Four Ancient Poems, a public-domain scan (Wikimedia Commons)",
+   "license": "Public domain",
+   "view": [
+    0.253,
+    0.0064,
+    0.7461,
+    0.9926
+   ],
+   "aspect": 0.5,
    "media": {
-    "target": "assets/media/works/lettering_donum/target.webp",
-    "painted": "assets/media/works/lettering_donum/painted.webp"
+    "target": "assets/media/works/caoshu_zhongtiangechuifen/target.webp",
+    "painted": "assets/media/works/caoshu_zhongtiangechuifen/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.941953,
-    "iou": 0.941953,
-    "boundary_f": 0.999584,
-    "n_strokes": 12.0,
-    "path_mm": 302.38,
-    "mark_width_mm": 3.1443,
-    "n_dips": 1.0,
-    "n_actions": 953,
+    "final_reward": 0.826402,
+    "iou": 0.826402,
+    "boundary_f": 0.979385,
+    "n_strokes": 8.0,
+    "path_mm": 525.15,
+    "mark_width_mm": 1.9135,
+    "n_dips": 8.0,
+    "n_actions": 1823,
     "register_shift_mm": 0.0
    }
   },
   {
-   "id": "lettering_inunum",
+   "id": "lettering_aim",
    "family": "lettering",
-   "difficulty": "hard",
-   "medium": "broad_nib",
-   "strokes": 9,
-   "budget": 9,
-   "rule": {
-    "iou": 0.86,
-    "boundary_f": 0.8,
-    "min_stroke_coverage": 0.75,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 9,
-    "max_path_mm": 1270.0,
-    "min_mark_width_mm": 0.73
-   },
-   "brush": {
-    "model": "broad_nib",
-    "nib_width_m": 0.004,
-    "nib_thick_m": 0.0004,
-    "bristle_m": 0.006,
-    "bristle_r": 0.0021,
-    "substep_m": 0.0002,
-    "substep_deg": 2.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "inunum",
-   "hand": "italic",
-   "hand_name": "Italic",
-   "letters": 6,
-   "pen": "broad_nib",
-   "source": "made for RoboPaint",
-   "license": "CC0-1.0",
-   "media": {
-    "target": "assets/media/works/lettering_inunum/target.webp",
-    "painted": "assets/media/works/lettering_inunum/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.910106,
-    "iou": 0.910106,
-    "boundary_f": 0.994247,
-    "n_strokes": 9.0,
-    "path_mm": 420.72,
-    "mark_width_mm": 2.4363,
-    "n_dips": 1.0,
-    "n_actions": 931,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "lettering_minim",
-   "family": "lettering",
-   "difficulty": "medium",
-   "medium": "broad_nib",
-   "strokes": 7,
-   "budget": 7,
-   "rule": {
-    "iou": 0.86,
-    "boundary_f": 0.8,
-    "min_stroke_coverage": 0.75,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 7,
-    "max_path_mm": 1110.0,
-    "min_mark_width_mm": 0.67
-   },
-   "brush": {
-    "model": "broad_nib",
-    "nib_width_m": 0.004,
-    "nib_thick_m": 0.0004,
-    "bristle_m": 0.006,
-    "bristle_r": 0.0021,
-    "substep_m": 0.0002,
-    "substep_deg": 2.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "minim",
-   "hand": "italic",
-   "hand_name": "Italic",
-   "letters": 5,
-   "pen": "broad_nib",
-   "source": "made for RoboPaint",
-   "license": "CC0-1.0",
-   "media": {
-    "target": "assets/media/works/lettering_minim/target.webp",
-    "painted": "assets/media/works/lettering_minim/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.912244,
-    "iou": 0.912244,
-    "boundary_f": 0.990213,
-    "n_strokes": 7.0,
-    "path_mm": 367.92,
-    "mark_width_mm": 2.2505,
-    "n_dips": 1.0,
-    "n_actions": 796,
-    "register_shift_mm": 0.2219
-   }
-  },
-  {
-   "id": "lettering_minimum",
-   "family": "lettering",
+   "version": "i00",
    "difficulty": "extreme",
    "medium": "pointed_pen",
-   "strokes": 16,
-   "budget": 16,
+   "strokes": 11,
+   "budget": 11,
    "rule": {
-    "iou": 0.7,
+    "iou": 0.85,
     "boundary_f": 0.8,
     "min_stroke_coverage": 0.75,
     "max_stray_frac": 0.04,
     "register_mm": 5.0,
-    "max_strokes": 16,
-    "max_path_mm": 1680.0,
-    "min_mark_width_mm": 0.23
+    "max_strokes": 11,
+    "max_path_mm": 3000.0,
+    "min_mark_width_mm": 0.12
    },
    "brush": {
     "model": "pointed_pen",
@@ -3812,88 +1297,43 @@
    "palette": [
     "#131214"
    ],
-   "title": "minimum",
-   "hand": "copperplate",
-   "hand_name": "Copperplate",
-   "letters": 7,
+   "title": "Aim at improvement in every line.",
+   "hand": "English round hand",
+   "hand_name": "English round hand",
+   "letters": 27,
    "pen": "pointed_pen",
-   "source": "made for RoboPaint",
-   "license": "CC0-1.0",
+   "source": "an engraved copybook of English round hand, 1741 (public domain), re-drawn for RoboPaint",
+   "license": "Public domain",
+   "view": [
+    0,
+    0.2442,
+    1,
+    0.7558
+   ],
+   "aspect": 1.9547,
    "media": {
-    "target": "assets/media/works/lettering_minimum/target.webp",
-    "painted": "assets/media/works/lettering_minimum/painted.webp"
+    "target": "assets/media/works/lettering_aim/target.webp",
+    "painted": "assets/media/works/lettering_aim/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.764876,
-    "iou": 0.764876,
+    "final_reward": 0.95635,
+    "iou": 0.95635,
     "boundary_f": 1.0,
-    "n_strokes": 16.0,
-    "path_mm": 557.12,
-    "mark_width_mm": 0.7947,
+    "n_strokes": 11.0,
+    "path_mm": 997.83,
+    "mark_width_mm": 0.4297,
     "n_dips": 1.0,
-    "n_actions": 1456,
+    "n_actions": 7574,
     "register_shift_mm": 0.0
    }
   },
   {
-   "id": "lettering_minium",
+   "id": "lettering_business",
    "family": "lettering",
-   "difficulty": "hard",
-   "medium": "broad_nib",
-   "strokes": 9,
-   "budget": 9,
-   "rule": {
-    "iou": 0.86,
-    "boundary_f": 0.8,
-    "min_stroke_coverage": 0.75,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 9,
-    "max_path_mm": 1300.0,
-    "min_mark_width_mm": 0.7
-   },
-   "brush": {
-    "model": "broad_nib",
-    "nib_width_m": 0.004,
-    "nib_thick_m": 0.0004,
-    "bristle_m": 0.006,
-    "bristle_r": 0.0021,
-    "substep_m": 0.0002,
-    "substep_deg": 2.0
-   },
-   "palette": [
-    "#131214"
-   ],
-   "title": "minium",
-   "hand": "italic",
-   "hand_name": "Italic",
-   "letters": 6,
-   "pen": "broad_nib",
-   "source": "made for RoboPaint",
-   "license": "CC0-1.0",
-   "media": {
-    "target": "assets/media/works/lettering_minium/target.webp",
-    "painted": "assets/media/works/lettering_minium/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.909948,
-    "iou": 0.909948,
-    "boundary_f": 0.99047,
-    "n_strokes": 9.0,
-    "path_mm": 431.87,
-    "mark_width_mm": 2.3452,
-    "n_dips": 1.0,
-    "n_actions": 942,
-    "register_shift_mm": 0.2219
-   }
-  },
-  {
-   "id": "lettering_moon",
-   "family": "lettering",
-   "difficulty": "medium",
-   "medium": "broad_nib",
+   "version": "i00",
+   "difficulty": "extreme",
+   "medium": "pointed_pen",
    "strokes": 9,
    "budget": 9,
    "rule": {
@@ -3903,114 +1343,200 @@
     "max_stray_frac": 0.04,
     "register_mm": 5.0,
     "max_strokes": 9,
-    "max_path_mm": 690.0,
-    "min_mark_width_mm": 0.9
+    "max_path_mm": 3730.0,
+    "min_mark_width_mm": 0.1
    },
    "brush": {
-    "model": "broad_nib",
-    "nib_width_m": 0.004,
-    "nib_thick_m": 0.0004,
+    "model": "pointed_pen",
+    "hairline_m": 0.0004,
+    "max_width_m": 0.002,
+    "flex_start_m": 0.001,
+    "full_flex_m": 0.0035,
     "bristle_m": 0.006,
-    "bristle_r": 0.0021,
+    "bristle_r": 0.0008,
+    "visual_w_m": 0.0012,
     "substep_m": 0.0002,
     "substep_deg": 2.0
    },
    "palette": [
     "#131214"
    ],
-   "title": "moon",
-   "hand": "foundational",
-   "hand_name": "Foundational hand",
-   "letters": 4,
-   "pen": "broad_nib",
-   "source": "made for RoboPaint",
-   "license": "CC0-1.0",
+   "title": "Business makes a Man respected.",
+   "hand": "English round hand",
+   "hand_name": "English round hand",
+   "letters": 26,
+   "pen": "pointed_pen",
+   "source": "an engraved copybook of English round hand, 1741 (public domain), re-drawn for RoboPaint",
+   "license": "Public domain",
+   "view": [
+    0,
+    0.2439,
+    1,
+    0.7551
+   ],
+   "aspect": 1.9562,
    "media": {
-    "target": "assets/media/works/lettering_moon/target.webp",
-    "painted": "assets/media/works/lettering_moon/painted.webp"
+    "target": "assets/media/works/lettering_business/target.webp",
+    "painted": "assets/media/works/lettering_business/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.944407,
-    "iou": 0.944407,
-    "boundary_f": 0.994786,
+    "final_reward": 0.955403,
+    "iou": 0.955403,
+    "boundary_f": 1.0,
     "n_strokes": 9.0,
-    "path_mm": 227.7,
-    "mark_width_mm": 3.0099,
+    "path_mm": 1240.28,
+    "mark_width_mm": 0.3653,
     "n_dips": 1.0,
-    "n_actions": 748,
+    "n_actions": 9661,
     "register_shift_mm": 0.0
    }
   },
   {
-   "id": "lettering_nimium",
+   "id": "lettering_commendation",
    "family": "lettering",
-   "difficulty": "hard",
-   "medium": "broad_nib",
-   "strokes": 14,
-   "budget": 14,
+   "version": "i00",
+   "difficulty": "extreme",
+   "medium": "pointed_pen",
+   "strokes": 9,
+   "budget": 9,
    "rule": {
-    "iou": 0.87,
+    "iou": 0.85,
     "boundary_f": 0.8,
     "min_stroke_coverage": 0.75,
     "max_stray_frac": 0.04,
     "register_mm": 5.0,
-    "max_strokes": 14,
-    "max_path_mm": 880.0,
-    "min_mark_width_mm": 1.04
+    "max_strokes": 9,
+    "max_path_mm": 3240.0,
+    "min_mark_width_mm": 0.12
    },
    "brush": {
-    "model": "broad_nib",
-    "nib_width_m": 0.004,
-    "nib_thick_m": 0.0004,
+    "model": "pointed_pen",
+    "hairline_m": 0.0004,
+    "max_width_m": 0.002,
+    "flex_start_m": 0.001,
+    "full_flex_m": 0.0035,
     "bristle_m": 0.006,
-    "bristle_r": 0.0021,
+    "bristle_r": 0.0008,
+    "visual_w_m": 0.0012,
     "substep_m": 0.0002,
     "substep_deg": 2.0
    },
    "palette": [
     "#131214"
    ],
-   "title": "nimium",
-   "hand": "textura",
-   "hand_name": "Textura (blackletter)",
-   "letters": 6,
-   "pen": "broad_nib",
-   "source": "made for RoboPaint",
-   "license": "CC0-1.0",
+   "title": "Commendation animates the mind.",
+   "hand": "English round hand",
+   "hand_name": "English round hand",
+   "letters": 27,
+   "pen": "pointed_pen",
+   "source": "an engraved copybook of English round hand, 1741 (public domain), re-drawn for RoboPaint",
+   "license": "Public domain",
+   "view": [
+    0,
+    0.2444,
+    1,
+    0.7556
+   ],
+   "aspect": 1.9562,
    "media": {
-    "target": "assets/media/works/lettering_nimium/target.webp",
-    "painted": "assets/media/works/lettering_nimium/painted.webp"
+    "target": "assets/media/works/lettering_commendation/target.webp",
+    "painted": "assets/media/works/lettering_commendation/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.931947,
-    "iou": 0.931947,
+    "final_reward": 0.957356,
+    "iou": 0.957356,
     "boundary_f": 1.0,
-    "n_strokes": 14.0,
-    "path_mm": 292.41,
-    "mark_width_mm": 3.4872,
+    "n_strokes": 9.0,
+    "path_mm": 1079.11,
+    "mark_width_mm": 0.4112,
     "n_dips": 1.0,
-    "n_actions": 1024,
+    "n_actions": 8262,
     "register_shift_mm": 0.0
    }
   },
   {
-   "id": "lettering_nun",
+   "id": "lettering_diligence",
    "family": "lettering",
-   "difficulty": "hard",
+   "version": "i00",
+   "difficulty": "extreme",
+   "medium": "pointed_pen",
+   "strokes": 11,
+   "budget": 11,
+   "rule": {
+    "iou": 0.85,
+    "boundary_f": 0.8,
+    "min_stroke_coverage": 0.75,
+    "max_stray_frac": 0.04,
+    "register_mm": 5.0,
+    "max_strokes": 11,
+    "max_path_mm": 4040.0,
+    "min_mark_width_mm": 0.1
+   },
+   "brush": {
+    "model": "pointed_pen",
+    "hairline_m": 0.0004,
+    "max_width_m": 0.002,
+    "flex_start_m": 0.001,
+    "full_flex_m": 0.0035,
+    "bristle_m": 0.006,
+    "bristle_r": 0.0008,
+    "visual_w_m": 0.0012,
+    "substep_m": 0.0002,
+    "substep_deg": 2.0
+   },
+   "palette": [
+    "#131214"
+   ],
+   "title": "Diligence in youth is commendable.",
+   "hand": "English round hand",
+   "hand_name": "English round hand",
+   "letters": 29,
+   "pen": "pointed_pen",
+   "source": "an engraved copybook of English round hand, 1741 (public domain), re-drawn for RoboPaint",
+   "license": "Public domain",
+   "view": [
+    0,
+    0.2447,
+    1,
+    0.7553
+   ],
+   "aspect": 1.9585,
+   "media": {
+    "target": "assets/media/works/lettering_diligence/target.webp",
+    "painted": "assets/media/works/lettering_diligence/painted.webp"
+   },
+   "reference": {
+    "success": 1,
+    "final_reward": 0.958774,
+    "iou": 0.958774,
+    "boundary_f": 1.0,
+    "n_strokes": 11.0,
+    "path_mm": 1343.41,
+    "mark_width_mm": 0.3562,
+    "n_dips": 1.0,
+    "n_actions": 10262,
+    "register_shift_mm": 0.0
+   }
+  },
+  {
+   "id": "lettering_liberty",
+   "family": "lettering",
+   "version": "i00",
+   "difficulty": "extreme",
    "medium": "pointed_pen",
    "strokes": 5,
    "budget": 5,
    "rule": {
-    "iou": 0.7,
+    "iou": 0.85,
     "boundary_f": 0.8,
     "min_stroke_coverage": 0.75,
     "max_stray_frac": 0.04,
     "register_mm": 5.0,
     "max_strokes": 5,
-    "max_path_mm": 660.0,
-    "min_mark_width_mm": 0.23
+    "max_path_mm": 7940.0,
+    "min_mark_width_mm": 0.13
    },
    "brush": {
     "model": "pointed_pen",
@@ -4027,139 +1553,105 @@
    "palette": [
     "#131214"
    ],
-   "title": "nun",
-   "hand": "copperplate",
-   "hand_name": "Copperplate",
-   "letters": 3,
+   "title": "Liberty.",
+   "hand": "English round hand, flourished",
+   "hand_name": "English round hand, flourished",
+   "letters": 7,
    "pen": "pointed_pen",
-   "source": "made for RoboPaint",
-   "license": "CC0-1.0",
+   "source": "an engraved copybook of English round hand, 1741 (public domain), re-drawn for RoboPaint",
+   "license": "Public domain",
+   "view": [
+    0,
+    0.2027,
+    1,
+    0.7973
+   ],
+   "aspect": 1.6818,
    "media": {
-    "target": "assets/media/works/lettering_nun/target.webp",
-    "painted": "assets/media/works/lettering_nun/painted.webp"
+    "target": "assets/media/works/lettering_liberty/target.webp",
+    "painted": "assets/media/works/lettering_liberty/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.768136,
-    "iou": 0.768136,
+    "final_reward": 0.963557,
+    "iou": 0.963557,
     "boundary_f": 1.0,
     "n_strokes": 5.0,
-    "path_mm": 219.02,
-    "mark_width_mm": 0.7765,
+    "path_mm": 2643.87,
+    "mark_width_mm": 0.465,
     "n_dips": 1.0,
-    "n_actions": 607,
+    "n_actions": 13282,
     "register_shift_mm": 0.0
    }
   },
   {
-   "id": "lettering_omnium",
+   "id": "lettering_virtue",
    "family": "lettering",
-   "difficulty": "hard",
-   "medium": "broad_nib",
-   "strokes": 14,
-   "budget": 14,
+   "version": "i00",
+   "difficulty": "extreme",
+   "medium": "pointed_pen",
+   "strokes": 4,
+   "budget": 4,
    "rule": {
     "iou": 0.85,
     "boundary_f": 0.8,
     "min_stroke_coverage": 0.75,
     "max_stray_frac": 0.04,
     "register_mm": 5.0,
-    "max_strokes": 14,
-    "max_path_mm": 970.0,
-    "min_mark_width_mm": 0.93
+    "max_strokes": 4,
+    "max_path_mm": 6870.0,
+    "min_mark_width_mm": 0.12
    },
    "brush": {
-    "model": "broad_nib",
-    "nib_width_m": 0.004,
-    "nib_thick_m": 0.0004,
+    "model": "pointed_pen",
+    "hairline_m": 0.0004,
+    "max_width_m": 0.002,
+    "flex_start_m": 0.001,
+    "full_flex_m": 0.0035,
     "bristle_m": 0.006,
-    "bristle_r": 0.0021,
+    "bristle_r": 0.0008,
+    "visual_w_m": 0.0012,
     "substep_m": 0.0002,
     "substep_deg": 2.0
    },
    "palette": [
     "#131214"
    ],
-   "title": "omnium",
-   "hand": "foundational",
-   "hand_name": "Foundational hand",
+   "title": "Virtue.",
+   "hand": "English round hand, flourished",
+   "hand_name": "English round hand, flourished",
    "letters": 6,
-   "pen": "broad_nib",
-   "source": "made for RoboPaint",
-   "license": "CC0-1.0",
-   "media": {
-    "target": "assets/media/works/lettering_omnium/target.webp",
-    "painted": "assets/media/works/lettering_omnium/painted.webp"
-   },
-   "reference": {
-    "success": 1,
-    "final_reward": 0.934274,
-    "iou": 0.934274,
-    "boundary_f": 0.992526,
-    "n_strokes": 14.0,
-    "path_mm": 322.41,
-    "mark_width_mm": 3.1245,
-    "n_dips": 1.0,
-    "n_actions": 1044,
-    "register_shift_mm": 0.0
-   }
-  },
-  {
-   "id": "lettering_unpin",
-   "family": "lettering",
-   "difficulty": "hard",
-   "medium": "broad_nib",
-   "strokes": 8,
-   "budget": 8,
-   "rule": {
-    "iou": 0.86,
-    "boundary_f": 0.8,
-    "min_stroke_coverage": 0.75,
-    "max_stray_frac": 0.04,
-    "register_mm": 5.0,
-    "max_strokes": 8,
-    "max_path_mm": 960.0,
-    "min_mark_width_mm": 0.77
-   },
-   "brush": {
-    "model": "broad_nib",
-    "nib_width_m": 0.004,
-    "nib_thick_m": 0.0004,
-    "bristle_m": 0.006,
-    "bristle_r": 0.0021,
-    "substep_m": 0.0002,
-    "substep_deg": 2.0
-   },
-   "palette": [
-    "#131214"
+   "pen": "pointed_pen",
+   "source": "an engraved copybook of English round hand, 1741 (public domain), re-drawn for RoboPaint",
+   "license": "Public domain",
+   "view": [
+    0,
+    0.2442,
+    1,
+    0.7558
    ],
-   "title": "unpin",
-   "hand": "italic",
-   "hand_name": "Italic",
-   "letters": 5,
-   "pen": "broad_nib",
-   "source": "made for RoboPaint",
-   "license": "CC0-1.0",
+   "aspect": 1.9547,
    "media": {
-    "target": "assets/media/works/lettering_unpin/target.webp",
-    "painted": "assets/media/works/lettering_unpin/painted.webp"
+    "target": "assets/media/works/lettering_virtue/target.webp",
+    "painted": "assets/media/works/lettering_virtue/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.907213,
-    "iou": 0.907213,
-    "boundary_f": 0.993531,
-    "n_strokes": 8.0,
-    "path_mm": 317.0,
-    "mark_width_mm": 2.5853,
+    "final_reward": 0.959255,
+    "iou": 0.959255,
+    "boundary_f": 1.0,
+    "n_strokes": 4.0,
+    "path_mm": 2288.46,
+    "mark_width_mm": 0.4188,
     "n_dips": 1.0,
-    "n_actions": 790,
+    "n_actions": 11633,
     "register_shift_mm": 0.0
    }
   },
   {
    "id": "acrylic_applesoranges",
    "family": "acrylic",
+   "version": "i00",
    "difficulty": "hard",
    "medium": "mypaint",
    "strokes": 300,
@@ -4217,6 +1709,7 @@
    "about": "a small acrylic painting after Paul Cezanne's Still Life with Apples and Oranges, c. 1899",
    "original": "Still Life with Apples and Oranges",
    "date": "c. 1899",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/acrylic_applesoranges/target.webp",
     "painted": "assets/media/works/acrylic_applesoranges/painted.webp"
@@ -4240,6 +1733,7 @@
   {
    "id": "acrylic_bedroom",
    "family": "acrylic",
+   "version": "i00",
    "difficulty": "hard",
    "medium": "mypaint",
    "strokes": 298,
@@ -4297,6 +1791,7 @@
    "about": "a small acrylic painting after Vincent van Gogh's The Bedroom, 1888",
    "original": "The Bedroom",
    "date": "1888",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/acrylic_bedroom/target.webp",
     "painted": "assets/media/works/acrylic_bedroom/painted.webp"
@@ -4320,6 +1815,7 @@
   {
    "id": "acrylic_bluehorses",
    "family": "acrylic",
+   "version": "i00",
    "difficulty": "hard",
    "medium": "mypaint",
    "strokes": 300,
@@ -4377,6 +1873,7 @@
    "about": "a small acrylic painting after Franz Marc's The Large Blue Horses, 1911",
    "original": "The Large Blue Horses",
    "date": "1911",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/acrylic_bluehorses/target.webp",
     "painted": "assets/media/works/acrylic_bluehorses/painted.webp"
@@ -4400,6 +1897,7 @@
   {
    "id": "acrylic_greatwave",
    "family": "acrylic",
+   "version": "i00",
    "difficulty": "hard",
    "medium": "mypaint",
    "strokes": 289,
@@ -4457,6 +1955,7 @@
    "about": "a small acrylic painting after Katsushika Hokusai's woodblock print The Great Wave off Kanagawa, c. 1830-32",
    "original": "The Great Wave off Kanagawa",
    "date": "c. 1830-32",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/acrylic_greatwave/target.webp",
     "painted": "assets/media/works/acrylic_greatwave/painted.webp"
@@ -4480,6 +1979,7 @@
   {
    "id": "acrylic_kajikazawa",
    "family": "acrylic",
+   "version": "i00",
    "difficulty": "hard",
    "medium": "mypaint",
    "strokes": 290,
@@ -4537,6 +2037,7 @@
    "about": "a small acrylic painting after Katsushika Hokusai's woodblock print Kajikazawa in Kai Province, c. 1830-32",
    "original": "Kajikazawa in Kai Province",
    "date": "c. 1830-32",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/acrylic_kajikazawa/target.webp",
     "painted": "assets/media/works/acrylic_kajikazawa/painted.webp"
@@ -4560,6 +2061,7 @@
   {
    "id": "acrylic_plumpark",
    "family": "acrylic",
+   "version": "i00",
    "difficulty": "hard",
    "medium": "mypaint",
    "strokes": 295,
@@ -4617,6 +2119,7 @@
    "about": "a small acrylic painting after Utagawa Hiroshige's woodblock print Plum Park in Kameido, 1857",
    "original": "Plum Park in Kameido",
    "date": "1857",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/acrylic_plumpark/target.webp",
     "painted": "assets/media/works/acrylic_plumpark/painted.webp"
@@ -4640,6 +2143,7 @@
   {
    "id": "acrylic_redfuji",
    "family": "acrylic",
+   "version": "i00",
    "difficulty": "hard",
    "medium": "mypaint",
    "strokes": 313,
@@ -4697,6 +2201,7 @@
    "about": "a small acrylic painting after Katsushika Hokusai's woodblock print Fine Wind, Clear Morning (Red Fuji), c. 1830-32",
    "original": "Fine Wind, Clear Morning (Red Fuji)",
    "date": "c. 1830-32",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/acrylic_redfuji/target.webp",
     "painted": "assets/media/works/acrylic_redfuji/painted.webp"
@@ -4720,6 +2225,7 @@
   {
    "id": "acrylic_suddenshower",
    "family": "acrylic",
+   "version": "i00",
    "difficulty": "hard",
    "medium": "mypaint",
    "strokes": 292,
@@ -4777,6 +2283,7 @@
    "about": "a small acrylic painting after Utagawa Hiroshige's woodblock print Sudden Shower over Shin-Ohashi Bridge and Atake, 1857",
    "original": "Sudden Shower over Shin-Ohashi Bridge and Atake",
    "date": "1857",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/acrylic_suddenshower/target.webp",
     "painted": "assets/media/works/acrylic_suddenshower/painted.webp"
@@ -4800,6 +2307,7 @@
   {
    "id": "acrylic_sunflowers",
    "family": "acrylic",
+   "version": "i00",
    "difficulty": "hard",
    "medium": "mypaint",
    "strokes": 292,
@@ -4857,6 +2365,7 @@
    "about": "a small acrylic painting after Vincent van Gogh's Sunflowers, 1888",
    "original": "Sunflowers",
    "date": "1888",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/acrylic_sunflowers/target.webp",
     "painted": "assets/media/works/acrylic_sunflowers/painted.webp"
@@ -4880,6 +2389,7 @@
   {
    "id": "acrylic_vision",
    "family": "acrylic",
+   "version": "i00",
    "difficulty": "hard",
    "medium": "mypaint",
    "strokes": 300,
@@ -4937,6 +2447,7 @@
    "about": "a small acrylic painting after Paul Gauguin's Vision after the Sermon, 1888",
    "original": "Vision after the Sermon",
    "date": "1888",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/acrylic_vision/target.webp",
     "painted": "assets/media/works/acrylic_vision/painted.webp"
@@ -4960,21 +2471,22 @@
   {
    "id": "oil_bathers",
    "family": "oil",
+   "version": "i01",
    "difficulty": "extreme",
    "medium": "mypaint",
-   "strokes": 299,
-   "budget": 449,
+   "strokes": 1664,
+   "budget": 2496,
    "rule": {
-    "de_mean": 7.1,
-    "de_p90": 13.0,
-    "ssim_L": 0.71,
-    "edge_corr": 0.5,
+    "de_mean": 5.5,
+    "de_p90": 9.0,
+    "ssim_L": 0.8,
+    "edge_corr": 0.74,
     "paint_iou": 0.96,
     "blur_mm": 1.0,
     "register_mm": 5.0,
     "score_inset_mm": 8.0,
-    "max_strokes": 449,
-    "max_path_mm": 30400.0,
+    "max_strokes": 2496,
+    "max_path_mm": 63600.0,
     "max_scribble": 2.5,
     "max_scribble_share": 0.1,
     "scribble_min_mm": 10.0
@@ -5013,9 +2525,11 @@
    "license": "Public domain",
    "palette_size": 16,
    "brush_sizes_mm": [
-    10.7,
-    8.0,
-    5.5
+    11.0,
+    6.0,
+    3.6,
+    2.6,
+    2.1
    ],
    "layers": null,
    "regions": null,
@@ -5023,44 +2537,46 @@
    "about": "a square crop of Georges Seurat's Bathers at Asnières, 1884",
    "original": "Bathers at Asnières",
    "date": "1884",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/oil_bathers/target.webp",
     "painted": "assets/media/works/oil_bathers/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.678675,
-    "de_mean": 6.4265,
-    "de_p90": 11.4685,
-    "ssim_L": 0.742927,
-    "edge_corr": 0.55319,
-    "paint_iou": 0.999902,
-    "n_strokes": 304.0,
-    "path_mm": 10109.28,
+    "final_reward": 0.753945,
+    "de_mean": 4.9211,
+    "de_p90": 7.9588,
+    "ssim_L": 0.849423,
+    "edge_corr": 0.799419,
+    "paint_iou": 0.999752,
+    "n_strokes": 1673.0,
+    "path_mm": 21191.64,
     "scribble_share": 0.0,
-    "n_dips": 46.0,
-    "n_actions": 22930,
+    "n_dips": 80.0,
+    "n_actions": 58585,
     "register_shift_mm": 0.2219
    }
   },
   {
    "id": "oil_cafeterrace",
    "family": "oil",
+   "version": "i01",
    "difficulty": "extreme",
    "medium": "mypaint",
-   "strokes": 294,
-   "budget": 441,
+   "strokes": 1671,
+   "budget": 2507,
    "rule": {
-    "de_mean": 10.9,
-    "de_p90": 20.0,
-    "ssim_L": 0.5,
-    "edge_corr": 0.27,
+    "de_mean": 8.0,
+    "de_p90": 13.5,
+    "ssim_L": 0.66,
+    "edge_corr": 0.57,
     "paint_iou": 0.96,
     "blur_mm": 1.0,
     "register_mm": 5.0,
     "score_inset_mm": 8.0,
-    "max_strokes": 441,
-    "max_path_mm": 28600.0,
+    "max_strokes": 2507,
+    "max_path_mm": 68600.0,
     "max_scribble": 2.5,
     "max_scribble_share": 0.1,
     "scribble_min_mm": 10.0
@@ -5099,9 +2615,11 @@
    "license": "Public domain",
    "palette_size": 16,
    "brush_sizes_mm": [
-    10.7,
-    8.0,
-    5.5
+    11.0,
+    6.0,
+    3.6,
+    2.6,
+    2.1
    ],
    "layers": null,
    "regions": null,
@@ -5109,44 +2627,46 @@
    "about": "a square crop of Vincent van Gogh's Cafe Terrace at Night, 1888",
    "original": "Cafe Terrace at Night",
    "date": "1888",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/oil_cafeterrace/target.webp",
     "painted": "assets/media/works/oil_cafeterrace/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.507865,
-    "de_mean": 9.8427,
-    "de_p90": 17.8449,
-    "ssim_L": 0.537605,
-    "edge_corr": 0.320507,
-    "paint_iou": 0.998659,
-    "n_strokes": 295.0,
-    "path_mm": 9522.45,
+    "final_reward": 0.63896,
+    "de_mean": 7.2208,
+    "de_p90": 12.2087,
+    "ssim_L": 0.703378,
+    "edge_corr": 0.626426,
+    "paint_iou": 0.999713,
+    "n_strokes": 1667.0,
+    "path_mm": 22864.5,
     "scribble_share": 0.0,
-    "n_dips": 46.0,
-    "n_actions": 22487,
-    "register_shift_mm": 0.4961
+    "n_dips": 80.0,
+    "n_actions": 61032,
+    "register_shift_mm": 0.2219
    }
   },
   {
    "id": "oil_cypresses",
    "family": "oil",
+   "version": "i01",
    "difficulty": "extreme",
    "medium": "mypaint",
-   "strokes": 279,
-   "budget": 419,
+   "strokes": 1669,
+   "budget": 2504,
    "rule": {
-    "de_mean": 9.7,
-    "de_p90": 17.5,
-    "ssim_L": 0.56,
-    "edge_corr": 0.43,
+    "de_mean": 7.5,
+    "de_p90": 12.5,
+    "ssim_L": 0.68,
+    "edge_corr": 0.65,
     "paint_iou": 0.96,
     "blur_mm": 1.0,
     "register_mm": 5.0,
     "score_inset_mm": 8.0,
-    "max_strokes": 419,
-    "max_path_mm": 28200.0,
+    "max_strokes": 2504,
+    "max_path_mm": 51600.0,
     "max_scribble": 2.5,
     "max_scribble_share": 0.1,
     "scribble_min_mm": 10.0
@@ -5185,9 +2705,11 @@
    "license": "Public domain",
    "palette_size": 16,
    "brush_sizes_mm": [
-    10.7,
-    8.0,
-    5.5
+    11.0,
+    6.0,
+    3.6,
+    2.6,
+    2.1
    ],
    "layers": null,
    "regions": null,
@@ -5195,44 +2717,46 @@
    "about": "a square crop of Vincent van Gogh's Wheat Field with Cypresses, 1889",
    "original": "Wheat Field with Cypresses",
    "date": "1889",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/oil_cypresses/target.webp",
     "painted": "assets/media/works/oil_cypresses/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.56174,
-    "de_mean": 8.7652,
-    "de_p90": 15.8379,
-    "ssim_L": 0.598012,
-    "edge_corr": 0.488626,
-    "paint_iou": 0.99988,
-    "n_strokes": 279.0,
-    "path_mm": 9376.61,
+    "final_reward": 0.66175,
+    "de_mean": 6.765,
+    "de_p90": 11.2245,
+    "ssim_L": 0.726784,
+    "edge_corr": 0.708365,
+    "paint_iou": 0.999638,
+    "n_strokes": 1640.0,
+    "path_mm": 17169.76,
     "scribble_share": 0.0,
-    "n_dips": 46.0,
-    "n_actions": 22075,
-    "register_shift_mm": 0.0
+    "n_dips": 80.0,
+    "n_actions": 56660,
+    "register_shift_mm": 0.2219
    }
   },
   {
    "id": "oil_irises",
    "family": "oil",
+   "version": "i01",
    "difficulty": "extreme",
    "medium": "mypaint",
-   "strokes": 437,
-   "budget": 656,
+   "strokes": 1657,
+   "budget": 2486,
    "rule": {
-    "de_mean": 13.4,
-    "de_p90": 23.5,
-    "ssim_L": 0.42,
-    "edge_corr": 0.16,
+    "de_mean": 10.6,
+    "de_p90": 17.5,
+    "ssim_L": 0.52,
+    "edge_corr": 0.35,
     "paint_iou": 0.96,
     "blur_mm": 1.0,
     "register_mm": 5.0,
     "score_inset_mm": 8.0,
-    "max_strokes": 656,
-    "max_path_mm": 34000.0,
+    "max_strokes": 2486,
+    "max_path_mm": 55600.0,
     "max_scribble": 2.5,
     "max_scribble_share": 0.1,
     "scribble_min_mm": 10.0
@@ -5271,9 +2795,11 @@
    "license": "Public domain",
    "palette_size": 16,
    "brush_sizes_mm": [
-    10.7,
-    8.0,
-    5.5
+    11.0,
+    6.0,
+    3.6,
+    2.6,
+    2.1
    ],
    "layers": null,
    "regions": null,
@@ -5281,44 +2807,46 @@
    "about": "a square crop of Vincent van Gogh's Irises, 1889",
    "original": "Irises",
    "date": "1889",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/oil_irises/target.webp",
     "painted": "assets/media/works/oil_irises/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.39538,
-    "de_mean": 12.0924,
-    "de_p90": 21.1581,
-    "ssim_L": 0.451617,
-    "edge_corr": 0.214724,
-    "paint_iou": 0.999367,
-    "n_strokes": 437.0,
-    "path_mm": 11302.43,
+    "final_reward": 0.52154,
+    "de_mean": 9.5692,
+    "de_p90": 15.7192,
+    "ssim_L": 0.567339,
+    "edge_corr": 0.400156,
+    "paint_iou": 0.999689,
+    "n_strokes": 1630.0,
+    "path_mm": 18503.12,
     "scribble_share": 0.0,
-    "n_dips": 60.0,
-    "n_actions": 31999,
+    "n_dips": 80.0,
+    "n_actions": 58609,
     "register_shift_mm": 0.2219
    }
   },
   {
    "id": "oil_milkmaid",
    "family": "oil",
+   "version": "i01",
    "difficulty": "extreme",
    "medium": "mypaint",
-   "strokes": 300,
-   "budget": 450,
+   "strokes": 1666,
+   "budget": 2499,
    "rule": {
-    "de_mean": 6.9,
-    "de_p90": 14.5,
-    "ssim_L": 0.69,
-    "edge_corr": 0.49,
+    "de_mean": 5.0,
+    "de_p90": 9.5,
+    "ssim_L": 0.81,
+    "edge_corr": 0.74,
     "paint_iou": 0.96,
     "blur_mm": 1.0,
     "register_mm": 5.0,
     "score_inset_mm": 8.0,
-    "max_strokes": 450,
-    "max_path_mm": 31700.0,
+    "max_strokes": 2499,
+    "max_path_mm": 71900.0,
     "max_scribble": 2.5,
     "max_scribble_share": 0.1,
     "scribble_min_mm": 10.0
@@ -5357,9 +2885,11 @@
    "license": "Public domain",
    "palette_size": 16,
    "brush_sizes_mm": [
-    10.7,
-    8.0,
-    5.5
+    11.0,
+    6.0,
+    3.6,
+    2.6,
+    2.1
    ],
    "layers": null,
    "regions": null,
@@ -5367,44 +2897,46 @@
    "about": "a square crop of Johannes Vermeer's The Milkmaid, c. 1658-60",
    "original": "The Milkmaid",
    "date": "c. 1658-60",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/oil_milkmaid/target.webp",
     "painted": "assets/media/works/oil_milkmaid/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.69011,
-    "de_mean": 6.1978,
-    "de_p90": 13.0446,
-    "ssim_L": 0.72732,
-    "edge_corr": 0.541241,
-    "paint_iou": 0.999934,
-    "n_strokes": 300.0,
-    "path_mm": 10564.5,
+    "final_reward": 0.773365,
+    "de_mean": 4.5327,
+    "de_p90": 8.6149,
+    "ssim_L": 0.852423,
+    "edge_corr": 0.794078,
+    "paint_iou": 0.99966,
+    "n_strokes": 1677.0,
+    "path_mm": 23963.88,
     "scribble_share": 0.0,
-    "n_dips": 45.0,
-    "n_actions": 22815,
-    "register_shift_mm": 0.4961
+    "n_dips": 80.0,
+    "n_actions": 60038,
+    "register_shift_mm": 0.2219
    }
   },
   {
    "id": "oil_monalisa",
    "family": "oil",
+   "version": "i01",
    "difficulty": "extreme",
    "medium": "mypaint",
-   "strokes": 289,
-   "budget": 434,
+   "strokes": 1671,
+   "budget": 2507,
    "rule": {
-    "de_mean": 7.1,
-    "de_p90": 13.0,
-    "ssim_L": 0.73,
-    "edge_corr": 0.52,
+    "de_mean": 5.2,
+    "de_p90": 8.5,
+    "ssim_L": 0.82,
+    "edge_corr": 0.7,
     "paint_iou": 0.96,
     "blur_mm": 1.0,
     "register_mm": 5.0,
     "score_inset_mm": 8.0,
-    "max_strokes": 434,
-    "max_path_mm": 33900.0,
+    "max_strokes": 2507,
+    "max_path_mm": 69900.0,
     "max_scribble": 2.5,
     "max_scribble_share": 0.1,
     "scribble_min_mm": 10.0
@@ -5443,9 +2975,11 @@
    "license": "Public domain",
    "palette_size": 16,
    "brush_sizes_mm": [
-    10.7,
-    8.0,
-    5.5
+    11.0,
+    6.0,
+    3.6,
+    2.6,
+    2.1
    ],
    "layers": null,
    "regions": null,
@@ -5453,44 +2987,46 @@
    "about": "a square crop of Leonardo da Vinci's Mona Lisa, c. 1503-06",
    "original": "Mona Lisa",
    "date": "c. 1503-06",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/oil_monalisa/target.webp",
     "painted": "assets/media/works/oil_monalisa/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.678355,
-    "de_mean": 6.4329,
-    "de_p90": 11.5665,
-    "ssim_L": 0.761358,
-    "edge_corr": 0.57129,
-    "paint_iou": 0.999927,
-    "n_strokes": 290.0,
-    "path_mm": 11296.59,
+    "final_reward": 0.76497,
+    "de_mean": 4.7006,
+    "de_p90": 7.7213,
+    "ssim_L": 0.863219,
+    "edge_corr": 0.759637,
+    "paint_iou": 0.999684,
+    "n_strokes": 1686.0,
+    "path_mm": 23291.68,
     "scribble_share": 0.0,
-    "n_dips": 48.0,
-    "n_actions": 23517,
-    "register_shift_mm": 0.4437
+    "n_dips": 79.0,
+    "n_actions": 59852,
+    "register_shift_mm": 0.0
    }
   },
   {
    "id": "oil_pearlearring",
    "family": "oil",
+   "version": "i01",
    "difficulty": "extreme",
    "medium": "mypaint",
-   "strokes": 300,
-   "budget": 450,
+   "strokes": 1635,
+   "budget": 2453,
    "rule": {
-    "de_mean": 5.7,
-    "de_p90": 12.5,
-    "ssim_L": 0.77,
-    "edge_corr": 0.61,
+    "de_mean": 4.4,
+    "de_p90": 8.5,
+    "ssim_L": 0.84,
+    "edge_corr": 0.76,
     "paint_iou": 0.96,
     "blur_mm": 1.0,
     "register_mm": 5.0,
     "score_inset_mm": 8.0,
-    "max_strokes": 450,
-    "max_path_mm": 34700.0,
+    "max_strokes": 2453,
+    "max_path_mm": 86500.0,
     "max_scribble": 2.5,
     "max_scribble_share": 0.1,
     "scribble_min_mm": 10.0
@@ -5529,9 +3065,11 @@
    "license": "Public domain",
    "palette_size": 16,
    "brush_sizes_mm": [
-    10.7,
-    8.0,
-    5.5
+    11.0,
+    6.0,
+    3.6,
+    2.6,
+    2.1
    ],
    "layers": null,
    "regions": null,
@@ -5539,44 +3077,46 @@
    "about": "a square crop of Johannes Vermeer's Girl with a Pearl Earring, c. 1665",
    "original": "Girl with a Pearl Earring",
    "date": "c. 1665",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/oil_pearlearring/target.webp",
     "painted": "assets/media/works/oil_pearlearring/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.742205,
-    "de_mean": 5.1559,
-    "de_p90": 11.2009,
-    "ssim_L": 0.802468,
-    "edge_corr": 0.66081,
-    "paint_iou": 0.999932,
-    "n_strokes": 300.0,
-    "path_mm": 11561.13,
+    "final_reward": 0.800795,
+    "de_mean": 3.9841,
+    "de_p90": 7.5934,
+    "ssim_L": 0.884178,
+    "edge_corr": 0.812652,
+    "paint_iou": 0.999756,
+    "n_strokes": 1638.0,
+    "path_mm": 28809.12,
     "scribble_share": 0.0,
-    "n_dips": 44.0,
-    "n_actions": 24037,
-    "register_shift_mm": 0.0
+    "n_dips": 80.0,
+    "n_actions": 62015,
+    "register_shift_mm": 0.3138
    }
   },
   {
    "id": "oil_saintevictoire",
    "family": "oil",
+   "version": "i01",
    "difficulty": "extreme",
    "medium": "mypaint",
-   "strokes": 439,
-   "budget": 659,
+   "strokes": 1697,
+   "budget": 2546,
    "rule": {
-    "de_mean": 8.4,
-    "de_p90": 14.0,
-    "ssim_L": 0.62,
-    "edge_corr": 0.29,
+    "de_mean": 6.9,
+    "de_p90": 11.5,
+    "ssim_L": 0.7,
+    "edge_corr": 0.47,
     "paint_iou": 0.96,
     "blur_mm": 1.0,
     "register_mm": 5.0,
     "score_inset_mm": 8.0,
-    "max_strokes": 659,
-    "max_path_mm": 35800.0,
+    "max_strokes": 2546,
+    "max_path_mm": 57700.0,
     "max_scribble": 2.5,
     "max_scribble_share": 0.1,
     "scribble_min_mm": 10.0
@@ -5615,9 +3155,11 @@
    "license": "Public domain",
    "palette_size": 16,
    "brush_sizes_mm": [
-    10.7,
-    8.0,
-    5.5
+    11.0,
+    6.0,
+    3.6,
+    2.6,
+    2.1
    ],
    "layers": null,
    "regions": null,
@@ -5625,44 +3167,46 @@
    "about": "a square crop of Paul Cézanne's Mont Sainte-Victoire, 1902-06",
    "original": "Mont Sainte-Victoire",
    "date": "1902-06",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/oil_saintevictoire/target.webp",
     "painted": "assets/media/works/oil_saintevictoire/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.620145,
-    "de_mean": 7.5971,
-    "de_p90": 12.5955,
-    "ssim_L": 0.650599,
-    "edge_corr": 0.343888,
-    "paint_iou": 0.999343,
-    "n_strokes": 442.0,
-    "path_mm": 11925.21,
+    "final_reward": 0.687795,
+    "de_mean": 6.2441,
+    "de_p90": 10.0197,
+    "ssim_L": 0.740825,
+    "edge_corr": 0.524524,
+    "paint_iou": 0.999727,
+    "n_strokes": 1691.0,
+    "path_mm": 19229.36,
     "scribble_share": 0.0,
-    "n_dips": 62.0,
-    "n_actions": 32022,
+    "n_dips": 80.0,
+    "n_actions": 59372,
     "register_shift_mm": 0.2219
    }
   },
   {
    "id": "oil_starrynight",
    "family": "oil",
+   "version": "i01",
    "difficulty": "extreme",
    "medium": "mypaint",
-   "strokes": 455,
-   "budget": 683,
+   "strokes": 1678,
+   "budget": 2517,
    "rule": {
-    "de_mean": 8.4,
-    "de_p90": 15.5,
-    "ssim_L": 0.56,
-    "edge_corr": 0.28,
+    "de_mean": 6.5,
+    "de_p90": 11.5,
+    "ssim_L": 0.68,
+    "edge_corr": 0.52,
     "paint_iou": 0.96,
     "blur_mm": 1.0,
     "register_mm": 5.0,
     "score_inset_mm": 8.0,
-    "max_strokes": 683,
-    "max_path_mm": 39600.0,
+    "max_strokes": 2517,
+    "max_path_mm": 62300.0,
     "max_scribble": 2.5,
     "max_scribble_share": 0.1,
     "scribble_min_mm": 10.0
@@ -5701,9 +3245,11 @@
    "license": "Public domain",
    "palette_size": 16,
    "brush_sizes_mm": [
-    10.7,
-    8.0,
-    5.5
+    11.0,
+    6.0,
+    3.6,
+    2.6,
+    2.1
    ],
    "layers": null,
    "regions": null,
@@ -5711,44 +3257,46 @@
    "about": "a square crop of Vincent van Gogh's The Starry Night, 1889",
    "original": "The Starry Night",
    "date": "1889",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/oil_starrynight/target.webp",
     "painted": "assets/media/works/oil_starrynight/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.61822,
-    "de_mean": 7.6356,
-    "de_p90": 13.7398,
-    "ssim_L": 0.594999,
-    "edge_corr": 0.337324,
-    "paint_iou": 0.99912,
-    "n_strokes": 456.0,
-    "path_mm": 13189.23,
+    "final_reward": 0.70468,
+    "de_mean": 5.9064,
+    "de_p90": 10.1337,
+    "ssim_L": 0.720901,
+    "edge_corr": 0.571779,
+    "paint_iou": 0.999741,
+    "n_strokes": 1682.0,
+    "path_mm": 20746.89,
     "scribble_share": 0.0,
-    "n_dips": 60.0,
-    "n_actions": 34159,
-    "register_shift_mm": 0.3138
+    "n_dips": 80.0,
+    "n_actions": 60797,
+    "register_shift_mm": 0.0
    }
   },
   {
    "id": "oil_temeraire",
    "family": "oil",
+   "version": "i01",
    "difficulty": "extreme",
    "medium": "mypaint",
-   "strokes": 299,
-   "budget": 449,
+   "strokes": 1573,
+   "budget": 2360,
    "rule": {
-    "de_mean": 4.5,
-    "de_p90": 8.0,
-    "ssim_L": 0.83,
-    "edge_corr": 0.39,
+    "de_mean": 3.9,
+    "de_p90": 6.5,
+    "ssim_L": 0.85,
+    "edge_corr": 0.59,
     "paint_iou": 0.96,
     "blur_mm": 1.0,
     "register_mm": 5.0,
     "score_inset_mm": 8.0,
-    "max_strokes": 449,
-    "max_path_mm": 28100.0,
+    "max_strokes": 2360,
+    "max_path_mm": 51400.0,
     "max_scribble": 2.5,
     "max_scribble_share": 0.1,
     "scribble_min_mm": 10.0
@@ -5787,9 +3335,11 @@
    "license": "Public domain",
    "palette_size": 16,
    "brush_sizes_mm": [
-    10.7,
-    8.0,
-    5.5
+    11.0,
+    6.0,
+    3.6,
+    2.6,
+    2.1
    ],
    "layers": null,
    "regions": null,
@@ -5797,44 +3347,46 @@
    "about": "a square crop of J. M. W. Turner's The Fighting Temeraire, 1839",
    "original": "The Fighting Temeraire",
    "date": "1839",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/oil_temeraire/target.webp",
     "painted": "assets/media/works/oil_temeraire/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.79715,
-    "de_mean": 4.057,
-    "de_p90": 7.0836,
-    "ssim_L": 0.860285,
-    "edge_corr": 0.441217,
-    "paint_iou": 0.999891,
-    "n_strokes": 299.0,
-    "path_mm": 9365.71,
+    "final_reward": 0.825395,
+    "de_mean": 3.4921,
+    "de_p90": 5.7437,
+    "ssim_L": 0.893556,
+    "edge_corr": 0.64595,
+    "paint_iou": 0.999529,
+    "n_strokes": 1580.0,
+    "path_mm": 17125.03,
     "scribble_share": 0.0,
-    "n_dips": 45.0,
-    "n_actions": 22329,
+    "n_dips": 80.0,
+    "n_actions": 53438,
     "register_shift_mm": 0.2219
    }
   },
   {
    "id": "oil_wanderer",
    "family": "oil",
+   "version": "i01",
    "difficulty": "extreme",
    "medium": "mypaint",
-   "strokes": 288,
-   "budget": 432,
+   "strokes": 1316,
+   "budget": 1974,
    "rule": {
-    "de_mean": 4.1,
-    "de_p90": 8.5,
-    "ssim_L": 0.81,
-    "edge_corr": 0.64,
+    "de_mean": 3.1,
+    "de_p90": 5.5,
+    "ssim_L": 0.87,
+    "edge_corr": 0.78,
     "paint_iou": 0.96,
     "blur_mm": 1.0,
     "register_mm": 5.0,
     "score_inset_mm": 8.0,
-    "max_strokes": 432,
-    "max_path_mm": 28900.0,
+    "max_strokes": 1974,
+    "max_path_mm": 64700.0,
     "max_scribble": 2.5,
     "max_scribble_share": 0.1,
     "scribble_min_mm": 10.0
@@ -5873,9 +3425,11 @@
    "license": "Public domain",
    "palette_size": 16,
    "brush_sizes_mm": [
-    10.7,
-    8.0,
-    5.5
+    11.0,
+    6.0,
+    3.6,
+    2.6,
+    2.1
    ],
    "layers": null,
    "regions": null,
@@ -5883,24 +3437,25 @@
    "about": "a square crop of Caspar David Friedrich's Wanderer above the Sea of Fog, c. 1817",
    "original": "Wanderer above the Sea of Fog",
    "date": "c. 1817",
+   "aspect": 1.0,
    "media": {
     "target": "assets/media/works/oil_wanderer/target.webp",
     "painted": "assets/media/works/oil_wanderer/painted.webp"
    },
    "reference": {
     "success": 1,
-    "final_reward": 0.81688,
-    "de_mean": 3.6624,
-    "de_p90": 7.4654,
-    "ssim_L": 0.843329,
-    "edge_corr": 0.697552,
-    "paint_iou": 0.999037,
-    "n_strokes": 288.0,
-    "path_mm": 9618.54,
+    "final_reward": 0.86355,
+    "de_mean": 2.729,
+    "de_p90": 4.8541,
+    "ssim_L": 0.9127,
+    "edge_corr": 0.838826,
+    "paint_iou": 0.999628,
+    "n_strokes": 1333.0,
+    "path_mm": 21539.27,
     "scribble_share": 0.0,
-    "n_dips": 43.0,
-    "n_actions": 22261,
-    "register_shift_mm": 0.2219
+    "n_dips": 71.0,
+    "n_actions": 49736,
+    "register_shift_mm": 0.3138
    }
   }
  ]

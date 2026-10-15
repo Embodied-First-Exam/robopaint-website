@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>RoboPaint · Brushwork for code agents</title>
-  <meta name="description" content="RoboPaint: 82 works of calligraphy, lettering and painting that a code agent must make with a simulated robot arm and a brush, judged on the picture and on the hand.">
+  <meta name="description" content="RoboPaint: 43 works of calligraphy, lettering and painting that a code agent must make with a simulated robot arm and a brush, judged on the picture and on the hand.">
   <meta name="theme-color" content="#f4f6f9">
   <script>
     // Day or night before anything paints (?theme=dark for screenshots; the toggle is remembered).
@@ -49,13 +49,13 @@
         <div class="hero-copy">
           <p class="hero-kicker" data-hero="kicker">A benchmark of brushwork for code agents</p>
           <p class="hero-line" data-hero="l1"><small>The studio</small>A robot arm, one brush, sixteen paints.</p>
-          <p class="hero-line" data-hero="l2"><small>Ground · strokes 1–95</small>First the ground, in broad rows.</p>
-          <p class="hero-line" data-hero="l3"><small>Forms · strokes 96–255</small>Then the forms: the hills, the cypress, the sky.</p>
-          <p class="hero-line" data-hero="l4"><small>Details · strokes 256–455</small>Then the details and the stars: 455 strokes in all.</p>
+          <p class="hero-line" data-hero="l2"><small>Ground · strokes 1–178</small>First the ground, in broad strokes.</p>
+          <p class="hero-line" data-hero="l3"><small>Forms · strokes 179–358</small>Then the forms: the hills, the cypress, the sky.</p>
+          <p class="hero-line" data-hero="l4"><small>Details · strokes 359–1,678</small>Then the details, finer and finer: 1,678 strokes in all.</p>
           <div class="hero-title" data-hero="title">
             <h1>RoboPaint</h1>
             <p class="hero-tagline">Can your code agent hold a brush?</p>
-            <p class="hero-sub">82 works of calligraphy, lettering and painting. A code agent plans every stroke; a simulated robot arm makes it; the sheet and the hand are judged.</p>
+            <p class="hero-sub">43 works of calligraphy, lettering and painting. A code agent plans every stroke; a simulated robot arm makes it; the sheet and the hand are judged.</p>
             <div class="cta">
               <a class="btn primary" href="#works">See the works <span class="arr">→</span></a>
               <a class="btn" href="#hand">How it is judged</a>
@@ -65,7 +65,7 @@
           <p class="scroll-cue" data-hero="cue">Scroll to paint</p>
         </div>
         <div class="hero-hud" aria-hidden="true">
-          <span class="hud-text">stroke <b id="hud-stroke">0</b> / 455</span>
+          <span class="hud-text">stroke <b id="hud-stroke">0</b> / 1,678</span>
           <span class="hud-paint" id="hud-paint"></span>
           <span class="hud-bar"><i id="hud-bar"></i></span>
         </div>
@@ -100,7 +100,7 @@
       <div class="head split reveal">
         <div>
           <h2>The collection</h2>
-          <p>Five disciplines, each with its own brush. Hover a work for the reference robot's copy; open it to compare and to watch it made.</p>
+          <p>Six disciplines, each with its own brush or pen. Hover a work for the reference robot's copy; open it to compare and to watch it made.</p>
         </div>
         <div class="chips" id="disc-chips" role="tablist" aria-label="Discipline"></div>
       </div>
@@ -142,7 +142,7 @@
     <section class="section" id="results">
       <div class="head reveal">
         <h2>Results</h2>
-        <p>Two code agents, every work, both modes. A point is a work solved: the picture matches and the hand passes.</p>
+        <p id="results-lede">Two code agents, every work, both modes. A point is a work solved: the picture matches and the hand passes.</p>
       </div>
       <div class="dumbbell reveal" id="dumbbell"></div>
       <div class="fam-grid reveal" id="fam-grid"></div>
@@ -172,9 +172,9 @@
       </div>
       <div class="credits">
         <b>Made with</b> ManiSkill 3 and SAPIEN (the robot), libmypaint and mypaint-brushes (paint), a re-implementation of Wang et al.'s
-        dynamic brush (IROS 2020, calligraphy), a broad-edge and a pointed-pen nib model of our own.<br>
+        dynamic brush (IROS 2020, calligraphy), a pointed-pen model of our own.<br>
         <b>Exemplars</b> AR PL UKai via Make Me a Hanzi (Arphic Public License), public-domain rubbings and paintings from Wikimedia
-        Commons, lettering and acrylic exemplars made for RoboPaint (CC0). Robot: Franka Emika Panda (meshes Apache-2.0).
+        Commons (Zhang Xu's <span class="zh">古詩四帖</span>, Wang Xizhi's <span class="zh">蘭亭序</span>), an engraved round-hand copybook of 1741, acrylic exemplars made for RoboPaint (CC0). Robot: Franka Emika Panda (meshes Apache-2.0).
       </div>
     </div>
   </footer>

@@ -190,7 +190,7 @@ button { font: inherit; color: inherit; }
   transition: transform .35s ease, box-shadow .35s ease; }
 .work:hover .mat, .work:focus-visible .mat { transform: translateY(-3px); box-shadow: var(--shadow); }
 .work .pic { position: relative; aspect-ratio: 1; overflow: hidden; background: var(--paper); box-shadow: inset 0 0 0 1px rgba(15, 23, 42, .08); }
-.work .pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: opacity .5s ease; }
+.work .pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; transition: opacity .5s ease; }
 .work .pic img.robot { opacity: 0; }
 .work:hover .pic img.robot, .work:focus-visible .pic img.robot { opacity: 1; }
 .work .flip { position: absolute; z-index: 2; left: 20px; bottom: 20px; padding: 5px 9px; border-radius: 999px; background: rgba(15, 20, 26, .62); color: #fff;
@@ -215,7 +215,7 @@ button { font: inherit; color: inherit; }
 .viewer.show .viewer-card { transform: none; }
 .viewer-close { position: absolute; z-index: 5; top: 12px; right: 12px; }
 .viewer-stage { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 16px; padding: clamp(16px, 2.4vw, 32px); background: var(--bg-2); min-height: 0; }
-.vs-frame { position: relative; width: min(100%, calc(100vh - 230px)); aspect-ratio: 1; background: var(--paper); box-shadow: 0 1px 2px rgba(15, 23, 42, .1), 0 20px 50px rgba(15, 23, 42, .16); }
+.vs-frame { position: relative; width: min(100%, calc((100vh - 230px) * var(--ar, 1))); aspect-ratio: var(--ar, 1); background: var(--paper); box-shadow: 0 1px 2px rgba(15, 23, 42, .1), 0 20px 50px rgba(15, 23, 42, .16); }
 .vs-frame img, .vs-frame video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
 .vs-frame .over { clip-path: inset(0 0 0 var(--cut, 50%)); }
 .vs-handle { position: absolute; z-index: 3; top: 0; bottom: 0; left: var(--cut, 50%); width: 0; cursor: ew-resize; touch-action: none; }
@@ -250,14 +250,14 @@ button { font: inherit; color: inherit; }
   .viewer { display: block; padding: 0; }
   .viewer-card { display: block; width: 100%; height: 100%; max-height: none; border-radius: 0; overflow-y: auto; }
   .viewer-stage { padding: 56px 14px 16px; }
-  .vs-frame { width: min(100%, 72vh); }
+  .vs-frame { width: min(100%, calc(72vh * var(--ar, 1))); }
   .viewer-side { overflow: visible; }
 }
 
 .ref-score .stamp.no { border-color: var(--ink-3); color: var(--ink-3); font-size: 15px; transform: none; }
 .ref-score b { color: var(--ink); font-weight: 600; }
 /* whose copy the viewer shows: the reference robot's or an agent's */
-.viewer-stage.has-copies .vs-frame { width: min(100%, calc(100vh - 330px)); }
+.viewer-stage.has-copies .vs-frame { width: min(100%, calc((100vh - 330px) * var(--ar, 1))); }
 .vs-copies { flex: none; display: flex; gap: 8px; max-width: 100%; overflow-x: auto; padding: 2px; }
 .vs-copies button { position: relative; flex: none; display: flex; flex-direction: column; align-items: center; gap: 5px; width: 74px; padding: 5px 5px 6px; border: 1px solid transparent;
   border-radius: 12px; background: none; color: var(--ink-3); font: 500 10px/1.2 var(--mono); cursor: pointer; }
@@ -306,7 +306,7 @@ button { font: inherit; color: inherit; }
 .wall-row button { display: block; width: 100%; padding: 0; border: 0; background: none; color: inherit; font: inherit; text-align: left; cursor: pointer; }
 .wall .pic { position: relative; aspect-ratio: 1; overflow: hidden; background: var(--paper); box-shadow: inset 0 0 0 1px rgba(15, 23, 42, .08);
   transition: transform .3s ease, box-shadow .3s ease; }
-.wall .pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.wall .pic img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; }
 .wall .pic .grid { position: absolute; inset: 0; pointer-events: none; opacity: .55; }
 .wall-row button:hover .pic, .wall-row button:focus-visible .pic { transform: translateY(-2px); box-shadow: inset 0 0 0 1px rgba(15, 23, 42, .08), 0 12px 26px rgba(15, 23, 42, .16); }
 .wall .ex .placard { padding: 12px 2px 0; }

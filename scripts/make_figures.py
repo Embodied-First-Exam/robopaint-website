@@ -1,13 +1,16 @@
 #!/usr/bin/env python3
 """The figures of "The hand", "How a work is judged" and the two modes, from the replays (scripts/capture_reference.py).
 
-usage: make_figures.py <capture dir> <special dir> <tasks dir>
+usage: make_figures.py <capture dir> <special dir> <tasks dir> [--judge-only]
 
 <capture dir>/<id>/: the reference solutions' replays; <special dir>/: astra_yong_std (an earlier GPT-6 Astra trajectory
 for kaishu 永, standard mode, that coloured the character in with a fine tip: RoboPaint's picture rule passed it, the
 process rules fail it), astra_greatwave_priv (the same run's Great Wave, privileged: serpentine and contour fills),
 cam_starry (the reference Starry Night with the overhead canvas camera's view at the end). <tasks dir>: the RoboPaint-strict
 task directories (the exemplars' target.png).
+--judge-only keeps "The hand" figures as they are (the 永 of an earlier task set, frozen in figures.json with their numbers) and
+makes the judging and modes figures again from the current works: the agreement map of AGREE (the reference's
+canvas.png in <capture dir>), the ΔE map and the camera view (<special dir>/cam_starry/camera.png) of The Starry Night.
 
 Writes assets/data/figures.json (brush paths in sheet mm, path lengths, the limits) and assets/media/figs/*.webp.
 """
@@ -18,6 +21,8 @@ from PIL import Image
 from scipy.ndimage import gaussian_filter
 
 CAP, SPE, WT = Path(sys.argv[1]), Path(sys.argv[2]), Path(sys.argv[3])
+JUDGE_ONLY = "--judge-only" in sys.argv
+AGREE = "kaishu_yongzibafa"                         # the work of the agreement map and the alignment figure
 ROOT = Path(__file__).resolve().parents[1]
 FIG = ROOT / "assets" / "media" / "figs"; FIG.mkdir(parents=True, exist_ok=True)
 works = {w["id"]: w for w in json.loads((ROOT / "assets" / "data" / "works.json").read_text())["works"]}
@@ -64,32 +69,42 @@ def paths(d, step_mm=0.6, window=None):
     return out, cap["path_mm"]
 
 
-fig = {}
-# ---- the hand, writing: kaishu 永, the reference against a fine tip that coloured it in
-w = works["kaishu_yong"]
-ref, ref_mm = paths(CAP / "kaishu_yong")
-col, col_mm = paths(SPE / "astra_yong_std", step_mm=0.8)
-fig["yong"] = {"ref": {"paths": ref, "path_mm": ref_mm, "strokes": len(ref), "img": w["media"]["painted"]},
-               "colourin": {"paths": col, "path_mm": col_mm, "img": save(Image.open(last_frame(SPE / "astra_yong_std")), "yong_colourin.webp", 900)},
-               "limit_mm": w["rule"]["max_path_mm"], "min_mark_mm": w["rule"]["min_mark_width_mm"]}
+fig = json.loads((ROOT / "assets" / "data" / "figures.json").read_text()) if JUDGE_ONLY else {}
+if JUDGE_ONLY:
+    # the frozen 永 figure: its reference picture moves next to the other figures (that task is no longer in the set)
+    src = ROOT / fig["yong"]["ref"]["img"]
+    if "/works/" in fig["yong"]["ref"]["img"] and src.exists():
+        (FIG / "yong_ref.webp").write_bytes(src.read_bytes()); fig["yong"]["ref"]["img"] = "assets/media/figs/yong_ref.webp"
+else:
+    # ---- the hand, writing: kaishu 永, the reference against a fine tip that coloured it in
+    w = works["kaishu_yong"]
+    ref, ref_mm = paths(CAP / "kaishu_yong")
+    col, col_mm = paths(SPE / "astra_yong_std", step_mm=0.8)
+    fig["yong"] = {"ref": {"paths": ref, "path_mm": ref_mm, "strokes": len(ref), "img": w["media"]["painted"]},
+                   "colourin": {"paths": col, "path_mm": col_mm, "img": save(Image.open(last_frame(SPE / "astra_yong_std")), "yong_colourin.webp", 900)},
+                   "limit_mm": w["rule"]["max_path_mm"], "min_mark_mm": w["rule"]["min_mark_width_mm"]}
 
-# ---- the hand, painting: a window of the Great Wave, the reference's sweeps against serpentine fills
-win = (70.0, 70.0, 130.0, 130.0)                   # mm: the wave's crest, where the earlier run's fills loop
-w = works["acrylic_greatwave"]
-ref_w, ref_w_mm = paths(CAP / "acrylic_greatwave", window=win)
-col_w, col_w_mm = paths(SPE / "astra_greatwave_priv", window=win)
-px = lambda v: int(round(v / SHEET * 1024))
-crop = (px(win[0]), px(win[1]), px(win[2]), px(win[3]))
-fig["wave"] = {"window_mm": win,
-               "ref": {"paths": ref_w, "img": save(Image.open(last_frame(CAP / "acrylic_greatwave")).resize((1024, 1024)).crop(crop), "wave_ref.webp", 600),
-                       "path_mm": json.loads((CAP / "acrylic_greatwave" / "capture.json").read_text())["path_mm"]},
-               "scribble": {"paths": col_w, "img": save(Image.open(last_frame(SPE / "astra_greatwave_priv")).resize((1024, 1024)).crop(crop), "wave_scribble.webp", 600),
-                            "path_mm": json.loads((SPE / "astra_greatwave_priv" / "capture.json").read_text())["path_mm"]},
-               "limit_mm": w["rule"].get("max_path_mm"), "max_scribble_share": w["rule"].get("max_scribble_share")}
+    # ---- the hand, painting: a window of the Great Wave, the reference's sweeps against serpentine fills
+    win = (70.0, 70.0, 130.0, 130.0)                   # mm: the wave's crest, where the earlier run's fills loop
+    w = works["acrylic_greatwave"]
+    ref_w, ref_w_mm = paths(CAP / "acrylic_greatwave", window=win)
+    col_w, col_w_mm = paths(SPE / "astra_greatwave_priv", window=win)
+    px = lambda v: int(round(v / SHEET * 1024))
+    crop = (px(win[0]), px(win[1]), px(win[2]), px(win[3]))
+    fig["wave"] = {"window_mm": win,
+                   "ref": {"paths": ref_w, "img": save(Image.open(last_frame(CAP / "acrylic_greatwave")).resize((1024, 1024)).crop(crop), "wave_ref.webp", 600),
+                           "path_mm": json.loads((CAP / "acrylic_greatwave" / "capture.json").read_text())["path_mm"]},
+                   "scribble": {"paths": col_w, "img": save(Image.open(last_frame(SPE / "astra_greatwave_priv")).resize((1024, 1024)).crop(crop), "wave_scribble.webp", 600),
+                                "path_mm": json.loads((SPE / "astra_greatwave_priv" / "capture.json").read_text())["path_mm"]},
+                   "limit_mm": w["rule"].get("max_path_mm"), "max_scribble_share": w["rule"].get("max_scribble_share")}
 
 # ---- judged, writing: where the robot's ink and the exemplar's agree (kaishu 永, the reference)
-tgt = np.asarray(Image.open(WT / "robopaint-strict-kaishu-yong-i00-privileged" / "environment" / "target.png").convert("L"), float) / 255
-rob = np.asarray(Image.open(last_frame(CAP / "kaishu_yong")).convert("L").resize((1024, 1024), Image.LANCZOS), float) / 255
+aw = works[AGREE]
+tdir = next(WT.glob(f"robopaint-{aw['family']}-{AGREE.split('_', 1)[1]}-i0?-privileged"))
+tgt = np.asarray(Image.open(tdir / "environment" / "target.png").convert("L"), float) / 255
+rob = np.asarray(Image.open(CAP / AGREE / "canvas.png").convert("L").resize((1024, 1024), Image.LANCZOS), float) / 255
+V = aw.get("view") or [0, 0, 1, 1]
+vcut = lambda im: im.crop((round(V[0] * im.width), round(V[1] * im.height), round(V[2] * im.width), round(V[3] * im.height)))
 ti, ri = tgt < 0.5, rob < 0.5
 img = np.full(ti.shape + (3,), 246, np.uint8)
 img[ti & ~ri] = (36, 145, 168)                     # the exemplar's ink the robot missed (closed-book teal)
@@ -100,9 +115,9 @@ from scipy.ndimage import binary_dilation, binary_erosion
 edge = binary_dilation(ti, iterations=3) & ~binary_erosion(ti, iterations=3)     # the exemplar's outline, ~1.3 mm wide
 ghost = np.zeros(ti.shape + (4,), np.uint8)       # in vermilion, the rest transparent (the alignment figure)
 ghost[..., :3] = (194, 59, 41); ghost[..., 3] = (gaussian_filter(edge.astype(float), 0.8) * 255).clip(0, 255).astype(np.uint8)
-Image.fromarray(ghost, "RGBA").resize((900, 900), Image.LANCZOS).save(FIG / "ghost_yong.webp", "WEBP", quality=90, method=6)
-fig["agree"] = {"img": save(img, "agree_yong.webp", 900, 90), "iou": round(iou, 3), "rule_iou": works["kaishu_yong"]["rule"]["iou"],
-                "ghost": "assets/media/figs/ghost_yong.webp"}
+vcut(Image.fromarray(ghost, "RGBA")).resize((900, round(900 / aw["aspect"])), Image.LANCZOS).save(FIG / "ghost_agree.webp", "WEBP", quality=90, method=6)
+fig["agree"] = {"img": save(vcut(Image.fromarray(img)), "agree.webp", 900, 90), "iou": round(iou, 3), "rule_iou": aw["rule"]["iou"],
+                "ghost": "assets/media/figs/ghost_agree.webp", "painted": aw["media"]["painted"], "title": aw["title"], "work": AGREE}
 
 
 # ---- judged, painting: the colour difference of the reference Starry Night, CIELAB ΔE*ab after a 1 mm blur
@@ -117,8 +132,8 @@ def lab(rgb):
 
 sig = 1.0 / (SHEET / 1024)
 blur = lambda a: np.stack([gaussian_filter(a[..., k].astype(float), sig) for k in range(3)], -1)
-t_rgb = np.asarray(Image.open(WT / "robopaint-strict-oil-starrynight-i00-privileged" / "environment" / "target.png").convert("RGB"), float)
-p_rgb = np.asarray(Image.open(last_frame(CAP / "oil_starrynight")).convert("RGB").resize((1024, 1024), Image.LANCZOS), float)
+t_rgb = np.asarray(Image.open(next(WT.glob("robopaint-oil-starrynight-i0?-privileged")) / "environment" / "target.png").convert("RGB"), float)
+p_rgb = np.asarray(Image.open(CAP / "oil_starrynight" / "canvas.png").convert("RGB").resize((1024, 1024), Image.LANCZOS), float)
 dE = np.linalg.norm(lab(blur(t_rgb)) - lab(blur(p_rgb)), axis=-1)
 inset = int(round(8 / (SHEET / 1024)))
 core = dE[inset:-inset, inset:-inset]
@@ -134,4 +149,5 @@ fig["modes"] = {"exact": works["oil_starrynight"]["media"]["painted"],
                 "camera": save(Image.open(SPE / "cam_starry" / "camera.png"), "camera_starry.webp", 900)}
 (ROOT / "assets" / "data" / "figures.json").write_text(json.dumps(fig, separators=(",", ":")))
 print({k: {kk: (vv if not isinstance(vv, (list, dict)) else '...') for kk, vv in v.items()} for k, v in fig.items()})
-print("yong ref paths", len(ref), "colour-in paths", len(col), sum(len(p["p"]) for p in col), "points; wave", len(ref_w), len(col_w))
+if not JUDGE_ONLY:
+    print("yong ref paths", len(ref), "colour-in paths", len(col), sum(len(p["p"]) for p in col), "points; wave", len(ref_w), len(col_w))
